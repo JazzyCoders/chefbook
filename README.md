@@ -3,13 +3,17 @@
 Digital Career Institute 
 
 ### Wireframe 
-![chefbook](chefbook.pdf)
+![chefbook](./chefbook.pdf)
 ## Contributors team: 🚀 
 - Irena Popova
 - Anika König
 - Alla Teddy 
 - Lawrance 
-- Kinan
+- Kinan Naem
 
-### Agile Project management tool : 🤓
+### Agile Project management & collaboration tool : 🤓
 - Trello 
+
+## Design  
+
+- Figma 
