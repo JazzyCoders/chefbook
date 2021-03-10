@@ -5,8 +5,14 @@ const Dishes = require('../models/Dishes');
 const dishes = [
   {
     info: {
+      dateAdded: Date
       name: 'Beef Rolls',
-      ingrediants: 'beef','onion','tomato sauce',
+      ingredients: 'beef', 'onion', 'tomato sauce',
       price: 10,
       photo: '/img/beef_rolls.jpg'
+      portions: Number
     },
+
+
+
+
