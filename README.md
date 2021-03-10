@@ -19,7 +19,7 @@ Digital Career Institute
 
 
 ### Wireframe 
-![chefbook](./chefbook.pdf)
+[ChefBook](./chefbook.pdf)
 ## Contributors team: 🚀 
 - Irena Popova
 - Anika König
@@ -30,9 +30,15 @@ Digital Career Institute
 ### Agile Project management & collaboration tool : 🤓
 - Trello 
 
+<!-- [ChefBook](https://trello.com/b/r4mNoWsx/chefbook) -->
+![ChefBook Project Management](trello.png)
+
 ## Design  
 
 - Figma 
 
 ### Video Collaboration tool: 
 - Zoom
+
+### Code Editor 
+- VSCode
