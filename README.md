@@ -2,10 +2,11 @@
 ### class Fbw32
 Digital Career Institute 
 
-## Contributors team: 🚀 🤖
-
+### Wireframe 
+![chefbook](chefbook.pdf)
+## Contributors team: 🚀 
 - Irena Popova
-- Anika 
+- Anika König
 - Alla Teddy 
 - Lawrance 
 - Kinan
