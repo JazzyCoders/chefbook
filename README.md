@@ -1,6 +1,22 @@
-## FullStack application - Final Project 
+## Developing a FullStack application with the MERN - Final Project 
 ### class Fbw32
 Digital Career Institute 
+---
+
+### TECHNOLOGIES 
+👉 GIT - for code management and collaboration
+
+### 👉  Frontend 
+- JavaScript 
+- React 
+- CSS
+
+### 👉 Backend 
+- Node.js
+- Express
+- MongoDB(Mongoose)
+
+
 
 ### Wireframe 
 ![chefbook](./chefbook.pdf)
