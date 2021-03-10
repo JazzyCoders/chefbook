@@ -1,4 +1,4 @@
-## Developing a FullStack application with the MERN - Final Project 
+## Developing a FullStack application with the MERN  Stack- Final Project 
 ### class Fbw32
 Digital Career Institute 
 ---
@@ -33,3 +33,6 @@ Digital Career Institute
 ## Design  
 
 - Figma 
+
+### Video Collaboration tool: 
+- Zoom
