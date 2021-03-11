@@ -7,7 +7,7 @@ const OrderSchema = new Schema({
       type: Number,
       required: true,
     }, */
-  records: [{ ref: "records", type: mongoose.Schema.Types.ObjectId }],
+  orders: [{ ref: "records", type: mongoose.Schema.Types.ObjectId }],
   user: { ref: "users", type: mongoose.Schema.Types.ObjectId }
 });
 
