@@ -10,6 +10,6 @@
   "license": "ISC",
   "dependencies": {
     "faker": "^5.4.0",
-    "mongoose": "^5.11.20"
+    "mongoose": "5.11.15"
   }
 }

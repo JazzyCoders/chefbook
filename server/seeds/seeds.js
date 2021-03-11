@@ -1,31 +1,33 @@
-// importing mongoose 
-const mongoose = require("mongoose")
+// importing mongoose
+const mongoose = require("mongoose");
 /* const UserData = require("../model/usersModel"); // models
-const RecordData = require("../model/recordModel");
-const OrderData = require("../model/orderModel"); */
-const faker = require("faker"); 
+const RecordData = require("../model/recordModel"); */
+const OrderData = require("../model/orderModel");
+const faker = require("faker");
 
 async function seed() {
-  // connect the application with mongoDB 
-  mongoose.connect("mongodb+srv://chefbook:chefbook@cluster0.vlht1.mongodb.net/myFirstDatabase?retryWrites=true&w=majority", {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-    
-  });
+  // connect the application with mongoDB
+  mongoose.connect(
+    "mongodb+srv://chefbook:chefbook@cluster0.vlht1.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
+    {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    }
+  );
 
-  // open/connect 
-  // listening for event - open means connect 
+  // open/connect
+  // listening for event - open means connect
   mongoose.connection.on("open", () => {
-    console.log("connection established")
+    console.log("connection established");
   });
 
-  // error/ connection error  
-  // listening for event 
+  // error/ connection error
+  // listening for event
   mongoose.connection.on("error", () => {
-    console.log("Error found while connection")
+    console.log("Error found while connection");
   });
 
-  // delete all users from users collection 
+  // delete all users from users collection
   /* Promise.then().then().catch() */
   /*  try{}catch(err){} */
   /* try {
@@ -42,23 +44,22 @@ async function seed() {
     console.log(err);
   } */
 
-   const orders = Array(10)
+  const orders = Array(10)
     .fill(null)
     .map(() => {
-      const order = {
+      const order = new OrderData({
         quantity: faker.random.number(),
         record: faker.commerce.productName(),
-
-      };
+      });
       return order.save();
     });
-    
-   try {
+
+  try {
     await Promise.all(orders);
     console.log("all orders stored inside the database");
   } catch (err) {
     console.log(err.message);
-  } 
+  }
   // perform  different operations with MongoDB
   /* const records = Array(10)
     .fill(null)
@@ -74,11 +75,9 @@ async function seed() {
       return record.save();
     }); */
 
-
-  // asynchronous code 
+  // asynchronous code
   // store this user in Database
   /* user.save(); //Promise */
-
 
   //resolve all Promises inside an array
   //it is only to close mongoose connection
@@ -90,12 +89,17 @@ async function seed() {
   } catch (err) {
     console.log(err.message);
   } */
-  // after finish all tasks 
-  // close mongoDB connection 
+  // after finish all tasks
+  // close mongoDB connection
   //store the user in database and close the connection
-  mongoose.connection.close()
-
+  mongoose.connection.close();
 }
 
-// synchronous code 
-seed();
+// synchronous code
+seed()
+  .then(function () {
+    console.log("The last shall be the first!");
+  })
+  .catch(function (err) {
+    console.log("error: ", err);
+  });
