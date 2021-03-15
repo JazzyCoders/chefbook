@@ -12,7 +12,7 @@ import ChefProfile from './src/compoinents/ChefProfile';
 /* import Home from './views/Home'; ???? */
 import dishes from "./server/seeds/dishes.js"
 
-let chefDish = dishes.info
+let chefDish = dishes.info 
 
 export default function app() {
     const dishCards = chefDish.map((item) => <ChefProfile dishCard={item}/> )

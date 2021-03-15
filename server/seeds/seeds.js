@@ -25,7 +25,7 @@ async function seed() {
   // listening for event
   mongoose.connection.on("error", () => {
     console.log("Error found while connection");
-  });
+  }); 
 
   // delete all users from users collection
   /* Promise.then().then().catch() */
@@ -102,4 +102,4 @@ seed()
   })
   .catch(function (err) {
     console.log("error: ", err);
-  });
+  }); 
