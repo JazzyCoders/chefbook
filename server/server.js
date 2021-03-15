@@ -40,7 +40,7 @@ app.get("/", (req, res) => {
   //create/add data into your database
   app.post("/users",(req,res)=>{
      console.log(req.body)
-     //adding and storing data in lowdb
+     //adding and storing data DB
      db.get("users").push(req.body).write()
       res.json({success:true, message:"data stored"})
   })
