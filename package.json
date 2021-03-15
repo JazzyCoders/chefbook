@@ -1,0 +1,27 @@
+{
+  "name": "chefbook",
+  "version": "1.0.0",
+  "description": "Digital Career Institute  ---",
+  "main": "index.js",
+  "dependencies": {
+    "node-sass": "^5.0.0",
+    "react": "^17.0.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Teddyeastside/chefbook.git"
+  },
+  "keywords": [
+    "finalProjec"
+  ],
+  "author": "Alaa Shehade",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Teddyeastside/chefbook/issues"
+  },
+  "homepage": "https://github.com/Teddyeastside/chefbook#readme"
+}

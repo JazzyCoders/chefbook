@@ -23,7 +23,7 @@ Digital Career Institute
 ## Contributors team: 🚀 
 - Irena Popova
 - Anika König
-- Alla Teddy 
+- Mohamed Alaa Shehade 
 - Lawrance 
 - Kinan Naem
 
