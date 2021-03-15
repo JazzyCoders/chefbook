@@ -1,15 +1,15 @@
 const mongoose = require('mongoose');
 
-const Dishes = require('../seeds/Orders');
+const Dishes = require('../seeds/orders');
 customerId: String
 chefId: String
 dishes: [
   {
-    dishId: String
+    dishId: String,
         quantity: Number
   },
   {
-    dishId: String
+    dishId: String,
         quantity: Number
   }
 ],
