@@ -1,4 +1,4 @@
-const RecordData = require("../model/recordModel");
+const RecordData = require("../model/orderModel");
 
 exports.getAllDishes = async (req, res, next) => {
   console.log(req.user)
