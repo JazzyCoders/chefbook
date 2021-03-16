@@ -1,6 +1,26 @@
 const express = require("express")
 const morgan = require("morgan")
 const app = express()
+const mongoose = require("mongoose");
+require("dotenv").config();
+
+// CONNECT TO MONGODB
+mongoose.connect(
+  process.env.MONGO_URI,
+  {
+    useNewUrlParser: true,
+    useCreateIndex: true,
+    useFindAndModify: false,
+    useUnifiedTopology: true,
+  },
+  (err) => {
+    if (!err) {
+      console.log("MongoDB Connection Succeeded.");
+    } else {
+      console.log("Error in DB connection: " + err);
+    }
+  }
+);
 
 const FileSync = require("lowdb/adapters/FileSync");
 //create a json file
@@ -8,15 +28,9 @@ const FileSync = require("lowdb/adapters/FileSync");
 app.use(morgan("dev"))
 app.use(express.json())
 
-
-
 /* ROUTES */
 app.use("/", indexRoute ) 
 app.use("/users", usersRoute)
-
-
-
-
 
 // no route match error
 app.use((req,res,next)=>{

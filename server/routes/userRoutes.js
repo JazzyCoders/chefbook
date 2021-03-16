@@ -1,23 +1,39 @@
-const express = require("express")
+const express = require("express");
 
-const UserRoute = express.Router()
-const {getAllUsers,postAddNewUser,putUpdateUser,deleteSingleUser,getSingleUser} = require("../controllers/userControllers")
+const router = express.Router();
 
+const {
+  getAllUsers,
+  postAddNewUser,
+  putUpdateUser,
+  deleteSingleUser,
+  getSingleUser,
+} = require("../controllers/usersController");
+const { auth } = require("../middlewares/anthentication")
 
-/* GET ALL Users FROM RESOURCES */
-UserRoute.get("/",getAllUsers )
+const Rules = require("../lib/validationRules")
+
+const Validation = require("../middlewares/validation")
+
+/* GET ALL UserS FROM RESOURCES */
+router.get("/", auth, getAllUsers);
 
 /* POST REQUEST TO ADD NEW User */
-UserRoute.post("/",postAddNewUser)
+router.post(
+  "/",
+  Validation(Rules),
+  postAddNewUser
+);
 
 /* PUT REQUEST TO UPDATE SIGNLE User IN DATABASE */
-UserRoute.put("/:id",putUpdateUser )
+router.put("/:id", auth, putUpdateUser);
 
 /* DELETE REQUEST TO DELETE SIGNLE User IN DATABASE */
-UserRoute.delete("/:id",deleteSingleUser )
+router.delete("/:id", auth, deleteSingleUser);
 
 //GET SIGNLE User FRO  DATABASE
-UserRoute.get("/:id",getSingleUser)
+router.get("/:id", auth, getSingleUser);
 
-// DEFAULT EXPORT
-module.exports = recordRout
+
+/* DEFAULT EXPORT */
+module.exports = router;
