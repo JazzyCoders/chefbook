@@ -2,9 +2,9 @@ import react from 'react';
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
+/* import { connect } from 'react-redux'; */
 import { Menu, Dropdown } from 'semantic-ui-react';
-import { css } from 'glamor';
+/* import { css } from 'glamor'; */
 
 const rules = css({
   height: '60px',
@@ -26,13 +26,13 @@ class Nav extends Component {
 
         {isAuthenticated ? (
           <Menu.Menu position="right">
-            <Dropdown item text="home">
+            <Dropdown item text="Families">
               <Dropdown.Menu>
-                <Link to="/home/new">
-                  <Dropdown.Item>Home</Dropdown.Item>
+                <Link to="/households/new">
+                  <Dropdown.Item>New Family</Dropdown.Item>
                 </Link>
-                <Link to="/home">
-                  <Dropdown.Item>Chefs</Dropdown.Item>
+                <Link to="/households">
+                  <Dropdown.Item>Families</Dropdown.Item>
                 </Link>
               </Dropdown.Menu>
             </Dropdown>

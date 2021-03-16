@@ -1,0 +1,39 @@
+{
+  "users": [
+    {
+      "first name": "Limbeck",
+      "last name": "Peterson",
+      "City": "Madrid",
+      "DOB": "14-02-1983",
+      "id": 1
+    },
+    {
+      "first name": "Briana",
+      "last name": "Jones",
+      "City": "Paris",
+      "DOB": "25-12-1972",
+      "id": 2
+    },
+    {
+      "first name": "Lucy",
+      "last name": "Roberts",
+      "City": "Berlin",
+      "DOB": "08-07-1969",
+      "id": 3
+    },
+    {
+      "first name": "Benard",
+      "last name": "Mike",
+      "City": "Frankfurt",
+      "DOB": "13-10-1979",
+      "id": 4
+    },
+    {
+      "first name": "Landry",
+      "last name": "Emmere",
+      "City": "Lisbon",
+      "DOB": "14-05-1968",
+      "id": 5
+    }
+  ]
+}

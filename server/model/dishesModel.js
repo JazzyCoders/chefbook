@@ -1,16 +1,16 @@
 const mongoose = require("mongoose")
 const Schema = mongoose.Schema;
 
-const RecordSchema = new Schema({
+const DishesSchema = new Schema({
   title: {
     type: String,
     required: true
   },
-  artist: {
+  description: {
     type: String,
     required: true
   },
-  year: {
+  ingredients: {
     type: Number,
     required: true
   },
@@ -23,6 +23,3 @@ const RecordSchema = new Schema({
     required: true
   }
 })
-
-
-module.exports = mongoose.model("records", RecordSchema)
