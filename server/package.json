@@ -4,13 +4,17 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon server.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "express": "^4.17.1",
+    "lowdb": "^1.0.0",
+    "mongoose": "^5.12.0",
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.7",
     "dotenv": "^8.2.0",
-    "faker": "^5.4.0",
-    "mongoose": "5.11.15"
+    "faker": "^5.4.0"
   }
 }
