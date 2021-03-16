@@ -25,8 +25,13 @@ function App(props) {
   const { cart, setCart } = useState([]);
 }
 // onload we are reading, what data we need in localStorage
-useEffect(() => { 
-const localData = JSON.parse()
+useEffect(() => {
+  const localData = JSON.parse()
 
 
-},
+}
+const rootComponent = App();
+
+// instruct ReactDOM to render our React App in the specified HTML element and
+// to mount the specified component
+ReactDOM.render(rootComponent, reactDomContainer);
