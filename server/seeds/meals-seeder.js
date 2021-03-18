@@ -38,7 +38,7 @@ for (let i = 0; i < products.length; i++) {
       var admin = SuperUser();
       admin.name = 'admin';
       admin.employeeId = '1';
-      admin.email = 'admin@dominos.com';
+      admin.email = 'admin@chefbook.com';
       admin.password = admin.encryptPassword('admin');
       admin.save(function (err, result) {
         exit();
