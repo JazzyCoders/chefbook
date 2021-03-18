@@ -1,0 +1,13 @@
+.SignupContainer{
+    display: inline-flexbox;
+    height: 600px;
+    width: 450px;
+    flex-wrap: wrap;
+    background-color: cornflowerblue;
+}
+
+input{
+    width:350px;
+    padding: 10px;
+    margin: 10px 5px ;
+}
