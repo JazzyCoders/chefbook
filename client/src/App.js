@@ -1,10 +1,12 @@
 import React from 'react'
-import Map from './components/map/Map'
+import Section from './components/Dish/Section'
+import Nav from './components/Nav/Nav'
 
 function App() {
   return (
     <div>
-      <Map/>
+      <Nav/>
+      <Section/>
     </div>
   )
 }
