@@ -22,7 +22,12 @@ export default class Signup extends Component {
     submitHandler=(e)=>{
         e.preventDefault();
         console.log(this.state)
-        axios.post()
+        /* axios.post('Url',this.state)
+        .then(response =>{
+            console.log(response)
+        }).catch(error=>{
+            console.log(error)
+        }) */
     }
 
     render() {
@@ -32,7 +37,7 @@ export default class Signup extends Component {
                 <h2>Sign up</h2>
                 <h3>to continue in chefbook</h3>
 
-                <form onSubmit={this.submitHandler}>
+               <form onSubmit={this.submitHandler}>
                <input type="text" placeholder="User Name" onChange={this.changeHandler}/>
                <input type="password" placeholder="Password" onChange={this.changeHandler}/>
                <input type="password" placeholder="ConfirmPassword" onChange={this.changeHandler}/>

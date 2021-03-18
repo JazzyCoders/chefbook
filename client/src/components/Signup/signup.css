@@ -1,13 +1,22 @@
+.color{
+background: #42e29dff;
+background-color: #ff4800ff;
+background-color: #fec758ff;
+background-color: #6c42aeff;
+background-color: white;
+background-color: #1e1e1eff;
+}
 .SignupContainer{
     display: inline-flexbox;
     height: 600px;
     width: 450px;
     flex-wrap: wrap;
-    background-color: cornflowerblue;
+    background-color: #6c42aeff;
 }
 
 input{
     width:350px;
     padding: 10px;
     margin: 10px 5px ;
+    color: rgb(107, 107, 107);
 }
