@@ -1,8 +1,12 @@
 const express = require("express")
 const morgan = require("morgan")
+const mongoose = require("mongoose")
+const indexRouter = require("./routes/indexRoute")
+const dishesRoute = require("./routes/dishRoute")
 const app = express()
 
-const FileSync = require("lowdb/adapters/FileSync");
+
+
 //create a json file
 
 app.use(morgan("dev"))
@@ -11,9 +15,16 @@ app.use(express.json())
 
 
 /* ROUTES */
-app.use("/", indexRoute ) 
-app.use("/users", usersRoute)
+app.use("/", indexRouter)
+app.use("/dishes", dishesRoute)
 
+
+ //connect our application with mongoDB
+/*  mongoose.connect(MongoUrl,options,callback) */
+mongoose.connect( "mongodb://127.0.0.1:27017/chefbook", {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  },()=>console.log("connection established between app and mongodb"));
 
 
 

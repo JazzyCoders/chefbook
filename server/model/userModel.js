@@ -14,24 +14,45 @@ const UserSchema = new Schema({
     lastName:{type:String, required:true},
     email:{type:String, required:true},
     password:{type:String, required:true},
+    city:{type:String, required:true},
+    phone:{type:Number, required:true},
     role:{
         type:String,
-        enum:["Admin","User"],
+        enum:["Chef","User","Admin"],
         require:true
-    }
-    /* tokens:[
-        {token:{type:String ,require:true}}
-    ],
-    address: AddressSch
-     */
-    /* address: {
-            street:{type: String, require:true},
-            city:{type: String, require:true},
-        } */
+    },
+    cart:[{
+        type: mongoose.Schema.Types.ObjectId ,
+        ref:"dishes"
+    }],
+    orders:[{
+        type: mongoose.Schema.Types.ObjectId ,
+        ref:"orders"
+    }],
+    receivedOrders:[{
+        type: mongoose.Schema.Types.ObjectId ,
+        ref:"orders"
+    }],
+    services:{
+        type: [],
+        required: this.role==="Chef"
+    },
+    cuisine:{
+        type: String,
+        required: this.role==="Chef"
+    },
+    description:{
+        type: String,
+        required: this.role==="Chef"
+    },
+    description:{
+        type: String,
+        required: this.role==="Chef"
+    },
 })
 
 // this we are using to hashed password before storing into DB
-UserSchema.pre("save",function(next){
+  UserSchema.pre("save",function(next){
     console.log(this);
     // don't update or hashed password if its not modified
     if(!this.isModified("password") ) return next()
@@ -39,7 +60,7 @@ UserSchema.pre("save",function(next){
     // hashing the password 
     this.password = encrypt(this.password)
     next()
-})
+}) 
 
 // it will compare user password with hashed stored inside DB and return boolean value
 UserSchema.methods.checkPassword = function(password) {
@@ -86,6 +107,8 @@ UserSchema.statics.findByToken=function(token) {
         "tokens.token":token}).select("-password, -_v")
     
     return searchedUser
+
+    
 }
 
 // creating and exporting our users  Model

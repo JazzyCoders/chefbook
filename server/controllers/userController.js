@@ -26,8 +26,6 @@ exports.postAddNewUser= async(req,res,next)=>{
         console.log(error.message);
         next(error)
     } 
-
-  
 }
 
 exports.putUpdateUser= async(req,res,next)=>{
