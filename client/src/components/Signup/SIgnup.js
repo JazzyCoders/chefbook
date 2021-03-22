@@ -10,8 +10,8 @@ export default class Signup extends Component {
              username:"",
              password:"",
              confirmPassword:"",
-            phone:"",
-            city:""
+             phone:"",
+             city:""
         }
     }
     
@@ -31,18 +31,22 @@ export default class Signup extends Component {
     }
 
     render() {
-        const {username,password,confirmPassword,phone,city}=this.state
+        const {username,password,confirmPassword,phone,city} = this.state
         return (
             <div className="SignupContainer">
-                <h2>Sign up</h2>
-                <h3>to continue in chefbook</h3>
-
+                
+               <h2>Sign up</h2>
+               <h3>to continue in chefbook</h3>
+               <section>
+                   <label htmlFor="asChef">As Chef</label>
+                   <input type="checkbox" name="asChef" className="checkbox"/>
+               </section>
                <form onSubmit={this.submitHandler}>
-               <input type="text" placeholder="User Name" onChange={this.changeHandler}/>
-               <input type="password" placeholder="Password" onChange={this.changeHandler}/>
-               <input type="password" placeholder="ConfirmPassword" onChange={this.changeHandler}/>
-               <input type="text" placeholder="Phone" onChange={this.changeHandler}/>
-               <input type="text" placeholder="City" onChange={this.changeHandler}/>
+               <input type="text" placeholder="UserName" value ={username} onChange={this.changeHandler}/>
+               <input type="password" placeholder="Password" value ={password} onChange={this.changeHandler}/>
+               <input type="password" placeholder="ConfirmPassword" value ={confirmPassword} onChange={this.changeHandler}/>
+               <input type="text" placeholder="Phone" value ={phone} onChange={this.changeHandler}/>
+               <input type="text" placeholder="City" value ={city} onChange={this.changeHandler}/>
                <button type = "submit">Sign up</button>
                </form>
             </div>

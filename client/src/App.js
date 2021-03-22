@@ -6,7 +6,9 @@ import Signup from './components/Signup/SIgnup'
 function App() {
   return (
     <div>
-      <Signup/>
+      <Nav/>
+      <Section/>
+   {/*   <Signup/> */}
     </div>
   )
 }
