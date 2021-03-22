@@ -28,6 +28,7 @@ function App() {
 
 
   return (
+<<<<<<< HEAD
     <MyContext.Provider value={{ isLogin, isSignUp, userData, chefCard, setChefCard, setLogin, setSignUp, setUserData }}>
 
 
@@ -61,6 +62,16 @@ function App() {
 
       </div>
     </MyContext.Provider>
+=======
+    <div>
+      <Nav />
+      <Router>
+        <Route path="/profile" component={ChefProfile} />
+        <Route path="/test" component={Section} />
+      </Router>
+      
+    </div>
+>>>>>>> 3640a80... chef profile components, chef profile styling
   )
 }
 

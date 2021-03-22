@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import AboutMe from './AboutMe/AboutMe';
 import ProfilePicture from './ProfilePicture/ProfilePicture';
 import Skills from './Skills/Skills'
@@ -6,28 +6,12 @@ import Statistics from './Statistics/Statistics'
 import styles from './ChefProfile.module.css'
 
 export default function ChefProfile() {
-
-    const [profile, setProfile] = useState({});
-
-    useEffect(() => {
-
-        // componentDidMount
-        // this will only run once
-
-        // fetch()
-
-        // when fetch completes
-        // save response into local state
-        // with setProfile function
-     }, [])
-
-
 // components with props:
     return (
         <div className={styles.gridContainer}>
             <div className={styles.gridProfilePic}>
                 {/* profile picture component: */}
-                <ProfilePicture imgUrl="/chefDummy.jpeg" chefName={profile.name} chefInfo="Korean | Berlin" />
+                <ProfilePicture imgUrl="/chefDummy.jpeg" chefName="luigi" chefInfo="Korean | Berlin" />
             </div>
             
             <div className={styles.gridAboutMe}>
