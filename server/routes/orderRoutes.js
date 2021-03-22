@@ -3,8 +3,8 @@ const express = require("express")
 const router = express.Router()
 
 const { getAllOrders, postAddNewOrder, putUpdateOrder, deleteSingleOrder, getSingleOrder } = require("../controllers/ordersController")
-const { auth } = require("../middlewares/anthentication")
-const { isAdmin } = require("../middlewares/checkRole")
+ const { auth } = require("../middlewares/anthentication")
+const { isAdmin } = require("../middlewares/checkRole") 
 
 /* GET ALL OrderS FROM RESOURCES */
 router.get("/", auth, isAdmin, getAllOrders)

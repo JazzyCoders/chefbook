@@ -1,6 +1,6 @@
 const express = require("express");
 
-const router = express.Router();
+const userRouter = express.Router();
 
 const {
   getAllUsers,
@@ -8,32 +8,30 @@ const {
   putUpdateUser,
   deleteSingleUser,
   getSingleUser,
-} = require("../controllers/usersController");
-const { auth } = require("../middlewares/anthentication")
+} = require("../controllers/userController");
 
-const Rules = require("../lib/validationRules")
+const { auth } = require("../middleware/authentication")
 
-const Validation = require("../middlewares/validation")
+const Rules = require("../lib/rules")
+
+const Validation = require("../middleware/validation")
+
 
 /* GET ALL UserS FROM RESOURCES */
-router.get("/", auth, getAllUsers);
+userRouter.get("/",auth, getAllUsers);
 
 /* POST REQUEST TO ADD NEW User */
-router.post(
-  "/",
-  Validation(Rules),
-  postAddNewUser
-);
+userRouter.post("/",Validation(Rules),postAddNewUser);
 
 /* PUT REQUEST TO UPDATE SIGNLE User IN DATABASE */
-router.put("/:id", auth, putUpdateUser);
+userRouter.put("/:id",auth, putUpdateUser);
 
 /* DELETE REQUEST TO DELETE SIGNLE User IN DATABASE */
-router.delete("/:id", auth, deleteSingleUser);
+userRouter.delete("/:id",auth, deleteSingleUser);
 
 //GET SIGNLE User FRO  DATABASE
-router.get("/:id", auth, getSingleUser);
+userRouter.get("/:id",auth, getSingleUser);
 
 
 /* DEFAULT EXPORT */
-module.exports = router;
+module.exports = userRouter;

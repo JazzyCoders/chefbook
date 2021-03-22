@@ -1,7 +1,7 @@
 const OrderData = require("../model/orderModel")
 
 exports.getAllOrders = async (req, res, next) => {
-  //getting/reading all orders from mongoDB
+  
   try {
     let allOrders = await OrderData.find().populate("records", "-_id -__v").populate("user", "-password -_id -__v").select("-__v");
     res.status(200).send({ success: true, allOrders });
@@ -12,21 +12,21 @@ exports.getAllOrders = async (req, res, next) => {
 
 exports.postAddNewOrder = async (req, res, next) => {
   console.log(req.body)
-  //adding new Order into mongoDB
+  
   try {
     const order = new OrderData(req.body);
-    await order.save(); //store data into database
+    await order.save(); 
     res.status(200).send({ success: true, order });
   } catch (err) {
     console.log(err.message);
-    /*  res.status(404).send({err:err.message}) */
+    
     next(err);
   }
 }
 
 exports.putUpdateOrder = async (req, res, next) => {
   const { id } = req.params;
-  //finding existing order with that id in database and update
+  
   try {
     const updatedOrder = await OrderData.findByIdAndUpdate(id, req.body, { new: true })
     res.status(200).send({ success: true, updatedOrder })
@@ -38,7 +38,7 @@ exports.putUpdateOrder = async (req, res, next) => {
 
 exports.deleteSingleOrder = async (req, res, next) => {
   const { id } = req.params
-  //finding existing order with that id in database and delete
+  
   try {
     const orderDeleted = await OrderData.findByIdAndRemove(id)
     if (orderDeleted) {

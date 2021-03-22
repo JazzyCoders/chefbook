@@ -2,7 +2,6 @@
 const DishesData = require("../model/dishesModel")
 
 
-
 exports.getAllDishes= async(req,res,next)=>{   
     try {
         let allDishes =  await DishesData.find()
@@ -23,10 +22,8 @@ exports.postAddNewDish= async(req,res,next)=>{
         res.status(200).send({ success:true, dish });
       } catch (err) {
         console.log(err.message);
-        /*  res.status(404).send({err:err.message}) */
         next(err);
       }
-
 
 
     /* try {
