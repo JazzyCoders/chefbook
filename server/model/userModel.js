@@ -1,36 +1,72 @@
 const mongoose = require("mongoose");
-const AddressSchema = require("./adressSchema");
 const Schema = mongoose.Schema;
-//hashing password and verifying/comparing passwords
-const { encrypt, compare } = require("../lib/encryption");
+//hashing and verifying (comparing) passwords
+ const { encrypt, compare } = require("../lib/encryption");
 //creating/signing token and verifying token
 const JWT = require("jsonwebtoken");
 
-const config = require("../config/configuration")
-//definining our schema
-/* User is a instance from Schema Class */
+//const config = require("../config/configuration") 
+//defining our schema
+
+
 const UserSchema = new Schema({
-  firstName: { type: String, required: true },
-  lastName: { type: String, required: true },
-  email: { type: String, required: true },
-  password: { type: String, required: true },
-  role: {
-    type: String,
-    enum: ["Admin", "User"],
-    required: true,
-  },
-  tokens: [{ token: { type: String, required: true } }],
-  address: AddressSchema,
-});
+    firstName:{type:String, required:true},
+    lastName:{type:String, required:true},
+    email:{type:String, required:true},
+    password:{type:String, required:true},
+    img: {type: String, required: true},
+    city:{type:String, required:true},
+    phone:{type:Number, required:true},
+    role:{
+        type:String,
+        enum:["Chef","User","Admin"],
+        require:true
+    },
+    services:{
+      type: [],
+      required: this.role==="Chef"
+    },
+    cuisine:{
+        type: String,
+        required: this.role==="Chef"
+    },
+    description:{
+        type: String,
+        required: this.role==="Chef"
+    },
+    about:{
+        type: String,
+        required: this.role==="Chef"
+    },
+    tokens: [{ token: { type: String, required: true } }],
 
-//this method we are using to Hash password just before storing into database
-UserSchema.pre("save", function (next) {
-  //dont update or hashed password if it is not modified
-  if (!this.isModified("password")) return next();
+    cart:[{
+        type: mongoose.Schema.Types.ObjectId ,
+        ref:"dishes"
+    }],
+    orders:[{
+        type: mongoose.Schema.Types.ObjectId ,
+        ref:"orders"
+    }],
+    receivedOrders:[{
+        type: mongoose.Schema.Types.ObjectId ,
+        ref:"orders"
+    }]
 
-  this.password = encrypt(this.password);
-  next();
-});
+})
+
+// hashing password before storing into DB
+  UserSchema.pre("save",function(next){
+    console.log(this);
+    // will not update/ hashed password if not modified
+    if(!this.isModified("password") ) return next()
+    
+    // hashing the password 
+    this.password = encrypt(this.password)
+    next()
+}) 
+
+
 
 //it will compare user password with hashed password stored inside the database and return boolean value
 UserSchema.methods.checkPassword = function (password) {
@@ -38,31 +74,33 @@ UserSchema.methods.checkPassword = function (password) {
   return compare(password, this.password);
 };
 
-//once user is created ,we will call this function and this function will create a token for that user and push that token into tokens array.
+//once user is created ,this function is call and this function will create a token for that user and push that token into tokens array.
 UserSchema.methods.generateAuthToken = function () {
   const user = this;
-  /* JWT.sign(Payload, SecretKey,Options) */
+  /* JWT.sign */
   console.log(process.env.SECRET_KEY)
-  const token = JWT.sign({ _id: user._id, email: user.email }, config.secret_key);
+  const token = JWT.sign({ _id: user._id, email: user.email }, process.env.SECRET_KEY);
 
   console.log(token);
-  //we are pushing token into user's Tokens array
+  // pushing token into user's Tokens array
   user.tokens.push({ token: token });
   user.save()
   return token;
 };
 
+    
 //Public field
-UserSchema.methods.getPublicFields = function () {
-  const user = this;
+UserSchema.methods.getPublicFields=function(){
+  const user = this; 
   return {
-    firstName: user.firstName,
-    lastName: user.lastName,
-    email: user.email,
-    _id: user._id,
-    role: user.role
+    firstName:user.firstName,
+    lastName:user.lastName,
+    email:user.email,
+    _id:user._id,
+    role:user.role
   }
 }
+
 
 //verify auth token and finding that user into database
 UserSchema.statics.findByToken = function (token) {
@@ -70,7 +108,7 @@ UserSchema.statics.findByToken = function (token) {
 
   let decoded;
   try {
-    decoded = JWT.verify(token, config.secret_key);
+    decoded = JWT.verify(token, process.env.SECRET_KEY);
   } catch (err) {
     return;
   }
@@ -85,6 +123,5 @@ UserSchema.statics.findByToken = function (token) {
   return searchedUser;
 };
 
-/* creating/exporting our users Model */
-/* mongoose.model(<Collection>,<Document>) */
-module.exports = mongoose.model("users", UserSchema); //model
+
+module.exports = mongoose.model("users", UserSchema); 

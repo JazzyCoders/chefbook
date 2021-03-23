@@ -2,17 +2,33 @@ import React from 'react'
 import Section from './components/Dish/Section'
 import ChefProfile from './components/ChefProfile/ChefProfile'
 import Nav from './components/Nav/Nav'
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import Signup from './components/Signup/Signup'
+import {Route , BrowserRouter as Router ,Switch,Link} from 'react-router-dom'
+import Home from './pages/Home'
+import Menu from './pages/Menu'
+import Profile from './pages/Profile'
+import Order from './pages/Order'
+import Cart from './pages/Cart'
+import Logout from './pages/Logout'
+
 
 function App() {
   return (
     <div>
-      <Nav />
-      <Router>
-        <Route path="/profile" component={ChefProfile} />
-        <Route path="/test" component={Section} />
-      </Router>
-      
+   <Router>
+        <Nav/>
+        <Section/>
+
+        <Switch>
+                <Route path="/" exact component={Home}/>
+                <Route path="/Menu" exact component={Menu}/>
+                <Route path="/profile" exact component={Profile}/>
+                <Route path="/Order" exact component={Order}/>
+                <Route path="/Cart" exact component={Cart}/>
+                <Route path="/Logout" exact component={Logout}/>
+        </Switch>
+    </Router>
+    <Signup/>
     </div>
   )
 }

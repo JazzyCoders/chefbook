@@ -1,72 +1,91 @@
-const RecordData = require("../model/orderModel");
 
-exports.getAllDishes = async (req, res, next) => {
-  console.log(req.user)
-  //getting/reading all records from mongoDB
-  try {
+const DishesData = require("../model/dishesModel")
 
-    let allDishes = await DishesData.find();
-    res.status(200).send({ success: true, allDishes });
 
-  } catch (err) {
-    next(err);
-  }
-};
-
-exports.postAddNewDishes = async (req, res, next) => {
-  console.log(req.body);
-  //adding new Record into mongoDB
-  try {
-    const dish = new RecordData(req.body);
-    await dish.save(); //store data into database
-    res.status(200).send({ success: true, dish });
-  } catch (err) {
-    console.log(err.message);
-    /*  res.status(404).send({err:err.message}) */
-    next(err);
-  }
-};
-
-exports.putUpdateDishes = async (req, res, next) => {
-  const { id } = req.params;
-  //finding existing record with that id in database and update
-  try {
-    const updatedDishes = await DishesData.findByIdAndUpdate(id, req.body, {
-      new: true,
-    });
-    res.status(200).send({ success: true, updatedDishes });
-  } catch (err) {
-    next(err);
-  }
-};
-
-exports.deleteSingDishes = async (req, res, next) => {
-  const { id } = req.params;
-  //finding existing record with that id in database and delete
-  try {
-    const orderDeleted = await DishesData.findByIdAndRemove(id);
-    if (dishDeleted) {
-      res.status(200).send({ success: true, recordDeleted });
-    } else {
-      res.status(404).send("Already Deleted that dish");
+exports.getAllDishes= async(req,res,next)=>{   
+    try {
+        let allDishes =  await DishesData.find()
+        res.status(200).send({ success:true,allDishes})
+    } catch (err) {
+        next(err)
     }
-  } catch (err) {
-    next(err);
-  }
-};
 
-exports.getSingleDish = async (req, res, next) => {
-  const { id } = req.params;
-  //get single record from mongodb
-  try {
-    const dish = await DishData.findById(id).select("-_id -__v");
-    if (dish) {
-      res.status(200).send({ success: true, dish });
-    } else {
-      res.status(404).send({ success: false, message: "No such dish found with that Id" });
+}
+
+
+exports.postAddNewDish= async(req,res,next)=>{
+    console.log(req.body)
+
+    try {
+        const dish = new DishesData(req.body);
+        await dish.save(); //store data into database
+        res.status(200).send({ success:true, dish });
+      } catch (err) {
+        console.log(err.message);
+        next(err);
+      }
+
+
+    /* try {
+        const dish = new DishesData(req.body)
+        await dish.save() 
+        //let token = await dish.generateAuthToken()
+        //let publicDish = await dish.getPublicFields()
+        res.status(200).send({success:true,message:"new dish"})
+    } catch (error) {
+        console.log(error.message);
+        next(error)
+    }  */
+
+  
+}
+
+exports.putUpdateDish= async(req,res,next)=>{
+    const {id} = req.params
+
+    try {
+        const updateDish = await DishesData.findByIdAndUpdate(id,req.body,{new:true})
+        res.status(200).send({success:true,updateDish})
+    } catch (err) {
+        console.log(err.message);
+        next(err)
     }
-  } catch (err) {
-    next(err);
-  }
-};
 
+}
+
+
+exports.deleteSingleDish= async(req,res,next)=>{
+    const {id} = req.params
+   
+    try {
+        const dishDelete = await DishesData.findByIdAndDelete(id)
+        if (dishDelete) {
+            res.status(200).send({success:true,dishDelete})
+        } else {
+            res.status(404).send("this dish already deleted")
+        }
+
+    } catch (err) {
+        next(err)
+    }
+   
+  
+}
+
+exports.getSingleDish= async(req,res,next)=>{
+    const {id} = req.params
+
+   try {
+       const oneDishD = await DishesData.findById(id).select("-_id -__v")
+        if (oneDishD) {
+            res.status(200).send({success:true,oneDishD})
+        } else{
+            res.status(404).send("this dish ID is not found")
+        }
+
+   } catch (err) {
+       next(err)
+   }
+   
+   
+}
