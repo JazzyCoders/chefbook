@@ -5,10 +5,13 @@
     padding: 0;
     font-family: 'Open Sans', sans-serif;
     font-weight: 600;
-
 }
+
 .navContainer{
     display: flex;
+    flex-direction: row;
+    /* display: grid;
+    grid-template-rows: 1fr; */
     padding: 10px;
     height: 70px;
     background-color: #42e29dff;
