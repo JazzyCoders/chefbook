@@ -27,10 +27,6 @@ input{
     height: 50px;
 }
 
-.checkbox input{
-    color: white;
-    width: 10px;
-}
 
 button{
     margin: 15px 250px;
