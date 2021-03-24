@@ -13,7 +13,6 @@
     "web-vitals": "^1.1.1"
   },
   "scripts": {
-<<<<<<< HEAD
     "test": "react-scripts test",
     "start": "react-scripts start",
     "build": "react-scripts build",
@@ -31,18 +30,6 @@
   },
   "eslintConfig": {
     "extends": "react-app"
-=======
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
->>>>>>> 616988cd70c651c2308d0afce9b410e7d78b8390
   },
   "browserslist": {
     "production": [
@@ -55,7 +42,6 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-<<<<<<< HEAD
   },
   "devDependencies": {
     "@babel/core": "^7.13.10",
@@ -67,7 +53,5 @@
     "webpack": "^5.25.1",
     "webpack-cli": "^4.5.0",
     "webpack-dev-server": "^3.11.2"
-=======
->>>>>>> 616988cd70c651c2308d0afce9b410e7d78b8390
   }
 }

@@ -15,23 +15,14 @@ exports.getAllUsers= async(req,res,next)=>{
 exports.postAddNewUser= async(req,res,next)=>{
     console.log(req.body)
 
-      /* try {
-        const user = new UserData(req.body);
-        await user.save(); //store data into database
-        res.status(200).send({ success:true, user });
-      } catch (err) {
-        console.log(err.message);
-        next(err);
-      } */
-
      try {
         const user = new UserData(req.body)
         await user.save() 
 
-        let token = await user.generateAuthToken()
-        let publicUser = await user.getPublicFields()
+        //let token = await user.generateAuthToken()
+        
 
-        res.status(200).header("x-auth",token).send({success:true,user:publicUser}) 
+        res.status(200).send({success:true}) 
 
     } catch (error) {
         console.log(error.message);
