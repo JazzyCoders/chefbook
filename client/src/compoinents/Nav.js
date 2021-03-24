@@ -10,10 +10,9 @@ const Nav = () => (
           !userAuth ? (
             <Link to="/login">Login</Link>
           ) : (
-          <Link to="/profile">Profile</Link>
+          <Link to="/profile">Profile</Link>,
           <Link to="/logout">Logout</Link>
 
-          ...
         )
     }
         </Auth.User>
