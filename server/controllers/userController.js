@@ -22,7 +22,7 @@ exports.postAddNewUser= async(req,res,next)=>{
         //let token = await user.generateAuthToken()
         
 
-        res.status(200).send({success:true}) 
+        res.status(200).send({success:true ,user}) 
 
     } catch (error) {
         console.log(error.message);
