@@ -1,9 +1,11 @@
 import React from 'react'
 
-export default function LogOut() {
+function Cart() {
     return (
         <div>
-            
+            Cart
         </div>
     )
 }
+
+export default Cart

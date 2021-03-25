@@ -1,9 +1,11 @@
 import React from 'react'
 
-export default function LogOut() {
+function Order() {
     return (
         <div>
-            
+            Order
         </div>
     )
 }
+
+export default Order

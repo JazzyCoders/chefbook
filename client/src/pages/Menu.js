@@ -1,9 +1,11 @@
 import React from 'react'
 
-export default function LogOut() {
+function Menu() {
     return (
         <div>
-            
+            Menu
         </div>
     )
 }
+
+export default Menu

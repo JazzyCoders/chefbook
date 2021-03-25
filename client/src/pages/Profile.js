@@ -1,9 +1,11 @@
 import React from 'react'
 
-export default function LogOut() {
+function Profile() {
     return (
         <div>
-            
+            Profile
         </div>
     )
 }
+
+export default Profile

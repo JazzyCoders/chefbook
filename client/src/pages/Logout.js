@@ -1,9 +1,11 @@
 import React from 'react'
 
-export default function LogOut() {
+function logout() {
     return (
         <div>
-            
+            Logout
         </div>
     )
 }
+
+export default logout
