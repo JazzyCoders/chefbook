@@ -16,19 +16,33 @@ export default function Signup() {
 
     const setNameHandler =(e)=>{
         setName({name:e.target.value});
+        setPassword({password:e.target.value})
+        setConfirmapassword({password:e.target.value})
         setPhone({phone:e.target.value})
         setCity({city:e.target.value})
     }
 
+    const setEmailrdHandler =(e)=>{
+        setEmail({password:e.target.value})
+    }
+
     const setPasswordHandler =(e)=>{
         setPassword({password:e.target.value})
-
     }
 
     const setConfirmapasswordHandler =(e)=>{
-        setConfirmapassword({password:e.target.value})
-
+        setPassword({password:e.target.value})
     }
+
+    const setPhoneHandler =(e)=>{
+        setPhone({password:e.target.value})
+    }
+
+    const setsetCityHandler =(e)=>{
+        setCity({password:e.target.value})
+    }
+
+
 
     const submitHandler = (e) => {
         e.preventDefault();
@@ -41,7 +55,7 @@ export default function Signup() {
 
         console.log(registerData)
 
-        axios.post("url",registerData)
+        axios.post('mongodb://127.0.0.1:27017/postAddNewUser',registerData)
         .then((res)=>{
             console.log(res.data);
             setName(name)
@@ -74,23 +88,23 @@ export default function Signup() {
                 </div>
                 <span></span>
                 <div className="input-group">
-                    <input type="email" onChange={setPasswordHandler} placeholder="email" required/>
+                    <input type="email" onChange={setEmailrdHandler} placeholder="email" required/>
                 </div>
                 <span></span>
                 <div className="input-group">
-                    <input type="password" onChange={changeHandler} placeholder="password" required/>
+                    <input type="password" onChange={setPasswordHandler} placeholder="password" required/>
                 </div>
                 <span></span>
                 <div className="input-group">
-                    <input type="password" onChange={changeHandler} placeholder="Confirm password" required/>
+                    <input type="password" onChange={setConfirmapasswordHandler} placeholder="Confirm password" required/>
                 </div>
                 <span></span>
                 <div className="input-group">
-                    <input type="number" onChange={changeHandler} placeholder="phone" required/>
+                    <input type="number" onChange={setPhoneHandler} placeholder="phone" required/>
                 </div>
                 <span></span>
                 <div className="input-group">
-                    <input type="city" onChange={changeHandler} placeholder="City" required/>
+                    <input type="city" onChange={setsetCityHandler} placeholder="City" required/>
                 </div>
                 <span></span>
                 <button onSubmit={submitHandler}>submit</button>
