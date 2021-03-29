@@ -11,7 +11,7 @@ function Nav() {
             <img src={chef}></img>
             <div className="box">
             <input type="text" placeholder="search"/>
-            <FaSearch size={25} color="white" className="searchBtn"/>
+                <FaSearch size={25} color="white" className="searchBtn"/>
             </div>
             <div className="Container">
 
