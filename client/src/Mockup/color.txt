@@ -1,0 +1,8 @@
+.color{
+    Green: #42e29dff;
+    orange: #ff4800ff;
+    yellow: #fec758ff;
+    purple: #6c42aeff;
+    white: white;
+    black: #1e1e1eff;
+    }

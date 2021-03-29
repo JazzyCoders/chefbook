@@ -10,12 +10,12 @@ const Validation = (rules) => {
       if (result.errors.length === 0) {
         next();
       } else {
-        let errorObject = new Error();
+        let objError = new Error();
         let error = result.errors.map((err) => {
           return { [err.param]: err.msg };
         });
-        errorObject.message = error;
-        next(errorObject);
+        objError.message = error;
+        next(objError);
       }
     },
   ];

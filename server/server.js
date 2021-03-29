@@ -1,37 +1,51 @@
 const express = require("express")
 const morgan = require("morgan")
+const mongoose = require("mongoose")
+const indexRouter = require("./routes/indexRoute")
+const dishesRoute = require("./routes/dishRoute")
+const userRouter = require("./routes/userRoutes")
+const orderRouter = require("./routes/orderRoutes")
 const app = express()
-const mongoose = require("mongoose");
+
 require("dotenv").config();
 
-// CONNECT TO MONGODB
-mongoose.connect(
-  process.env.MONGO_URI,
-  {
-    useNewUrlParser: true,
-    useCreateIndex: true,
-    useFindAndModify: false,
-    useUnifiedTopology: true,
-  },
-  (err) => {
-    if (!err) {
-      console.log("MongoDB Connection Succeeded.");
-    } else {
-      console.log("Error in DB connection: " + err);
-    }
-  }
-);
 
-const FileSync = require("lowdb/adapters/FileSync");
+
 //create a json file
 
 app.use(morgan("dev"))
 app.use(express.json())
 
-/* ROUTES */
-app.use("/", indexRoute ) 
-app.use("/users", usersRoute)
+const cors =(req,res,next)=>{
+    res.header("Access-Control-Allow-Origin","*")
+    res.header("Access-Control-Allow-Methods","GET,POST,PUT,DELETE")
+    res.header("Access-Control-Allow-Headers","Content-Type, Accept, x-auth")
+    res.header("Access-Control-Allow-Expose","x-auth")
+    res.header("Access-Control-Expose-Headers","x-auth")
 
+    next()
+}
+
+app.use(cors)
+
+
+/* ROUTES */
+app.use("/", indexRouter)
+app.use("/dishes", dishesRoute)
+app.use("/users", userRouter)
+app.use("/order", orderRouter)
+
+
+ //connect our application with mongoDB
+/*  mongoose.connect(MongoUrl,options,callback) */
+mongoose.connect( process.env.MONGO_ATLAS,{
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  },()=>console.log("connection established between app and mongodb"));
+
+
+
+  
 // no route match error
 app.use((req,res,next)=>{
     let error =  new Error("no such route found")
