@@ -1,10 +1,11 @@
 const express = require("express")
 const morgan = require("morgan")
 const mongoose = require("mongoose")
+const cors = require("cors")
 const indexRouter = require("./routes/indexRoute")
 const dishesRoute = require("./routes/dishRoute")
 const userRouter = require("./routes/userRoutes")
-const orderRouter = require("./routes/orderRoutes")
+const ordersRoute = require("./routes/orderRoutes")
 const app = express()
 
 require("dotenv").config();
@@ -15,25 +16,15 @@ require("dotenv").config();
 
 app.use(morgan("dev"))
 app.use(express.json())
+app.use(cors())
 
-const cors =(req,res,next)=>{
-    res.header("Access-Control-Allow-Origin","*")
-    res.header("Access-Control-Allow-Methods","GET,POST,PUT,DELETE")
-    res.header("Access-Control-Allow-Headers","Content-Type, Accept, x-auth")
-    res.header("Access-Control-Allow-Expose","x-auth")
-    res.header("Access-Control-Expose-Headers","x-auth")
-
-    next()
-}
-
-app.use(cors)
 
 
 /* ROUTES */
 app.use("/", indexRouter)
 app.use("/dishes", dishesRoute)
-app.use("/users", userRouter)
-app.use("/order", orderRouter)
+app.use("/users",userRouter)
+app.use("/orders", ordersRoute)
 
 
  //connect our application with mongoDB

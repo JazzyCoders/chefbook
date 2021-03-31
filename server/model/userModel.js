@@ -88,9 +88,6 @@ UserSchema.methods.generateAuthToken = function () {
   return token;
 };
 
-    
-
-
 //verify auth token and finding that user into database
 UserSchema.statics.findByToken = function (token) {
   const user = this;

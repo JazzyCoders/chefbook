@@ -9,10 +9,21 @@ import OrdersChef from './Components/OrdersChef'
 import OrdersUser from './Components/OrdersUser'
 import ProfileChef from './Components/ProfileChef'
 import ProfileUser from './Components/ProfileUser'
+import Section from './components/Dish/Section'
+import Nav from './components/Nav/Nav'
+import Signup from './components/Signup/Signup'
+import {Route , BrowserRouter as Router ,Switch,Link} from 'react-router-dom'
+import Home from './pages/Home'
+import Menu from './pages/Menu'
+import Profile from './pages/Profile'
+import Order from './pages/Order'
+import Cart from './pages/Cart'
 import Logout from './pages/Logout'
+import './App.css'
+import OrderComponent from './components/Order/Order/OrderComponent'
+import History from './components/Order/History/History'
 
 export const MyContext = createContext(null)
-
 
 function App() {
 
@@ -25,19 +36,36 @@ function App() {
 
   return (
     <MyContext.Provider value={{isLogin,isSignUp,userData,chefCard,setChefCard,setLogin,setSignUp,setUserData}}>
+
+   
     <div>
-        <Switch>  
+      <Router>
+        <Nav/>
+
+        <Switch>
                 <Route exact path="/" component={Home}/>
-                <Route path="/menu" component={MenuChef}/>
-                <Route path="/profile" component={ProfileChef}/>
-                <Route path="/orders" component={OrdersChef}/>
-                <Route path="/dish" component={DishChefs}/>
+
+                {/* // user */}
                 <Route path="/user/menu" component={HomeUser}/>
                 <Route path="/user/profile" component={ProfileUser}/>
                 <Route path="/user/order" component={OrdersUser}/>
                 <Route path="/user/dish" component={OffersUser}/>
                 <Route path="/logout" component={Logout}/>
+
+                {/* // chef */}
+                <Route path="/Menu" exact component={Menu}/>
+                <Route path="/profile" exact component={Profile}/>
+                <Route path="/Order" exact component={Order}/>
+                <Route path="/Cart" exact component={Cart}/>
+                <Route path="/Logout" exact component={Logout}/>
         </Switch>
+    </Router>
+
+
+<OrderComponent/>
+<History/>
+
+
     </div>
     </MyContext.Provider>
   )

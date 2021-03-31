@@ -1,0 +1,61 @@
+.color{
+    Green: #42e29dff;
+    orange: #ff4800ff;
+    yellow: #fec758ff;
+    purple: #6c42aeff;
+    white: white;
+    black: #1e1e1eff;
+    gray : #e6e6e6ff;
+    }
+.HistoryContainer{
+    display: flexbox;
+    flex-wrap: wrap;
+    color: #1e1e1eff;
+    background-color:#e6e6e6ff;
+    border-radius: 15px 15px 15px 15px;
+    justify-content: center;
+    }
+    
+    .header{
+    display: flex;
+    color: white;
+    font-size: 25px;
+    background-color:#6c42aeff;
+    border-radius: 15px 15px 0px 0px;
+    height: 5rem;
+    width: 100%;
+    justify-content: center;
+    }
+    .header p{
+        padding: 20px;
+    }
+    
+
+.HistorycardContainer{
+
+    display:flex;
+    flex-direction:row;
+    flex-wrap:nowrap;
+    justify-content:space-between;
+    align-items:center;
+    width: 100%;
+    height: 25%;
+    padding: 0 10px;
+    background-color: #e6e6e6ff;
+    border-bottom: 1px solid black;
+}
+
+
+.Text{
+
+    width: 50%;
+}
+
+i{
+padding: 10px;
+width: 25%;
+}
+
+.img{
+width: 100px;
+}

@@ -20,10 +20,10 @@ exports.postAddNewUser= async(req,res,next)=>{
         const user = new UserData(req.body)
         await user.save() 
 
-        //let token = await user.generateAuthToken()
-        
+/*         let token = await user.generateAuthToken()
+ */        
 
-        res.status(200).send({success:true ,users:user}) 
+        res.status(200).send({success:true/* ,user:user */}) 
 
     } catch (error) {
         console.log(error.message);
