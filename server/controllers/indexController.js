@@ -1,5 +1,3 @@
-const path = require("path")
-
 /* NAMED EXPORT */
 exports.index = (req, res, next) => {
   /*     console.log(__dirname)
