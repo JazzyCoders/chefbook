@@ -3,17 +3,14 @@ const Schema = mongoose.Schema;
 
 const OrderSchema = new Schema({
 
-  dishes: [{quantity:{type:Number},dishId:{ ref: "dishes", type: mongoose.Schema.Types.ObjectId }}],
+  dishes: [{ quantity: { type: Number }, dishId: { ref: "dishes", type: mongoose.Schema.Types.ObjectId } }],
   user: { ref: "users", type: mongoose.Schema.Types.ObjectId }
 
 });
 
 module.exports = mongoose.model("orders", OrderSchema);
-<<<<<<< HEAD
 
 
-/* const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
 
 const schema = new Schema({
   user: { type: Schema.Types.ObjectId, ref: 'User' },
@@ -28,6 +25,4 @@ const schema = new Schema({
   paymentId: { type: String, required: true }
 });
 
-module.exports = mongoose.model('Order', schema); */
-=======
->>>>>>> lawbranch
+module.exports = mongoose.model('Order', schema);

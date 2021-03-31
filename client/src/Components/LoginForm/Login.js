@@ -19,7 +19,7 @@ export default class Login extends Component {
 
   onSubmit = (e) => {
     e.preventDefault();
-    fetch('/server/auth', {
+    fetch('/users/login', {
       method: 'POST',
       body: JSON.stringify(this.state),
       headers: {
