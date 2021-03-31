@@ -12,7 +12,6 @@ import Cart from './pages/Cart'
 import Logout from './pages/Logout'
 import CustomerProfile from './components/CustomerProfile/CustomerProfile'
 
-
 function App() {
   return (
     <div>
