@@ -15,7 +15,7 @@ export default function Nav() {
                 <Link to="/user/profile">MY PROFILE</Link>
                 </li>
                 <li>
-                <Link to="/user/order">RECEIVED ORDERS</Link>
+                <Link to="/user/order">ORDERS</Link>
                 </li>
                 <li>
                 <Link to="//user/dish">VIEW OFFERS</Link>

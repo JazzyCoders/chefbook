@@ -62,4 +62,4 @@ app.use((err,req,res,next)=>{
 })
 
 
-app.listen(5001 ,()=>console.log("backend server running"))
+app.listen(5000,()=>console.log("backend server running"))
