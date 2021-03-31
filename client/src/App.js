@@ -4,8 +4,6 @@ import DishChefs from './Components/DishChefs'
 import Home from "./Components/Home"
 import HomeUser from './Components/HomeUser'
 import MenuChef from './Components/MenuChef'
-import Nav from './Components/Nav'
-import NavUser  from "./Components/NavUser"
 import OffersUser from './Components/OffersUser'
 import OrdersChef from './Components/OrdersChef'
 import OrdersUser from './Components/OrdersUser'
@@ -21,13 +19,13 @@ function App() {
   const [isLogin ,setLogin] = useState(false)
   const [isSignUp,setSignUp] =useState(false)
   const [userData,setUserData] =useState([])
+  const [chefCard,setChefCard] =useState([])
+  
 
 
   return (
-    <MyContext.Provider value={{isLogin,isSignUp,userData,setLogin,setSignUp,setUserData}}>
+    <MyContext.Provider value={{isLogin,isSignUp,userData,chefCard,setChefCard,setLogin,setSignUp,setUserData}}>
     <div>
-        {Nav}
-        {NavUser}
         <Switch>  
                 <Route exact path="/" component={Home}/>
                 <Route path="/menu" component={MenuChef}/>
