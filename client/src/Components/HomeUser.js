@@ -10,7 +10,7 @@ export default function HomeUser() {
     const [dishes,setDishes] = useState([])
 
     useEffect(() => {
-        fetch("http://localhost:5000/users")
+        fetch("http://localhost:5001/users")
             .then((res) => res.json())
             .then((result) => {
                 console.log(result);
@@ -24,7 +24,7 @@ export default function HomeUser() {
     }, [])
 
     const bestDeal=()=>{
-        fetch("http://localhost:5000/dishes")
+        fetch("http://localhost:5001/dishes")
             .then((res) => res.json())
             .then((result) => {
                 console.log(result);

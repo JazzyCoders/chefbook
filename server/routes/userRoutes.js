@@ -18,19 +18,19 @@ const Validation = require("../middleware/validation")
 
 
 /* GET ALL UserS FROM RESOURCES */
-userRouter.get("/",auth, getAllUsers);
+userRouter.get("/", getAllUsers);
 
 /* POST REQUEST TO ADD NEW User */
 userRouter.post("/",Validation(Rules),postAddNewUser);
 
 /* PUT REQUEST TO UPDATE SIGNLE User IN DATABASE */
-userRouter.put("/:id",auth, putUpdateUser);
+userRouter.put("/:id", putUpdateUser);
 
 /* DELETE REQUEST TO DELETE SIGNLE User IN DATABASE */
-userRouter.delete("/:id",auth, deleteSingleUser);
+userRouter.delete("/:id", deleteSingleUser);
 
 //GET SIGNLE User FRO  DATABASE
-userRouter.get("/:id",auth, getSingleUser);
+userRouter.get("/:id", getSingleUser);
 
 
 /* DEFAULT EXPORT */

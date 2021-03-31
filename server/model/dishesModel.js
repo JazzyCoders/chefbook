@@ -29,7 +29,10 @@ const DishSchema = new Schema({
     portions: {
         type: Number,
         required: true
-    }
+    },
+    orderCount: {
+      type: Number
+     }
 })
 
 
