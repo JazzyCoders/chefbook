@@ -18,6 +18,8 @@ app.use(morgan("dev"))
 app.use(express.json())
 app.use(cors())
 
+
+
 /* ROUTES */
 app.use("/", indexRouter)
 app.use("/dishes", dishesRoute)
@@ -27,14 +29,14 @@ app.use("/orders", ordersRoute)
 
  //connect our application with mongoDB
 /*  mongoose.connect(MongoUrl,options,callback) */
-mongoose.connect( "mongodb://127.0.0.1:27017/chefbook", {
+mongoose.connect( process.env.MONGO_ATLAS,{
     useNewUrlParser: true,
     useUnifiedTopology: true,
   },()=>console.log("connection established between app and mongodb"));
 
 
 
-
+  
 // no route match error
 app.use((req,res,next)=>{
     let error =  new Error("no such route found")
@@ -51,4 +53,4 @@ app.use((err,req,res,next)=>{
 })
 
 
-app.listen(5000, ()=>console.log("backend server running"))
+app.listen(5000,()=>console.log("backend server running"))
