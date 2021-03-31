@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import './signup.css'
+import React, { useState,Fragment } from 'react'
+import styles from './signup.module.css'
 import axios from 'axios'
 
 
@@ -16,13 +16,9 @@ export default function Signup() {
 
     const setNameHandler =(e)=>{
         setName({name:e.target.value});
-        setPassword({password:e.target.value})
-        setConfirmapassword({password:e.target.value})
-        setPhone({phone:e.target.value})
-        setCity({city:e.target.value})
     }
 
-    const setEmailrdHandler =(e)=>{
+    const setEmailHandler =(e)=>{
         setEmail({password:e.target.value})
     }
 
@@ -45,6 +41,7 @@ export default function Signup() {
 
 
     const submitHandler = (e) => {
+       
         e.preventDefault();
         const registerData = {
           name: name,
@@ -67,54 +64,37 @@ export default function Signup() {
         .catch((err)=>{
             console.log(err)
         })
-    }
-
-    return (
-  
-        <div className="SignupContainer">
-                
-        <h2>Sign up</h2>
-        <h3>to continue in chefbook</h3>
-        <section>
-            <label htmlFor="asChef">As Chef</label>
-            <input type="checkbox" name="asChef" className="checkbox"/>
-        </section>
     
-        
-        <form onSubmit={submitHandler} >
-            <div>
-                <div>
-                    <input type="text" onChange={setNameHandler} placeholder="Name" required/>
-                </div>
-                <span></span>
-                <div className="input-group">
-                    <input type="email" onChange={setEmailrdHandler} placeholder="email" required/>
-                </div>
-                <span></span>
-                <div className="input-group">
-                    <input type="password" onChange={setPasswordHandler} placeholder="password" required/>
-                </div>
-                <span></span>
-                <div className="input-group">
-                    <input type="password" onChange={setConfirmapasswordHandler} placeholder="Confirm password" required/>
-                </div>
-                <span></span>
-                <div className="input-group">
-                    <input type="number" onChange={setPhoneHandler} placeholder="phone" required/>
-                </div>
-                <span></span>
-                <div className="input-group">
-                    <input type="city" onChange={setsetCityHandler} placeholder="City" required/>
-                </div>
-                <span></span>
-                <button onSubmit={submitHandler}>submit</button>
+  }
 
 
-            </div>
-        </form>
       
+    return (
+      <Fragment >
+      <div className={styles.signUpContainer}>
+        <h3 className={styles.headerText}>Signup</h3>
+        <p className={styles.para}> To continue in chefbook</p>
+        <label className={styles.container}>
+        <input type="checkbox" className={styles.checkmark}/>
+        <label>as a chef</label>
+        <span ></span>
+        </label>
 
-     </div>
-            
-        
+      <div className={styles.inputContainer}>
+      <input className={styles.input} type="text" id="UserName" name="UserName" placeholder="UserName" onChange={setNameHandler}/>
+      <input className={styles.input} type="text" id="Password" name="Password" placeholder="Password" onChange={setPasswordHandler}/>
+      <input className={styles.input} type="text" id="ConfirmPassword" name="ConfirmPassword" placeholder="ConfirmPassword" onChange={setConfirmapasswordHandler}/>
+      <input className={styles.input} type="text" id="Email" name="Email" placeholder="Email" onChange={setEmail}/>
+      <input className={styles.input} type="text" id="Phone" name="Phone" placeholder="Phone" onChange={setPhone}/>
+      <input className={styles.input} type="text" id="City" name="City" placeholder="City" onChange={setCity}/>
+      </div>
+      <button onClick={submitHandler} className={styles.button}>Sign up</button>
+
+
+
+      </div>
+
+
+      </Fragment>
+      
     )}

@@ -1,35 +1,43 @@
-import react from 'react';
-import React, { Component } from 'react';
+import React ,{Fragment} from 'react'
 
-import PropTypes from 'prop-types';
-import { Card, Container } from 'semantic-ui-react';
+export default function Order() {
+  return (
+    <Fragment>
+      
+      <div className="container">
+        {/* order section */}
+            <div className="order">
+                order
+            </div>
+        {/* order section */}
 
-// use redux or not 🤔
-import { createOrder } from '../modules/Order/';
+        {/*  Top order Meal */}
+        <div className="topOrderMeal">
+          Top order Meal
+        </div>
+        {/*  Top order Meal */}
 
-class Order extends Component {
-  submit = values => {
-    const { createOrder, id } = this.props;
-    createOrder(values, id);
-  };
+        {/*  History */}
+        <div className="history">
+          History
+        </div>
+        {/*  History */}
 
-  render() {
-    return (
-      <div>
-        <Card.Header>
-          <Container textAlign="center">
-            <h2>Create Order</h2>
-          </Container>
-        </Card.Header>
-        <Order onSubmit={this.submit} />
+        {/*  top customer */}
+        <div className="topCustomer">
+          top customer
+        </div>
+        {/*  top customer */}
+
+        {/*  chart */}
+        <div className="chart">
+          chart
+        </div>
+        {/*  chart */}
+
+
       </div>
-    );
-  }
+
+    </Fragment>
+  )
 }
-
-Order.propTypes = {
-  createOrder: PropTypes.func,
-  id: PropTypes.number,
-};
-
-export default connect(null, { createOrder })(Order);
