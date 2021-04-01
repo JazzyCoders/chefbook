@@ -1,13 +1,15 @@
 import React from 'react'
 import {Link} from "react-router-dom"
 
-
 export default function Nav() {
     return (
         <div>
             <ul>
-                <li>  
-                <Link to="/">Login</Link>
+                <li>
+                <Link to="/login">Login</Link>
+                </li>
+                <li>
+                    <Link to="/signup">Sign Up</Link>
                 </li>
                 <li>  
                 <Link to="/user/menu">HOME </Link>
@@ -19,7 +21,7 @@ export default function Nav() {
                 <Link to="/user/order">ORDERS</Link>
                 </li>
                 <li>
-                <Link to="//user/dish">VIEW OFFERS</Link>
+                <Link to="/user/dish">VIEW OFFERS</Link>
                 </li>
             </ul>
         </div>

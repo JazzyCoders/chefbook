@@ -5,8 +5,9 @@ import MenuChef from './Components/ChefMenu/MenuChef'
 import OrdersChef from './Components/Order/Order'
 import ChefProfile from './Components/ChefProfile/ChefProfile'
 import Nav from './Components/Nav/Nav'
+import Login from './Components/LoginForm/Login'
 import LogOut from './Components/LogOut/Logout'
-import Signup from './Components/Register/Signup'
+import Signup from './Components/Signup/Signup'
 import { Route, BrowserRouter as Router, Switch, Link } from 'react-router-dom'
 import './App.css'
 import OrderComponent from './Components/Order/Order/OrderComponent'
@@ -38,7 +39,9 @@ function App() {
             <Route path="/user/menu" component={Home} />
             {/* <Route path="/user/profile" component={ProfileUser} /> */}
             {/* <Route path="/user/dish" component={OffersUser} /> */}
-            <Route path="/logout" component={LogOut} /> 
+            <Route path="/login" component={Login} />
+            <Route path="/logout" component={LogOut} />
+            <Route path="/signup" component={Signup} />
 
             {/* // chef */}
             <Route path="/ChefMenu/MenuChef" exact component={MenuChef} />

@@ -38,9 +38,7 @@ export default class Login extends Component {
 
   render() {
     return (
-      <div>
-
-        <div></div>
+      <>
         <form onSubmit={this.onSubmit}>
           <h1>Login</h1>
           <h3>to continue in chefbook</h3>
@@ -49,6 +47,7 @@ export default class Login extends Component {
           <input type="submit" value="Login" />
           <input type="button" value="Register" />
         </form>
+      </>
     )
   }
 }

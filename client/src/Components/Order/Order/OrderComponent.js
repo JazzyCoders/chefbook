@@ -12,25 +12,25 @@ export default function OrderComponent() {
     const [users,setUsers]=useState([])
     const [dishes,setDishes]=useState([])
 
-    useEffect(()=>{
-        fetch('http://localhost:5000/users')
-        .then((res)=>res.json())
-        .then((result)=>{
-            console.log(result)
-            if(result.success){
-                setUsers(result.users)
-            }else{
-                console.log(result.message)
-            }
-        })
-        .catch((err)=>console.log(err))
-    },[])
+    // useEffect(()=>{
+    //     fetch('http://localhost:5000/users')
+    //     .then((res)=>res.json())
+    //     .then((result)=>{
+    //         console.log(result)
+    //         if(result.success){
+    //             setUsers(result.users)
+    //         }else{
+    //             console.log(result.message)
+    //         }
+    //     })
+    //     .catch((err)=>console.log(err))
+    // },[])
 
     useEffect(()=>{
         fetch('http://localhost:5000/dishes')
         .then((res)=>res.json())
         .then((result)=>{
-            console.log(result)
+            console.log(3453553,result)
             if(result.success){
                 setDishes(result.dishes)
             }else{

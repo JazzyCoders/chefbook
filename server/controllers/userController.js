@@ -19,8 +19,10 @@ exports.postAddNewUser = async (req, res, next) => {
     console.log(req.body)
 
     try {
-        const user = new UserData(req.body)
-        await user.save()
+        const user = await UserData.create({
+           ...req.body,
+           phone: Number(req.body.phone)
+        });
 
         /*         let token = await user.generateAuthToken()
          */

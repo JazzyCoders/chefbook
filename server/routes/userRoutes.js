@@ -32,6 +32,8 @@ userRouter.delete("/:id", deleteSingleUser);
 //GET SIGNLE User FRO  DATABASE
 userRouter.get("/:id", getSingleUser);
 
+// SIGN UP NEW USER
+userRouter.post('/signup', postAddNewUser);
 
 /* DEFAULT EXPORT */
 module.exports = userRouter;
