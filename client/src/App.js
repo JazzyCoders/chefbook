@@ -2,12 +2,8 @@ import React, { useState, useEffect, useContext, createContext } from 'react'
 import DishChefs from './Components/Dish/Section'
 import Home from "./Components/Home/HomeUser"
 import MenuChef from './Components/ChefMenu/MenuChef'
-import OffersUser from './Components/OffersUser/OffersUser'
 import OrdersChef from './Components/Order/Order'
 import ChefProfile from './Components/ChefProfile/ChefProfile'
-import ProfileUser from './Components/ProfileUser'
-import Cart from './Components/Cart/Cart'
-import Section from './components/Dish/Section'
 import Nav from './Components/Nav/Nav'
 import LogOut from './Components/LogOut/Logout'
 import Signup from './Components/Register/Signup'
@@ -28,7 +24,6 @@ function App() {
 
 
   return (
-<<<<<<< HEAD
     <MyContext.Provider value={{ isLogin, isSignUp, userData, chefCard, setChefCard, setLogin, setSignUp, setUserData }}>
 
 
@@ -39,18 +34,17 @@ function App() {
           <Switch>
             <Route exact path="/" component={Home} />
 
-{/* 
             {/* // user */}
             <Route path="/user/menu" component={Home} />
-            <Route path="/user/profile" component={ProfileUser} />
-            <Route path="/user/dish" component={OffersUser} />
+            {/* <Route path="/user/profile" component={ProfileUser} /> */}
+            {/* <Route path="/user/dish" component={OffersUser} /> */}
             <Route path="/logout" component={LogOut} /> 
- */}
+
             {/* // chef */}
             <Route path="/ChefMenu/MenuChef" exact component={MenuChef} />
             <Route path="/ChefProfile/ChefProfile" exact component={ChefProfile} />
             <Route path="/Order/Order" exact component={OrdersChef} />
-            <Route path="/Cart" exact component={Cart} />
+            {/* <Route path="/Cart" exact component={Cart} /> */}
             <Route path="/LogOut/Logout" exact component={LogOut} />
           </Switch>
         </Router>
@@ -62,16 +56,6 @@ function App() {
 
       </div>
     </MyContext.Provider>
-=======
-    <div>
-      <Nav />
-      <Router>
-        <Route path="/profile" component={ChefProfile} />
-        <Route path="/test" component={Section} />
-      </Router>
-      
-    </div>
->>>>>>> 3640a80... chef profile components, chef profile styling
   )
 }
 

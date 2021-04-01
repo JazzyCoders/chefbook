@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import './signup.css'
+import './signup.module.css'
 import axios from 'axios'
 
 
