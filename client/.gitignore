@@ -9,6 +9,8 @@
 # testing
 /coverage
 
+# Security certificate - SSL
+/.cent
 # production
 /build
 

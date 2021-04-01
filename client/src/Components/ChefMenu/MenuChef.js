@@ -1,10 +1,10 @@
 import React from 'react'
-import Nav from './Nav'
+import Nav from '../Nav/Nav'
 
 export default function MenuChef() {
     return (
         <div>
-            <Nav/>
+            <Nav />
             <h1>I AM CHEF MENU</h1>
         </div>
     )
