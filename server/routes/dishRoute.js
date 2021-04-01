@@ -6,19 +6,19 @@ const rules = require("../lib/rulesDishes")
 const Validation = require("../middleware/validation") 
 
 /* GET ALL DISHES FROM RESOURCES */
-dishesRoute.get("/",auth, getAllDishes )
+dishesRoute.get("/", getAllDishes )
 
 /* POST REQUEST TO ADD NEW DISH */
-dishesRoute.post("/",auth,Validation(rules),postAddNewDish)
+dishesRoute.post("/",Validation(rules),postAddNewDish)
 
 /* PUT REQUEST TO UPDATE SINGLE Dish IN DATABASE */
-dishesRoute.put("/:id",auth,putUpdateDish )
+dishesRoute.put("/:id",putUpdateDish )
 
 /* DELETE REQUEST TO DELETE SINGLE Dish IN DATABASE */
-dishesRoute.delete("/:id",auth,deleteSingleDish )
+dishesRoute.delete("/:id",deleteSingleDish )
 
 //GET SINGLE Dish FRO  DATABASE
-dishesRoute.get("/:id",auth,getSingleDish)
+dishesRoute.get("/:id",getSingleDish)
 
 
 /* DEFAULT EXPORT */

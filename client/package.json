@@ -3,7 +3,7 @@
        "version": "1.0.0",
        "description": "des",
        "scripts": {
-              "start": "react-scripts start",
+              "start": "HTTPS=true SSL_CRT_FILE=./.cert/cert.pem SSL_KEY_FILE=./.cert/key.pem react-scripts start",
               "build": "react-scripts build",
               "test": "react-scripts test",
               "eject": "react-scripts eject"
@@ -16,6 +16,7 @@
               "@material-ui/icons": "^4.11.2",
               "axios": "^0.21.1",
               "react": "^16.12.0",
+              "react-css-modules": "^4.7.11",
               "react-dom": "^16.12.0",
               "react-fontawesome": "^1.7.1",
               "react-icons": "^4.2.0",

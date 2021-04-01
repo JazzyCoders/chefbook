@@ -1,50 +1,77 @@
 const express = require("express")
 const morgan = require("morgan")
 const mongoose = require("mongoose")
+const cors = require("cors")
 const indexRouter = require("./routes/indexRoute")
 const dishesRoute = require("./routes/dishRoute")
 const userRouter = require("./routes/userRoutes")
-const app = express()
+const ordersRoute = require("./routes/orderRoutes")
+const cookieParser = require('cookie-parser')
+
+const server = express()
 
 require("dotenv").config();
 
-
+// middleware
+server.use(express.static('public'));
+server.use(express.json());
+server.use(cookieParser());
 
 //create a json file
 
-app.use(morgan("dev"))
-app.use(express.json())
+server.use(morgan("dev"))
+server.use(express.json())
+server.use(cors())
+
+
 
 /* ROUTES */
-app.use("/", indexRouter)
-app.use("/dishes", dishesRoute)
-app.use("/users",userRouter)
+server.use("/", indexRouter)
+server.use("/dishes", dishesRoute)
+server.use("/users", userRouter)
+server.use("/orders", ordersRoute)
 
+// cookies
 
- //connect our application with mongoDB
+server.get('set-cookies', (req, res) => {
+
+    res.cookie('newUser', false);
+    res.cookie('isRegularClient', true, { maxOrders: 1000 * 60 * 60 * 20, httpOnly: true });
+
+    res.send('you got the cookie');
+});
+server.get('/read-cookies', (req, res) => {
+
+    const cookies = req.cookies;
+    console.lig(cookies);
+
+    res.json(cookies);
+});
+
+//Database - connect our application with mongoDB
 /*  mongoose.connect(MongoUrl,options,callback) */
-mongoose.connect( "mongodb://127.0.0.1:27017/chefbook", {
+mongoose.connect(process.env.MONGO_ATLAS, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
-  },()=>console.log("connection established between app and mongodb"));
+}, () => console.log("connection established between app and mongodb"));
 
 
 
 
 // no route match error
-app.use((req,res,next)=>{
-    let error =  new Error("no such route found")
-        console.log(error.message);
-    error.status =404
+server.use((req, res, next) => {
+    let error = new Error("no such route found")
+    console.log(error.message);
+    error.status = 404
 
     next(error)
 })
 
 //UNIVERSAL ERROR HANDLER
 
-app.use((err,req,res,next)=>{
-    res.status(err.status || 500).send({success:false ,message:err.message})
+server.use((err, req, res, next) => {
+    res.status(err.status || 500).send({ success: false, message: err.message })
 })
 
 
-app.listen(5000, ()=>console.log("backend server running"))
+server.listen(5000, () => console.log("backend server running"))
