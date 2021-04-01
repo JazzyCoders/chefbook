@@ -5,7 +5,7 @@ const DishesData = require("../model/dishesModel")
 exports.getAllDishes= async(req,res,next)=>{   
     try {
         let allDishes =  await DishesData.find()
-        res.status(200).send({ success:true,allDishes})
+        res.status(200).send({ success:true,dishes:allDishes})
     } catch (err) {
         next(err)
     }
@@ -19,7 +19,7 @@ exports.postAddNewDish= async(req,res,next)=>{
     try {
         const dish = new DishesData(req.body);
         await dish.save(); //store data into database
-        res.status(200).send({ success:true, dish });
+        res.status(200).send({ success:true, dish:dish });
       } catch (err) {
         console.log(err.message);
         next(err);

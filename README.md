@@ -42,3 +42,11 @@ Digital Career Institute
 
 ### Code Editor 
 - VSCode
+
+### Run the project 
+
+### client 
+- npm start 
+
+### server 
+- npm start
