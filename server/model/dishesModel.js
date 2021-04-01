@@ -10,6 +10,10 @@ const DishSchema = new Schema({
         type: Date,
         default: Date.now
       },
+      chefId: {
+        type: String,
+        required: true
+      },
       name: {
         type: String,
         required: true
@@ -29,7 +33,10 @@ const DishSchema = new Schema({
     portions: {
         type: Number,
         required: true
-    }
+    },
+    orderCount: {
+      type: Number
+     }
 })
 
 

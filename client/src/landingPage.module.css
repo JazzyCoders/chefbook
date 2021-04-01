@@ -1,0 +1,42 @@
+*{
+    margin: 0;
+    padding: 0;
+  }
+  
+  .container{
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: stretch;
+  }
+  
+  .main{
+    width: 75%;
+    background-color: violet;
+  }
+  
+  .signupContainer{
+    width: 25%;
+  }
+  
+  @media only screen and (max-width: 600px) {
+    .main{
+      width: 50%;
+      background-color: violet;
+    }
+    
+    .signupContainer{
+      width: 50%;
+    }
+  }
+  
+  @media only screen and (min-width: 992px) {
+    .main{
+      width: 75%;
+      background-color: violet;
+    }
+    
+    .signupContainer{
+      width: 25%;
+    }
+  }
+  

@@ -1,6 +1,7 @@
 import React from 'react'
 import {Link} from "react-router-dom"
 
+
 export default function Nav() {
     return (
         <div>
@@ -15,7 +16,7 @@ export default function Nav() {
                 <Link to="/user/profile">MY PROFILE</Link>
                 </li>
                 <li>
-                <Link to="/user/order">RECEIVED ORDERS</Link>
+                <Link to="/user/order">ORDERS</Link>
                 </li>
                 <li>
                 <Link to="//user/dish">VIEW OFFERS</Link>
