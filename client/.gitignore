@@ -10,7 +10,7 @@
 /coverage
 
 # Security certificate - SSL
-/.cent
+.cent/
 # production
 /build
 

@@ -2,6 +2,13 @@ const UserData = require("../model/userModel")
 
 
 exports.loginUser = async (req, res) => {
+    UserData.findOne({ email: req.body.email }).then(user => {
+
+        if (!user) {
+            res.status(401).send({ message: "No account is found. Please sign up first." })
+        }
+        else ()
+    })
 
 }
 exports.getAllUsers = async (req, res, next) => {
@@ -14,7 +21,7 @@ exports.getAllUsers = async (req, res, next) => {
     }
 
 }
-
+// signup controller 
 exports.postAddNewUser = async (req, res, next) => {
     console.log(req.body)
 
