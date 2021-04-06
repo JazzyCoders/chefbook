@@ -14,7 +14,6 @@ import AccountCircle from '@material-ui/icons/AccountCircle';
 import MailIcon from '@material-ui/icons/Mail';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import MoreIcon from '@material-ui/icons/MoreVert';
-import image from './external-content.duckduckgo.com.png'
 import AppsIcon from '@material-ui/icons/Apps';
 import { createMuiTheme } from '@material-ui/core/styles';
 
@@ -191,7 +190,7 @@ export default function PrimarySearchAppBar() {
       <AppBar position="static" style={{backgroundColor: "#42e29dff"}} >
         <Toolbar>
         <div>
-          <img src={image} style={{width:"3rem" ,padding:"1rem"}} alt=""/>
+          <img src={''} style={{width:"3rem" ,padding:"1rem"}} alt=""/>
         </div>
           <Typography className={classes.title} variant="h6" noWrap>
             ChefBook
