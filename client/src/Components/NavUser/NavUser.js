@@ -21,7 +21,7 @@ export default function Nav() {
                 <Link to="/user/order">ORDERS</Link>
                 </li>
                 <li>
-                <Link to="/user/dish">VIEW OFFERS</Link>
+                <Link to="/user/dishes">VIEW OFFERS</Link>
                 </li>
             </ul>
         </div>

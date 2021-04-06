@@ -23,13 +23,13 @@ userRouter.get("/", getAllUsers);
 /* POST REQUEST TO ADD NEW User */
 userRouter.post("/",Validation(Rules),postAddNewUser);
 
-/* PUT REQUEST TO UPDATE SIGNLE User IN DATABASE */
+/* PUT REQUEST TO UPDATE SINGLE User IN DATABASE */
 userRouter.put("/:id", putUpdateUser);
 
-/* DELETE REQUEST TO DELETE SIGNLE User IN DATABASE */
+/* DELETE REQUEST TO DELETE SINGLE User IN DATABASE */
 userRouter.delete("/:id", deleteSingleUser);
 
-//GET SIGNLE User FRO  DATABASE
+//GET SINGLE User FRO  DATABASE
 userRouter.get("/:id", getSingleUser);
 
 // SIGN UP NEW USER

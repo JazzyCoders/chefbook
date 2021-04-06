@@ -8,7 +8,7 @@ export default function Signup() {
     const [lastName, setLastName] = useState("")
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
-    const [confirmapassword, setConfirmapassword] = useState("")
+    const [confirmPassword, setConfirmPassword] = useState("")
     const [phone, setPhone] = useState("")
     const [city, setCity] = useState("")
     const [register, setRegister] = useState(false)
@@ -70,7 +70,7 @@ export default function Signup() {
                     </div>
                     <span></span>
                     <div className="input-group">
-                        <input type="password" onChange={(e) => setConfirmapassword(e.target.value)} placeholder="Confirm password" required />
+                        <input type="password" onChange={(e) => setConfirmPassword(e.target.value)} placeholder="Confirm password" required />
                     </div>
                     <span></span>
                     <div className="input-group">
