@@ -71,10 +71,11 @@ export default function HomeUser() {
         <h1>Best Deals</h1>
         {dishes.map((dish)=>{
           return(
-            <div>
-           <img src={dish.img} alt=""/>
-           <h3>{dish.price}</h3>
-           <h1>cooked by {dish.name} </h1> 
+            <div style={{display:"inline-flex", flexWrap:"wrap"}}>
+           <img src={dish.img} alt="images" width="300px" height="300px"/>
+           <h1>${dish.price}</h1>
+           <h1> {dish.name} </h1>
+           <h1>By Chef {dish.chefId} </h1> 
         </div>
           )
         })}

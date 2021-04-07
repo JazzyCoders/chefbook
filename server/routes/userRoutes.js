@@ -2,7 +2,9 @@ const express = require("express");
 
 const userRouter = express.Router();
 
+
 const {
+  loginUser,
   getAllUsers,
   postAddNewUser,
   putUpdateUser,
@@ -21,7 +23,7 @@ const Validation = require("../middleware/validation")
 userRouter.get("/", getAllUsers);
 
 /* POST REQUEST TO ADD NEW User */
-userRouter.post("/",Validation(Rules),postAddNewUser);
+// userRouter.post("/",Validation(Rules),postAddNewUser);
 
 /* PUT REQUEST TO UPDATE SINGLE User IN DATABASE */
 userRouter.put("/:id", putUpdateUser);
@@ -34,6 +36,9 @@ userRouter.get("/:id", getSingleUser);
 
 // SIGN UP NEW USER
 userRouter.post('/signup', postAddNewUser);
+
+// LogIn NEW USER
+userRouter.post('/login', loginUser);
 
 /* DEFAULT EXPORT */
 module.exports = userRouter;

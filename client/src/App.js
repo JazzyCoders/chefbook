@@ -7,7 +7,7 @@ import Nav from './Components/Nav/Nav'
 import Login from './Components/LoginForm/Login'
 import LogOut from './Components/LogOut/Logout'
 import Signup from './Components/Signup/Signup'
-import { Route, BrowserRouter as Router, Switch, Link } from 'react-router-dom'
+import { Route, BrowserRouter as Router, Switch} from 'react-router-dom'
 import './App.css'
 import OrderComponent from './Components/Order/Order/OrderComponent'
 import History from './Components/Order/History/History'
@@ -36,7 +36,7 @@ function App() {
 
             {/* // user */}
             <Route path="/login" component={Login} />
-            <Route path="/logout" component={LogOut} />
+            <Route path="/logout" component={LogOut}/>
             <Route path="/user/menu" component={Home}/>
             <Route path="/user/profile" component={ProfileUser}/>
             <Route path="/user/dish" component={OfferUser} />
