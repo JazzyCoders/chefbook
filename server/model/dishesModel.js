@@ -6,37 +6,37 @@ const DishSchema = new Schema({
     type: String,
     required:true,
   },
-    Date: {
-        type: Date,
-        default: Date.now
-      },
-      chefId: {
-        type: String,
-        required: true
-      },
-      name: {
-        type: String,
-        required: true
-      },
-      img: {
-        type: String,
-        required: true
-      },
-      price: {
-        type: Number,
-        required: true
-      },
-      ingredients: {
-        type: [],
-        required: true
+  Date: {
+      type: Date,
+      default: Date.now
     },
-    portions: {
-        type: Number,
-        required: true
-    },
-    orderCount: {
-      type: Number
-     }
+  chefId: {
+    type: mongoose.Schema.Types.ObjectId,
+    required: true
+  },
+  name: {
+    type: String,
+    required: true
+  },
+  img: {
+    type: String,
+    required: true
+  },
+  price: {
+    type: Number,
+    required: true
+  },
+  ingredients: {
+    type: [],
+    required: true
+  },
+  portions: {
+      type: Number,
+      required: true
+  },
+  orderCount: {
+    type: Number
+   }
 })
 
 

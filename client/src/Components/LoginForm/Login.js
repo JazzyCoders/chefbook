@@ -155,9 +155,7 @@ export default withRouter(Login);
 
   render() {
     return (
-      <div>
-
-        <div></div>
+      <>
         <form onSubmit={this.onSubmit}>
           <h1>Login</h1>
           <h3>to continue in chefbook</h3>
@@ -166,6 +164,7 @@ export default withRouter(Login);
           <input type="submit" value="Login" />
           <input type="button" value="Register" />
         </form>
+      </>
     )
   }
 }
