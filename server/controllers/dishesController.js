@@ -19,7 +19,7 @@ exports.postAddNewDish= async(req,res,next)=>{
     try {
         const dish = new DishesData(req.body);
         await dish.save(); //store data into database
-        res.status(200).send({ success:true, dish:dish });
+        res.status(200).send({ success:true, dishes:dish });
       } catch (err) {
         console.log(err.message);
         next(err);
@@ -45,7 +45,7 @@ exports.putUpdateDish= async(req,res,next)=>{
 
     try {
         const updateDish = await DishesData.findByIdAndUpdate(id,req.body,{new:true})
-        res.status(200).send({success:true,updateDish})
+        res.status(200).send({success:true,dishes:updateDish})
     } catch (err) {
         console.log(err.message);
         next(err)
@@ -60,7 +60,7 @@ exports.deleteSingleDish= async(req,res,next)=>{
     try {
         const dishDelete = await DishesData.findByIdAndDelete(id)
         if (dishDelete) {
-            res.status(200).send({success:true,dishDelete})
+            res.status(200).send({success:true,dishes:dishDelete})
         } else {
             res.status(404).send("this dish already deleted")
         }

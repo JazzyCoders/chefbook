@@ -136,4 +136,4 @@ class SetOrder extends Component {
 
 
 
-        export default withRouter(SetOrder);
+        export default withRouter(SetOrder)

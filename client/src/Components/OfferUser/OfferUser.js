@@ -1,11 +1,9 @@
 import React from 'react'
 
-function Menu() {
+export default function OfferUser() {
     return (
         <div>
-            Menu
+            <h1>Offers</h1>
         </div>
     )
 }
-
-export default Menu

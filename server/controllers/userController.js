@@ -2,6 +2,18 @@ const UserData = require("../model/userModel")
 
 
 exports.loginUser = async (req, res) => {
+    
+    try {
+        let user = await UserData.findOne({
+            email: req.body.email
+        })
+        console.log(user);
+        res.status(200).send({ success: true, user: user })
+    } catch (err) {
+        next(err)
+        
+    }
+    
 
 }
 exports.getAllUsers = async (req, res, next) => {
@@ -11,6 +23,7 @@ exports.getAllUsers = async (req, res, next) => {
         res.status(200).send({ success: true, users: allUsers })
     } catch (err) {
         next(err)
+        
     }
 
 }
@@ -19,13 +32,15 @@ exports.postAddNewUser = async (req, res, next) => {
     console.log(req.body)
 
     try {
-        const user = new UserData(req.body)
-        await user.save()
+        const user = await UserData.create({
+           ...req.body,
+           phone: Number(req.body.phone)
+        });
 
         /*         let token = await user.generateAuthToken()
          */
 
-        res.status(200).send({ success: true/* ,user:user */ })
+        res.status(200).send({ success: true ,users:user })
 
     } catch (error) {
         console.log(error.message);

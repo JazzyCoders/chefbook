@@ -14,13 +14,17 @@ const UserSchema = new Schema({
     lastName:{type:String, required:true},
     email:{type:String, required:true},
     password:{type:String, required:true},
-    img: {type: String, required: true},
+    img: {type: String, required: false},
     city:{type:String, required:true},
     phone:{type:Number, required:true},
     role:{
         type:String,
         enum:["Chef","User","Admin"],
         require:true
+    },
+    chefHandle: {
+        type: String,
+        required: this.role==="Chef"
     },
     services:{
       type: [],
