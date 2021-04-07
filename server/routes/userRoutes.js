@@ -18,10 +18,10 @@ const Validation = require("../middleware/validation")
 
 
 /* GET ALL UserS FROM RESOURCES */
-userRouter.get("/", getAllUsers);
+userRouter.get("/allUsers", getAllUsers);
 
 /* POST REQUEST TO ADD NEW User */
-userRouter.post("/",Validation(Rules),postAddNewUser);
+// userRouter.post("/",Validation(Rules),postAddNewUser);
 
 /* PUT REQUEST TO UPDATE SIGNLE User IN DATABASE */
 userRouter.put("/:id", putUpdateUser);
@@ -30,7 +30,7 @@ userRouter.put("/:id", putUpdateUser);
 userRouter.delete("/:id", deleteSingleUser);
 
 //GET SIGNLE User FRO  DATABASE
-userRouter.get("/:id", getSingleUser);
+userRouter.get("/singleUser/:id", getSingleUser);
 
 
 /* DEFAULT EXPORT */
