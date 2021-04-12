@@ -15,8 +15,8 @@ module.exports = mongoose.model("orders", OrderSchema);
 const OrderSchema = new Schema({
   user: { type: Schema.Types.ObjectId, ref: 'User' },
   cart: { type: Object, required: true },
-  date: { type: String, required: true },
-  time: { type: String, required: true },
+  date: { type: Date, default: Date.now() }, // timestamp for the order date
+  time: { type: Number, required: true }, // preparation time in minutes
   preparing: { type: Boolean, required: true },
   ontheway: { type: Boolean, required: true },
   delivered: { type: Boolean, required: true },
