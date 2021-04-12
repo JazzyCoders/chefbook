@@ -2,13 +2,33 @@ const UserData = require("../model/userModel")
 
 
 exports.loginUser = async (req, res) => {
-    UserData.findOne({ email: req.body.email }).then(user => {
+    /* UserData.findOne({ email: req.body.email }).then(user => {
 
         if (!user) {
             res.status(401).send({ message: "No account is found. Please sign up first." })
         }
         else ()
-    })
+    }) */
+    
+    try {
+        let user = await UserData.findOne({
+            email: req.body.email
+            
+        })
+
+        // if user === null, send 500 response
+
+        // check if password matches, use the "checkPassword" method
+
+        // if password matches, generate token with "generateAuthToken"
+
+        console.log(user);
+        res.status(200).send({ success: true, user: user })
+    } catch (err) {
+        next(err)
+        
+    }
+    
 
 }
 exports.getAllUsers = async (req, res, next) => {
@@ -18,6 +38,7 @@ exports.getAllUsers = async (req, res, next) => {
         res.status(200).send({ success: true, users: allUsers })
     } catch (err) {
         next(err)
+        
     }
 
 }

@@ -129,14 +129,10 @@ showError = err => {
 
 export default withRouter(Login);
 
-
-
-
-
  */
   onSubmit = (e) => {
     e.preventDefault();
-    fetch('/users/login', {
+    fetch('http://localhost:5000/users/login', {
       method: 'POST',
       body: JSON.stringify(this.state),
       headers: {
@@ -144,8 +140,8 @@ export default withRouter(Login);
       }
     })
       .then(res => res.json())
-      .then(user_token => {
-        let { token } = user_token;
+      .then(data => {
+        let { token } = data;
         localStorage.setItem('token', token);
         this.props.history.push('/');
 

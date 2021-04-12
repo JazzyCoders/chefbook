@@ -2,7 +2,9 @@ const express = require("express");
 
 const userRouter = express.Router();
 
+
 const {
+  loginUser,
   getAllUsers,
   postAddNewUser,
   putUpdateUser,
@@ -18,10 +20,10 @@ const Validation = require("../middleware/validation")
 
 
 /* GET ALL UserS FROM RESOURCES */
-userRouter.get("/", getAllUsers);
+userRouter.get("/allUsers", getAllUsers);
 
 /* POST REQUEST TO ADD NEW User */
-userRouter.post("/",Validation(Rules),postAddNewUser);
+// userRouter.post("/",Validation(Rules),postAddNewUser);
 
 /* PUT REQUEST TO UPDATE SINGLE User IN DATABASE */
 userRouter.put("/:id", putUpdateUser);
@@ -30,10 +32,13 @@ userRouter.put("/:id", putUpdateUser);
 userRouter.delete("/:id", deleteSingleUser);
 
 //GET SINGLE User FRO  DATABASE
-userRouter.get("/:id", getSingleUser);
+userRouter.get("/single user/:id", getSingleUser);
 
 // SIGN UP NEW USER
 userRouter.post('/signup', postAddNewUser);
+
+// LogIn NEW USER
+userRouter.post('/login', loginUser);
 
 /* DEFAULT EXPORT */
 module.exports = userRouter;

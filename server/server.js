@@ -7,6 +7,7 @@ const dishesRoute = require("./routes/dishRoute")
 const userRouter = require("./routes/userRoutes")
 const ordersRoute = require("./routes/orderRoutes")
 const cookieParser = require('cookie-parser')
+/* const jwt = require('/jwt'); */
 
 const server = express()
 
@@ -16,6 +17,9 @@ require("dotenv").config();
 server.use(express.static('public'));
 server.use(express.json());
 server.use(cookieParser());
+
+// use JWT auth to secure the api
+/* server.use(jwt()); */
 
 //create a json file
 

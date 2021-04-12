@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const OrderSchema = new Schema({
+/* const OrderSchema = new Schema({
 
   dishes: [{ quantity: { type: Number }, dishId: { ref: "dishes", type: mongoose.Schema.Types.ObjectId } }],
   user: { ref: "users", type: mongoose.Schema.Types.ObjectId }
@@ -9,10 +9,10 @@ const OrderSchema = new Schema({
 });
 
 module.exports = mongoose.model("orders", OrderSchema);
+ 
+ */
 
-
-
-const schema = new Schema({
+const OrderSchema = new Schema({
   user: { type: Schema.Types.ObjectId, ref: 'User' },
   cart: { type: Object, required: true },
   date: { type: String, required: true },

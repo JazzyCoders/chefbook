@@ -4,7 +4,7 @@ const UserModel = require("../model/userModel")
 exports.auth = async (req, res, next) => {
 
   try {
-    const token = req.header("x-auth")
+    const token = req.header("x-auth-token")
     const user = await UserModel.findByToken(token)
 
     if (!user) {
@@ -21,3 +21,4 @@ exports.auth = async (req, res, next) => {
 
 
 }
+/* module.exports = auth; */
