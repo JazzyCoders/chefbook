@@ -12,6 +12,19 @@ exports.getAllDishes= async(req,res,next)=>{
 
 }
 
+exports.chefDish= async(req,res,next)=>{   
+    try {
+        
+        const {chefId}=req.params
+
+        const chefDish =  await DishesData.find({chefId:chefId})
+        res.status(200).send({ success:true,dishes:chefDish})
+    } catch (err) {
+        next(err)
+    }
+
+}
+
 
 exports.postAddNewDish= async(req,res,next)=>{
     console.log(req.body)
@@ -36,7 +49,6 @@ exports.postAddNewDish= async(req,res,next)=>{
         console.log(error.message);
         next(error)
     }  */
-
   
 }
 
