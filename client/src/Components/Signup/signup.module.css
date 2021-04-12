@@ -101,10 +101,6 @@ background-color: #1e1e1eff;
        margin:  10px;
    }
    
-   .button{
-       margin: 10px;
-       float: right;
-    }
    
     .headerText{
         color: white;
@@ -119,3 +115,29 @@ background-color: #1e1e1eff;
     }
 
  } 
+
+ .buttonContainer{
+     display: flex;
+     justify-content: end;
+ }
+ .submit{
+     display: flex;
+     padding: 10px;
+     margin: 10px;
+     width: 10%;
+     background-color:#fec758ff ;
+     border: ridge;
+     cursor: pointer;
+     transition: 1ms ease-in-out;
+    transform: ;
+ }
+
+ .submit :hover{
+    display: flex;
+    padding: 10px;
+    margin: 10px;
+    width: 10%;
+    background-color:#ff4800ff ;
+    border: ridge;
+    cursor: pointer;
+}

@@ -30,7 +30,7 @@ export default function OrderComponent() {
         fetch('http://localhost:5000/dishes')
         .then((res)=>res.json())
         .then((result)=>{
-            console.log(3453553,result)
+            console.log(result)
             if(result.success){
                 setDishes(result.dishes)
             }else{

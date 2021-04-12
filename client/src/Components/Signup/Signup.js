@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import './register.module.css'
+import style from'./signup.module.css'
 import axios from 'axios'
 
 export default function Signup() {
@@ -41,48 +41,49 @@ export default function Signup() {
 
     return (
 
-        <div className="SignupContainer">
+        <div className={style.signUpContainer}>
 
             <h2>Sign up</h2>
             <h3>to continue in chefbook</h3>
 
             <form onSubmit={onSubmit}>
                 <section>
-                    <label htmlFor="asChef">As Chef</label>
-                    <input type="checkbox" onChange={() => setIsChef(!isChef)} name="asChef" className="checkbox" />
+                    <label htmlFor="asChef" className={style.checkmark}>As Chef</label>
+                    <input className ={style.input} type="checkbox" onChange={() => setIsChef(!isChef)} name="asChef" className="checkbox" />
                 </section>
 
                 <div className="input-group-wrap">
                     <div className="input-group">
-                        <input type="text" onChange={(e) => setName(e.target.value)} placeholder="Name" required />
+                        <input className ={style.input} type="text" onChange={(e) => setName(e.target.value)} placeholder="Name" required />
                     </div>
                     <span></span>
                     <div className="input-group">
-                        <input type="text" onChange={(e) => setLastName(e.target.value)} placeholder="Last name" required />
+                        <input className ={style.input} type="text" onChange={(e) => setLastName(e.target.value)} placeholder="Last name" required />
                     </div>
                     <span></span>
                     <div className="input-group">
-                        <input type="email" onChange={(e) => setEmail(e.target.value)} placeholder="email" required />
+                        <input className ={style.input} type="email" onChange={(e) => setEmail(e.target.value)} placeholder="email" required />
                     </div>
                     <span></span>
                     <div className="input-group">
-                        <input type="password" onChange={(e) => setPassword(e.target.value)} placeholder="password" required />
+                        <input className ={style.input} type="password" onChange={(e) => setPassword(e.target.value)} placeholder="password" required />
                     </div>
                     <span></span>
                     <div className="input-group">
-                        <input type="password" onChange={(e) => setConfirmPassword(e.target.value)} placeholder="Confirm password" required />
+                        <input className ={style.input} type="password" onChange={(e) => setConfirmapassword(e.target.value)} placeholder="Confirm password" required />
                     </div>
                     <span></span>
                     <div className="input-group">
-                        <input type="number" onChange={(e) => setPhone(e.target.value)} placeholder="phone" required />
+                        <input className ={style.input} type="number" onChange={(e) => setPhone(e.target.value)} placeholder="phone" required />
                     </div>
                     <span></span>
                     <div className="input-group">
-                        <input type="city" onChange={(e) => setCity(e.target.value)} placeholder="City" required />
+                        <input className ={style.input} type="city" onChange={(e) => setCity(e.target.value)} placeholder="City" required />
                     </div>
                     <span></span>
-
-                    <button type='submit'>Submit</button>
+                    <div className={style.buttonContainer}>
+                    <button type='submit' className={style.submit}> Submit</button>
+                    </div>
 
                 </div>
             </form>

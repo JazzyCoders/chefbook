@@ -2,7 +2,9 @@
 const DishesData = require("../model/dishesModel")
 
 
-exports.getAllDishes= async(req,res,next)=>{   
+exports.getAllDishes= async(req,res,next)=>{  
+    
+    
     try {
         let allDishes =  await DishesData.find()
         res.status(200).send({ success:true,dishes:allDishes})
