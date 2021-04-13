@@ -1,8 +1,4 @@
 import React, {useState, useEffect} from 'react';
-import AboutMe from './AboutMe/AboutMe';
-import ProfilePicture from './ProfilePicture/ProfilePicture';
-import Skills from './Skills/Skills'
-import Statistics from './Statistics/Statistics'
 import styles from './ChefProfile.module.css'
 
 
@@ -27,29 +23,31 @@ import styles from './ChefProfile.module.css'
        
 
     return (
-      <div className={styles.gridContainer}>
+      <div>
         
-        {chef ? 
-        <div>
-          <img src={chef.img} alt="" />
-          <p>About Me {chef.about}</p>
-            <h1>Skills {chef.services}</h1>
-            </div>  : ""}
-   
-
-        
-            {/* <div className={styles.gridProfilePic}>
-                               <ProfilePicture imgUrl="/chefDummy.jpeg" chefName="luigi" chefInfo="Korean | Berlin" />
-            </div> */}
+        {chef ?
+          <div className={styles.gridContainer}>
             
-            {/* <div className={styles.gridAboutMe}>
-                               <AboutMe chefDescription={chef.about}/>
+        <div className={styles.gridProfilePic}>
+              <img className={styles.profilePic} src={chef.img} alt="" />
             </div>
-        
-            <div className={styles.gridSkills}>
-                            <Skills chefSkills={chef.services }/>
-            </div > */}
+
+            <div className={styles.gridProfileData}>
+              <p>{chef.cuisine} | {chef.city}</p>
+              </div>
             
-        </div>
+            <div className={styles.gridAboutMe}>
+              <h2 className={styles.headingAboutMe}>About Me</h2>
+             <p>{chef.about}</p>
+            </div>
+
+            <div className={styles.gridSkills}>
+              <h2 className={styles.headingSkills}>Skills</h2>
+              <p>{chef.services}</p>
+            </div>
+            
+            
+          </div> : ""}
+             </div>        
     )
 }
