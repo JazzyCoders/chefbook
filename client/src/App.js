@@ -40,7 +40,7 @@ function App() {
             
             <Route path="/logout" component={LogOut}/>
             <Route path="/user/menu" component={Home}/>
-            <Route path="/user/profile" component={ProfileUser}/>
+            <Route path="/user/profile" component={ProfileUser} />
             <Route path="/user/dish" component={OfferUser} />
             <Route path="/signup" component={Signup} />
 

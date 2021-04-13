@@ -2,28 +2,58 @@
     height: 100vh;
     display: grid;
     grid-template-columns: 60% 40%;
-    grid-template-rows: 1fr 1fr 1fr;
-    justify-content: start;
+    grid-template-rows: 40% 10% 50%;
+    /* justify-content: start;
+    justify-items: stretch;
     align-content: space-around;
-    align-items: start;
+    align-items: stretch; */
     /* grid-gap: 20px */
-    margin-top: 15%;
+    /* margin-top: 5%; */
 }
 
 .gridProfilePic {
     grid-column: 1/3;
     padding: 25px;
+    justify-self: center;
+    align-self: flex-end;
+}
+
+.gridProfileData{
+    grid-column: 1/3;
+    padding: 25px;
+    justify-self: center;
+    align-self: flex-start;
 }
 
 .gridAboutMe{
     padding: 25px;
+    border: 4px solid #6c42aeff;
+    border-radius: 10%;
+    margin: 5px;
 }
 
 .gridSkills {
     padding: 25px;
+    border: 4px solid #6c42aeff;
+    border-radius: 10%;
+    margin: 5px;
 }
 
-.gridStatistics{
-    padding: 25px;
+.profilePic {
+    border: 4px solid #6c42aeff;
+    border-radius: 50% 50%;
+    width: 250px;
+    height: 250px;
 }
+
+.headingAboutMe{
+    color: black;
+    padding: 5px;
+}
+
+.headingSkills{
+    color: black;
+    padding: 5px;
+}
+
 

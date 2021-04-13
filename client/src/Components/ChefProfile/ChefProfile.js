@@ -1,33 +1,53 @@
-import React from 'react';
-import AboutMe from './AboutMe/AboutMe';
-import ProfilePicture from './ProfilePicture/ProfilePicture';
-import Skills from './Skills/Skills'
-import Statistics from './Statistics/Statistics'
+import React, {useState, useEffect} from 'react';
 import styles from './ChefProfile.module.css'
 
-export default function ChefProfile() {
-// components with props:
+
+  
+        export default function ChefProfile() {
+    
+            const [chef, setChef] = useState({})
+   useEffect(() => {
+       fetch("http://localhost:5000/users/singleUser/6059b4ca378c69235b4f929d")
+      .then((res) => res.json())
+      .then((result) => {
+        console.log(result);
+        if (result.success) {
+          setChef(result.users);
+          console.log(chef.img)
+        } else {
+          console.log(result.message);
+        }
+      })
+        .catch((err) => console.log(err));
+        }, [])
+       
+
     return (
-        <div className={styles.gridContainer}>
-            <div className={styles.gridProfilePic}>
-                {/* profile picture component: */}
-                <ProfilePicture imgUrl="/chefDummy.jpeg" chefName="luigi" chefInfo="Korean | Berlin" />
+      <div>
+        
+        {chef ?
+          <div className={styles.gridContainer}>
+            
+        <div className={styles.gridProfilePic}>
+              <img className={styles.profilePic} src={chef.img} alt="" />
             </div>
+
+            <div className={styles.gridProfileData}>
+              <p>{chef.cuisine} | {chef.city}</p>
+              </div>
             
             <div className={styles.gridAboutMe}>
-                {/* about me component: */}
-                <AboutMe chefDescription='Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum sed enim neque. Fusce consectetur luctus libero, nec porttitor tortor fringilla eget. Proin rhoncus quam eu eleifend elementum. In pellentesque ante.'/>
+              <h2 className={styles.headingAboutMe}>About Me</h2>
+             <p>{chef.about}</p>
             </div>
-        
+
             <div className={styles.gridSkills}>
-                {/* skills component: */}
-                <Skills chefSkills='Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum sed enim neque. Fusce consectetur luctus libero, nec porttitor tortor fringilla eget. Proin rhoncus quam eu eleifend elementum. In pellentesque ante.'/>
-            </div >
-            
-            <div className={styles.gridStatistics}>
-                {/* statistics component: */}
-                <Statistics chefStatistics='Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum sed enim neque. Fusce consectetur luctus libero, nec porttitor tortor fringilla eget. Proin rhoncus quam eu eleifend elementum. In pellentesque ante.'/>
+              <h2 className={styles.headingSkills}>Skills</h2>
+              <p>{chef.services}</p>
             </div>
-        </div>
+            
+            
+          </div> : ""}
+             </div>        
     )
 }
