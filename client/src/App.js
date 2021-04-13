@@ -23,10 +23,11 @@ function App() {
   const [isSignUp, setSignUp] = useState(false)
   const [userData, setUserData] = useState([])
   const [chefCard, setChefCard] = useState([])
+  const [chefUId,setChefUId] = useState("")
 
 
   return (
-    <MyContext.Provider value={{ isLogin, isSignUp, userData, chefCard, setChefCard, setLogin, setSignUp, setUserData }}>
+    <MyContext.Provider value={{ isLogin, isSignUp, userData, chefCard, setChefCard, setLogin, setSignUp, setUserData,chefUId,setChefUId }}>
 
       <div>
         <Router>
@@ -40,7 +41,7 @@ function App() {
             <Route path="/logout" component={LogOut}/>
             <Route path="/user/menu" component={Home}/>
             <Route path="/user/profile" component={ProfileUser}/>
-            <Route path="/user/dish/:chefId" component={OfferUser} />
+            <Route path="/user/dish" component={OfferUser} />
             <Route path="/signup" component={Signup} />
 
             {/* // chef */}

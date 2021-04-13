@@ -1,19 +1,21 @@
 import React,{useEffect,useState,useContext} from 'react'
-import { useParams } from 'react-router-dom';
+//import { useParams } from 'react-router-dom';
 import { MyContext } from '../../App';
 
 
 
+
 export default function OfferUser() {
-    const {userData}=useContext(MyContext)
-    const { chefId } = useParams();
+    const {setChefUid, chefUId}=useContext(MyContext)
+    //const { chefId } = useParams();
 
     const [chefDish,setChefDish] = useState([])
     //const [show,setShow]=useState(false)
+    console.log(chefUId);
 
     useEffect(() => {
        
-        fetch(`http://localhost:5000/dishes/${chefId}`)
+        fetch("http://localhost:5000/dishes")
         .then((res) => res.json())
         .then((result) => {
           console.log(result);
@@ -29,15 +31,16 @@ export default function OfferUser() {
 
   }, [])
 
-
+    
 
     return (
         <div>
             <h1>OFFERS</h1>
             <div className="dishCat">
                 {chefDish.map((dish)=>{
-                if (dish.chefId === chefId) {
-                   // if(dish.id === userData.id)
+                    //console.log(dish.chefId);
+                 if (dish.chefId === chefUId) {
+                
                     return(
                 <div>
                     <h1>{dish.category}</h1>
@@ -53,7 +56,7 @@ export default function OfferUser() {
                     </div>
                 </div>
                 )
-                }  
+             } 
                 })}
             </div>
         </div>

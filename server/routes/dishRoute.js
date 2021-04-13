@@ -6,10 +6,10 @@ const rules = require("../lib/rulesDishes")
 const Validation = require("../middleware/validation") 
 
 /* GET ALL DISHES FROM RESOURCES */
-dishesRoute.get("/allDishes", getAllDishes )
+dishesRoute.get("/", getAllDishes )
 
-// GET CHEF DISHES
-dishesRoute.get("/chefDishes/:chefId",chefDish)
+/* // GET CHEF DISHES
+dishesRoute.get("/chefDishes/:chefId",chefDish) */
 
 /* POST REQUEST TO ADD NEW DISH */
 dishesRoute.post("/",Validation(rules),postAddNewDish)
@@ -21,7 +21,7 @@ dishesRoute.put("/:id",putUpdateDish )
 dishesRoute.delete("/:id",deleteSingleDish )
 
 //GET SINGLE Dish FRO  DATABASE
-dishesRoute.get("/oneDish/:id",getSingleDish)
+dishesRoute.get("/:id",getSingleDish)
 
 
 /* DEFAULT EXPORT */

@@ -4,9 +4,10 @@ import { MyContext } from '../../App';
 import NavUser from '../NavUser/NavUser'
 
 export default function HomeUser() {
-  const { chefCard, setChefCard, userData,setUserData } = useContext(MyContext)
+  const {userData,setUserData ,setChefUId,chefUId} = useContext(MyContext)
   //const [users, setUsers] = useState([])
   const [dishes, setDishes] = useState([])
+  
 
   useEffect(() => {
     fetch("http://localhost:5000/users")
@@ -35,9 +36,11 @@ export default function HomeUser() {
             })
 
       .catch((err) => console.log(err));
-        //console.log(dishes);
+        console.log(dishes);
 
   }, [])
+
+    //console.log(chefUId);
   
   return (
 
@@ -54,11 +57,11 @@ export default function HomeUser() {
               <p>About Chef: {user.description}</p>
               <hr/>
               <div style={{}} >
-                <Link to={"/profile"}>
+                <Link to={`/profile/${user._id}`}>
                   <button>Profile</button>
                 </Link>
-                <Link to={`/user/dish/${user._id}`}>
-                  <button>Offers</button>
+                <Link to={"/user/dish"}>
+                  <button onClick={()=> setChefUId(user._id)} >Offers</button>
                 </Link>
               </div>
             </div>
