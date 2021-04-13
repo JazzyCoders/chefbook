@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import {Link} from "react-router-dom"
+//import Signup from "../Signup/Signup"
 
 export default class Login extends Component {
 
@@ -30,7 +32,7 @@ export default class Login extends Component {
       .then(user_token => {
         let { token } = user_token;
         localStorage.setItem('token', token);
-        this.props.history.push('/');
+        this.props.history.push('');
 
       })
   }
@@ -44,8 +46,10 @@ export default class Login extends Component {
           <h3>to continue in chefbook</h3>
           <input type="email" autoComplete="true" name="email" placeholder="Enter email" value={this.state.email} onChange={this.handleInputChange}></input>
           <input type="password" autoComplete="true" name="password" placeholder="Enter password" value={this.state.password} onChange={this.handleInputChange}></input>
-          <input type="submit" value="Login" />
-          <input type="button" value="Register" />
+          <button type="submit" value="Login"> Login</button>
+          <Link to={"./signup"} ><button type="button" value="Signup"> SignUp</button></Link>
+          
+        
         </form>
       </>
     )

@@ -14,6 +14,7 @@ import History from './Components/Order/History/History'
 import OfferUser from './Components/OfferUser/OfferUser'
 import ProfileUser from './Components/ProfileUser/ProfileUser'
 
+
 export const MyContext = createContext(null)
 
 function App() {
@@ -32,14 +33,14 @@ function App() {
           <Nav />
 
           <Switch>
-            <Route exact path="/" component={Signup} />
+            <Route exact path="/" component={Login} />
 
             {/* // user */}
-            <Route path="/login" component={Login} />
+            
             <Route path="/logout" component={LogOut}/>
             <Route path="/user/menu" component={Home}/>
             <Route path="/user/profile" component={ProfileUser}/>
-            <Route path="/user/dish" component={OfferUser} />
+            <Route path="/user/dish/:chefId" component={OfferUser} />
             <Route path="/signup" component={Signup} />
 
             {/* // chef */}
@@ -52,8 +53,8 @@ function App() {
         </Router>
 
 
-        <OrderComponent />
-        <History />
+        {/* <OrderComponent />
+        <History /> */}
 
       </div>
     </MyContext.Provider>

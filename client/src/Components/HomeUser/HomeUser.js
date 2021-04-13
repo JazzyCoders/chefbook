@@ -1,11 +1,11 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { MyContext } from '../../App';
 import NavUser from '../NavUser/NavUser'
 
 export default function HomeUser() {
-  const { chefCard, setChefCard, userData } = useContext(MyContext)
-  const [users, setUsers] = useState([])
+  const { chefCard, setChefCard, userData,setUserData } = useContext(MyContext)
+  //const [users, setUsers] = useState([])
   const [dishes, setDishes] = useState([])
 
   useEffect(() => {
@@ -14,7 +14,7 @@ export default function HomeUser() {
       .then((result) => {
         console.log(result);
         if (result.success) {
-          setUsers(result.users);
+          setUserData(result.users);
         } else {
           console.log(result.message);
         }
@@ -35,19 +35,17 @@ export default function HomeUser() {
             })
 
       .catch((err) => console.log(err));
-        console.log(dishes);
+        //console.log(dishes);
 
   }, [])
-
- 
   
   return (
 
     <div className="cards">
       <NavUser />
-      <h1> Welcome {users.lastName} </h1>
+      <h1> Welcome </h1>
       <div className="chefCd" style={{display:"inline-flex" ,flexWrap:"wrap"}}>
-      {users.map((user) => {
+      {userData.map((user) => {
         if (user.role === "Chef") {
           return (
             <div className="chefCard" style={{border:"5px solid rgb(60, 37, 97)",borderRadius:"10px" , margin:"20px",alignContent: "center",width:"400px" }}>
@@ -56,10 +54,10 @@ export default function HomeUser() {
               <p>About Chef: {user.description}</p>
               <hr/>
               <div style={{}} >
-                <Link to={`/profile/${user.id}`}>
+                <Link to={"/profile"}>
                   <button>Profile</button>
                 </Link>
-                <Link to={`/user/dishes/${user.id}`}>
+                <Link to={`/user/dish/${user._id}`}>
                   <button>Offers</button>
                 </Link>
               </div>
@@ -75,7 +73,7 @@ export default function HomeUser() {
            <img src={dish.img} alt="images" width="300px" height="300px"/>
            <h1>${dish.price}</h1>
            <h1> {dish.name} </h1>
-           <h1>By Chef {dish.chefId} </h1> 
+           <h1>By Chef {} </h1> 
         </div>
           )
         })}
