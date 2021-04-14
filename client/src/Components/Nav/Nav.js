@@ -16,7 +16,7 @@ import NotificationsIcon from '@material-ui/icons/Notifications';
 import MoreIcon from '@material-ui/icons/MoreVert';
 import AppsIcon from '@material-ui/icons/Apps';
 import { createMuiTheme } from '@material-ui/core/styles';
-
+import { Link } from 'react-router-dom';
 
 
 
@@ -24,7 +24,7 @@ import { createMuiTheme } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
 
-  
+
   grow: {
     flexGrow: 1,
   },
@@ -72,7 +72,7 @@ const useStyles = makeStyles((theme) => ({
     width: '100%',
     [theme.breakpoints.up('md')]: {
       width: '45ch',
-      marginRight:'30px',
+      marginRight: '30px',
 
     },
   },
@@ -145,7 +145,7 @@ export default function PrimarySearchAppBar() {
 
       {/* responsive menu */}
       <MenuItem>
-{/*         <IconButton aria-label="show 11 new notifications" color="inherit">
+        {/*         <IconButton aria-label="show 11 new notifications" color="inherit">
           <Badge badgeContent={11} color="secondary">
             <AppsIcon />
           </Badge>
@@ -154,7 +154,7 @@ export default function PrimarySearchAppBar() {
       </MenuItem>
 
       <MenuItem>
-{/*         <IconButton aria-label="show 11 new notifications" color="inherit">
+        {/*         <IconButton aria-label="show 11 new notifications" color="inherit">
           <Badge badgeContent={11} color="secondary">
             <AppsIcon />
           </Badge>
@@ -163,34 +163,34 @@ export default function PrimarySearchAppBar() {
       </MenuItem>
 
       <MenuItem>
-       {/*  <IconButton aria-label="show 11 new notifications" color="inherit">
+        {/*  <IconButton aria-label="show 11 new notifications" color="inherit">
            <Badge badgeContent={11} color="secondary">
             <AppsIcon />
           </Badge>
         </IconButton> */}
-       <p>Order</p>
+        <p>Order</p>
       </MenuItem>
-      
+
       <MenuItem>
-       {/*  <IconButton aria-label="show 11 new notifications" color="inherit">
+        {/*  <IconButton aria-label="show 11 new notifications" color="inherit">
           <Badge badgeContent={11} color="secondary">
             <AppsIcon />
           </Badge>
         </IconButton> */}
         <p>Log out</p>
       </MenuItem>
-    
-     
+
+
     </Menu>
   );
 
   return (
     <div className={classes.grow}>
-      <AppBar position="static" style={{backgroundColor: "#42e29dff"}} >
+      <AppBar position="static" style={{ backgroundColor: "#42e29dff" }} >
         <Toolbar>
-        <div>
-          <img src={''} style={{width:"3rem" ,padding:"1rem"}} alt=""/>
-        </div>
+          <div>
+            <img src={''} style={{ width: "3rem", padding: "1rem" }} alt="" />
+          </div>
           <Typography className={classes.title} variant="h6" noWrap>
             ChefBook
           </Typography>
@@ -209,22 +209,36 @@ export default function PrimarySearchAppBar() {
           </div>
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}>
-                <IconButton>
-                <p style={{fontSize:"20px", color:'white'}}>Home</p>
-                </IconButton>
+            <Link to="/Home">
+              <IconButton>
+                <p style={{ fontSize: "20px", color: 'white' }}>Home</p>
+              </IconButton>
+            </Link>
 
-                <IconButton style={{fontSize:"20px", color:'white'}}>
+            <Link to="/ChefProfile">
+              <IconButton style={{ fontSize: "20px", color: 'white' }}>
                 <p>Profile</p>
-                </IconButton>
-                
-                <IconButton style={{fontSize:"20px", color:'white'}}>
-                <p>Order</p>
-                </IconButton>
+              </IconButton>
+            </Link>
 
-                <IconButton style={{fontSize:"20px", color:'white'}}>
+            <Link to="/Order">
+              <IconButton style={{ fontSize: "20px", color: 'white' }}>
+                <p>Order</p>
+              </IconButton>
+            </Link>
+
+            <Link to="/user/dish/:chefId">
+              <IconButton style={{ fontSize: "20px", color: 'white' }}>
+                <p>Menu</p>
+              </IconButton>
+            </Link>
+
+            <Link to="/Logout">
+              <IconButton style={{ fontSize: "20px", color: 'white' }}>
                 <p>Log out</p>
-                </IconButton>
-                
+              </IconButton>
+            </Link>
+
           </div>
           <div className={classes.sectionMobile}>
             <IconButton

@@ -17,6 +17,7 @@ export default function Signup() {
     const [city, setCity] = useState("")
     const [register, setRegister] = useState(false)
     const [isChef, setIsChef] = useState(false);
+    const [isCustomer, setIsCustomer] = useState(false);
 
     const onSubmit = (e) => {
         e.preventDefault();
@@ -63,6 +64,11 @@ export default function Signup() {
                 <section>
                     <label htmlFor="asChef">As Chef</label>
                     <input type="checkbox" onChange={() => setIsChef(!isChef)} name="asChef" className="checkbox" />
+                </section>
+
+                <section>
+                    <label htmlFor="asCustomer">As Customer</label>
+                    <input type="checkbox" onChange={() => setIsChef(!isCustomer)} name="asCustomer" className="checkbox" />
                 </section>
 
                 <div className="input-group-wrap">
