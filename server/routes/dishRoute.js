@@ -1,14 +1,15 @@
 const express = require("express")
 const dishesRoute = express.Router()
-const { getAllDishes, postAddNewDish, putUpdateDish, deleteSingleDish, getSingleDish } = require("../controllers/dishesController")
+const { getAllDishes, postAddNewDish, putUpdateDish, deleteSingleDish, getSingleDish, chefDish } = require("../controllers/dishesController")
 const { auth } = require("../middleware/authentication")
 const rules = require("../lib/rulesDishes")
 const Validation = require("../middleware/validation")
 
 /* GET ALL DISHES FROM RESOURCES */
-dishesRoute.get("/", getAllDishes)
+dishesRoute.get("/allDishes", getAllDishes)
 
 // GET CHEF DISHES
+dishesRoute.get("/chefDishes/:chefId", chefDish)
 
 /* POST REQUEST TO ADD NEW DISH */
 dishesRoute.post("/", Validation(rules), postAddNewDish)
@@ -20,7 +21,7 @@ dishesRoute.put("/:id", putUpdateDish)
 dishesRoute.delete("/:id", deleteSingleDish)
 
 //GET SINGLE Dish FRO  DATABASE
-dishesRoute.get("/:id", getSingleDish)
+dishesRoute.get("/oneDish/:id", getSingleDish)
 
 
 /* DEFAULT EXPORT */
