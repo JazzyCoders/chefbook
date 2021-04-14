@@ -1,7 +1,11 @@
 import React, { useState } from 'react'
+import { fade, makeStyles } from "@material-ui/core/styles";
+import Button from "@material-ui/core/Button";
+import TextField from "@material-ui/core/TextField";
 import './signup.module.css'
 import axios from 'axios'
 
+const classes = makeStyles();
 export default function Signup() {
 
     const [name, setName] = useState("")
@@ -45,6 +49,15 @@ export default function Signup() {
 
             <h2>Sign up</h2>
             <h3>to continue in chefbook</h3>
+
+            <form className={classes.root} noValidate autoComplete="off">
+                <Button variant="contained" color="primary">
+                    Submit
+                </Button>
+                <TextField id="standard-basic" label="Standard" />
+                <TextField id="filled-basic" label="Filled" variant="filled" />
+                <TextField id="outlined-basic" label="Outlined" variant="outlined" />
+            </form>
 
             <form onSubmit={onSubmit}>
                 <section>
