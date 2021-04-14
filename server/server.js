@@ -60,8 +60,6 @@ mongoose.connect(process.env.MONGO_ATLAS, {
 }, () => console.log("connection established between app and mongodb"));
 
 
-
-
 // no route match error
 server.use((req, res, next) => {
     let error = new Error("no such route found")
