@@ -42,12 +42,12 @@ export default function OfferUser() {
                  if (dish.chefId === chefUId) {
                 
                     return(
-                <div>
+                <div style={{width:"250px", height:"300"}} >
                     <h1>{dish.category}</h1>
-                    <hr/>
+                    
                     <div className="dishCd">
                          <h1>{dish.name}</h1>
-                        <img src={dish.img} alt=""/>
+                        <img src={dish.img} alt="" width="200" height="200" />
                         <h3>{dish.price}</h3>
                         <div className="tapBtn">
                             <button>Order</button>

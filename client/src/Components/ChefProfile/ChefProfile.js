@@ -1,13 +1,16 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect,useContext} from 'react';
+import { MyContext } from '../../App';
 import styles from './ChefProfile.module.css'
 
 
   
-        export default function ChefProfile() {
-    
-            const [chef, setChef] = useState({})
+  export default function ChefProfile() {
+
+    const {chefUId,setChefUId} =useContext(MyContext)
+    const [chef, setChef] = useState({})
+
    useEffect(() => {
-       fetch("http://localhost:5000/users/singleUser/6059b4ca378c69235b4f929d")
+       fetch(`http://localhost:5000/users/${chefUId}`)
       .then((res) => res.json())
       .then((result) => {
         console.log(result);
@@ -27,26 +30,31 @@ import styles from './ChefProfile.module.css'
         
         {chef ?
           <div className={styles.gridContainer}>
-            
+
+          <h2 className={styles.headingAboutMe}></h2>
+             <h1>Chef: {chef.firstName}  {chef.lastName} </h1> 
         <div className={styles.gridProfilePic}>
               <img className={styles.profilePic} src={chef.img} alt="" />
             </div>
-
             <div className={styles.gridProfileData}>
-              <p>{chef.cuisine} | {chef.city}</p>
+              <p>Cuisine: {chef.cuisine} | City:{chef.city} |Tel:{chef.phone} </p>
               </div>
             
             <div className={styles.gridAboutMe}>
               <h2 className={styles.headingAboutMe}>About Me</h2>
              <p>{chef.about}</p>
+             <hr/>
+             <h2 className={styles.headingAboutMe}>Profile</h2>
+             <p>{chef.description}</p>
             </div>
 
             <div className={styles.gridSkills}>
               <h2 className={styles.headingSkills}>Skills</h2>
-              <p>{chef.services}</p>
+              <ul>
+                <li>{chef.services}</li>
+              </ul>
             </div>
-            
-            
+
           </div> : ""}
              </div>        
     )

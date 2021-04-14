@@ -20,7 +20,7 @@ const Validation = require("../middleware/validation")
 
 
 /* GET ALL UserS FROM RESOURCES */
-userRouter.get("/allUsers", getAllUsers);
+userRouter.get("/", getAllUsers);
 
 /* POST REQUEST TO ADD NEW User */
  userRouter.post("/",Validation(Rules),postAddNewUser);
@@ -32,7 +32,7 @@ userRouter.put("/:id", putUpdateUser);
 userRouter.delete("/:id", deleteSingleUser);
 
 //GET SIGNLE User FRO  DATABASE
-userRouter.get("/singleUser/:id", getSingleUser);
+userRouter.get("/:id", getSingleUser);
 
 // SIGN UP NEW USER
 userRouter.post('/signup', postAddNewUser);
