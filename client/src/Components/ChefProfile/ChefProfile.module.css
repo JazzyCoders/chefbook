@@ -2,7 +2,7 @@
     height: 100vh;
     display: grid;
     grid-template-columns: 60% 40%;
-    grid-template-rows: 40% 10% 50%;
+    grid-template-rows: 50% 5% 30%;
     /* justify-content: start;
     justify-items: stretch;
     align-content: space-around;
