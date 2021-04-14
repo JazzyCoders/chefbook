@@ -23,63 +23,14 @@ function App() {
   const [isSignUp, setSignUp] = useState(false)
   const [userData, setUserData] = useState([])
   const [chefCard, setChefCard] = useState([])
-  const [chefUId,setChefUId] = useState("")
-  const [dishes, setDishes] = useState([])
-
-  //const []=useState("")
-
-
-  useEffect(() => {
-    fetch("http://localhost:5000/users")
-      .then((res) => res.json())
-      .then((result) => {
-        console.log(result);
-        if (result.success) {
-          setUserData(result.users);
-        } else {
-          console.log(result.message);
-        }
-      })
-      .catch((err) => console.log(err));
-      //console.log(userData);
-
-
-      fetch("http://localhost:5000/dishes")
-            .then((res) => res.json())
-            .then((result) => {
-              console.log(result);
-              if (result.success) {
-                //setDishes(result.dishes.sort((a,b)=> a.orderCount -b.orderCount).splice(0,5)) ;
-                setDishes(result.dishes)
-              } else {
-                console.log(result.message);
-              }
-            })
-
-      .catch((err) => console.log(err));
-       // console.log(dishes);
-
-  }, [])
-
-
 
 
   return (
-    <MyContext.Provider value={{ isLogin, 
-      isSignUp, 
-      userData, 
-      chefCard, 
-      chefUId,
-      dishes,
-      setChefCard, 
-      setLogin, 
-      setSignUp, 
-      setUserData,
-      setChefUId }}>
-
+    <MyContext.Provider value={{ isLogin, isSignUp, userData, chefCard, setChefCard, setLogin, setSignUp, setUserData }}>
 
       <div>
         <Router>
+          <Nav />
 
           <Switch>
             <Route exact path="/" component={Login} />
@@ -88,8 +39,8 @@ function App() {
             
             <Route path="/logout" component={LogOut}/>
             <Route path="/user/menu" component={Home}/>
-            <Route path="/user/profile" component={ProfileUser} />
-            <Route path="/user/dish" component={OfferUser} />
+            <Route path="/user/profile" component={ProfileUser}/>
+            <Route path="/user/dish/:chefId" component={OfferUser} />
             <Route path="/signup" component={Signup} />
 
             {/* // chef */}

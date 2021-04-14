@@ -90,7 +90,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export function PrimarySearchAppBar() {
+export default function PrimarySearchAppBar() {
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
@@ -179,10 +179,11 @@ export function PrimarySearchAppBar() {
         </IconButton> */}
         <p>Log out</p>
       </MenuItem>
+
+
     </Menu>
   );
-}
-export default function Nav() {
+
   return (
     <div className={classes.grow}>
       <AppBar position="static" style={{ backgroundColor: "#42e29dff" }} >
@@ -255,5 +256,5 @@ export default function Nav() {
       {renderMobileMenu}
       {renderMenu}
     </div>
-  )
+  );
 }

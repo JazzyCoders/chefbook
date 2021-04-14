@@ -5,11 +5,7 @@ export default function MenuChef() {
     return (
         <div>
             <Nav />
-            <h1>WELCOME CHEF </h1>
-            <div>
-                {}
-            </div>
-
+            <h1>I AM CHEF MENU</h1>
         </div>
     )
 }

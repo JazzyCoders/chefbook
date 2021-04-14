@@ -1,3 +1,4 @@
+
 const DishesData = require("../model/dishesModel")
 
 
@@ -11,8 +12,7 @@ exports.getAllDishes= async(req,res,next)=>{
 
 }
 
-
-/* exports.chefDish= async(req,res,next)=>{   
+exports.chefDish= async(req,res,next)=>{   
     try {
         
         const {chefId}=req.params
@@ -23,7 +23,7 @@ exports.getAllDishes= async(req,res,next)=>{
         next(err)
     }
 
-} */
+}
 
 
 exports.postAddNewDish= async(req,res,next)=>{
