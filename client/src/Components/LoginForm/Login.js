@@ -12,6 +12,7 @@ import Grid from "@material-ui/core/Grid";
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
+import axios from "axios";
 
 function Copyright() {
   return (
@@ -60,6 +61,9 @@ const useStyles = makeStyles((theme) => ({
 export default function SignInSide() {
   const classes = useStyles();
 
+  const login = () => {
+    axios.post('http://localhost:5000')
+  }
   return (
     <Grid container component="main" className={classes.root}>
       <CssBaseline />
@@ -72,7 +76,8 @@ export default function SignInSide() {
           <Typography component="h1" variant="h5">
             Sign in
           </Typography>
-          <form className={classes.form} noValidate>
+          /* <form className={classes.form} noValidate action="http://localhost:5000/" method="POST"> */
+
             <TextField
               variant="outlined"
               margin="normal"
@@ -100,7 +105,8 @@ export default function SignInSide() {
               label="Remember me"
             />
             <Button
-              type="submit"
+              /* type="submit" */
+              onClick={login}
               fullWidth
               variant="contained"
               color="primary"
@@ -123,7 +129,7 @@ export default function SignInSide() {
             <Box mt={5}>
               <Copyright />
             </Box>
-          </form>
+          /* </form> */
         </div>
       </Grid>
     </Grid>
