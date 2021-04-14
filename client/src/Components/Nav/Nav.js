@@ -90,7 +90,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function PrimarySearchAppBar() {
+export function PrimarySearchAppBar() {
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
@@ -179,83 +179,81 @@ export default function PrimarySearchAppBar() {
         </IconButton> */}
         <p>Log out</p>
       </MenuItem>
-
-
     </Menu>
   );
-
-  export default function Nav() {
-    return (
-      <div className={classes.grow}>
-        <AppBar position="static" style={{ backgroundColor: "#42e29dff" }} >
-          <Toolbar>
-            <div>
-              <img src={''} style={{ width: "3rem", padding: "1rem" }} alt="" />
-            </div>
-            <Typography className={classes.title} variant="h6" noWrap>
-              ChefBook
+}
+export default function Nav() {
+  return (
+    <div className={classes.grow}>
+      <AppBar position="static" style={{ backgroundColor: "#42e29dff" }} >
+        <Toolbar>
+          <div>
+            <img src={''} style={{ width: "3rem", padding: "1rem" }} alt="" />
+          </div>
+          <Typography className={classes.title} variant="h6" noWrap>
+            ChefBook
           </Typography>
-            <div className={classes.search}>
-              <div className={classes.searchIcon}>
-                <SearchIcon />
-              </div>
-              <InputBase
-                placeholder="Search…"
-                classes={{
-                  root: classes.inputRoot,
-                  input: classes.inputInput,
-                }}
-                inputProps={{ 'aria-label': 'search' }}
-              />
+          <div className={classes.search}>
+            <div className={classes.searchIcon}>
+              <SearchIcon />
             </div>
-            <div className={classes.grow} />
-            <div className={classes.sectionDesktop}>
-              <Link to="/Home">
-                <IconButton>
-                  <p style={{ fontSize: "20px", color: 'white' }}>Home</p>
-                </IconButton>
-              </Link>
-
-              <Link to="/ChefProfile">
-                <IconButton style={{ fontSize: "20px", color: 'white' }}>
-                  <p>Profile</p>
-                </IconButton>
-              </Link>
-
-              <Link to="/Order">
-                <IconButton style={{ fontSize: "20px", color: 'white' }}>
-                  <p>Order</p>
-                </IconButton>
-              </Link>
-
-              <Link to="/user/dish/:chefId">
-                <IconButton style={{ fontSize: "20px", color: 'white' }}>
-                  <p>Menu</p>
-                </IconButton>
-              </Link>
-
-              <Link to="/Logout">
-                <IconButton style={{ fontSize: "20px", color: 'white' }}>
-                  <p>Log out</p>
-                </IconButton>
-              </Link>
-
-            </div>
-            <div className={classes.sectionMobile}>
-              <IconButton
-                aria-label="show more"
-                aria-controls={mobileMenuId}
-                aria-haspopup="true"
-                onClick={handleMobileMenuOpen}
-                color="inherit"
-              >
-                <MoreIcon />
+            <InputBase
+              placeholder="Search…"
+              classes={{
+                root: classes.inputRoot,
+                input: classes.inputInput,
+              }}
+              inputProps={{ 'aria-label': 'search' }}
+            />
+          </div>
+          <div className={classes.grow} />
+          <div className={classes.sectionDesktop}>
+            <Link to="/Home">
+              <IconButton>
+                <p style={{ fontSize: "20px", color: 'white' }}>Home</p>
               </IconButton>
-            </div>
-          </Toolbar>
-        </AppBar>
-        {renderMobileMenu}
-        {renderMenu}
-      </div>
-    )
-  }
+            </Link>
+
+            <Link to="/ChefProfile">
+              <IconButton style={{ fontSize: "20px", color: 'white' }}>
+                <p>Profile</p>
+              </IconButton>
+            </Link>
+
+            <Link to="/Order">
+              <IconButton style={{ fontSize: "20px", color: 'white' }}>
+                <p>Order</p>
+              </IconButton>
+            </Link>
+
+            <Link to="/user/dish/:chefId">
+              <IconButton style={{ fontSize: "20px", color: 'white' }}>
+                <p>Menu</p>
+              </IconButton>
+            </Link>
+
+            <Link to="/Logout">
+              <IconButton style={{ fontSize: "20px", color: 'white' }}>
+                <p>Log out</p>
+              </IconButton>
+            </Link>
+
+          </div>
+          <div className={classes.sectionMobile}>
+            <IconButton
+              aria-label="show more"
+              aria-controls={mobileMenuId}
+              aria-haspopup="true"
+              onClick={handleMobileMenuOpen}
+              color="inherit"
+            >
+              <MoreIcon />
+            </IconButton>
+          </div>
+        </Toolbar>
+      </AppBar>
+      {renderMobileMenu}
+      {renderMenu}
+    </div>
+  )
+}
