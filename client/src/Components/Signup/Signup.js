@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import './register.module.css'
+import './signup.module.css'
 import axios from 'axios'
 
 export default function Signup() {
