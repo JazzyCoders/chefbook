@@ -101,3 +101,22 @@ exports.getSingleDish= async(req,res,next)=>{
    
    
 }
+
+exports.getDishByName= async(req,res,next)=>{
+    const {name} = req.params
+
+   try {
+       const found = await DishesData.find({ name: name })
+       console.log(found)
+       if (found) {
+            res.status(200).send({success:true,found})
+        } else{
+            res.status(404).send("this dish is not found")
+        }
+
+   } catch (err) {
+       next(err)
+   }
+   
+   
+}

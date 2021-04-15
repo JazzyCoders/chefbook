@@ -13,6 +13,7 @@ import OrderComponent from './Components/Order/Order/OrderComponent'
 import History from './Components/Order/History/History'
 import OfferUser from './Components/OfferUser/OfferUser'
 import ProfileUser from './Components/ProfileUser/ProfileUser'
+import FoundDishes from './Components/FoundDishes'
 
 
 export const MyContext = createContext(null)
@@ -49,6 +50,7 @@ function App() {
             <Route path="/Order" exact component={OrdersChef} />
             {/* <Route path="/Cart" exact component={Cart} /> */}
             <Route path="/LogOut" exact component={LogOut} />
+            <Route path="/found" component={ FoundDishes}/>
           </Switch>
         </Router>
 
