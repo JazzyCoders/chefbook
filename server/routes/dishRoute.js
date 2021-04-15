@@ -1,9 +1,10 @@
 const express = require("express")
 const dishesRoute = express.Router()
-const {getAllDishes,postAddNewDish,putUpdateDish,deleteSingleDish,getSingleDish,chefDish} = require("../controllers/dishesController")
+const {getAllDishes,postAddNewDish,putUpdateDish,deleteSingleDish,getSingleDish,chefDish, getDishByName} = require("../controllers/dishesController")
  const {auth} = require("../middleware/authentication")
 const rules = require("../lib/rulesDishes")
-const Validation = require("../middleware/validation") 
+const Validation = require("../middleware/validation")
+
 
 /* GET ALL DISHES FROM RESOURCES */
 dishesRoute.get("/", getAllDishes )
@@ -20,9 +21,11 @@ dishesRoute.put("/:id",putUpdateDish )
 /* DELETE REQUEST TO DELETE SINGLE Dish IN DATABASE */
 dishesRoute.delete("/:id",deleteSingleDish )
 
+//GET SINGLE Dish BY NAME  DATABASE
+dishesRoute.get("/dish/:name",getDishByName)
+
 //GET SINGLE Dish FRO  DATABASE
 dishesRoute.get("/:id",getSingleDish)
-
 
 /* DEFAULT EXPORT */
 module.exports = dishesRoute
