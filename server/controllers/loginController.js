@@ -29,7 +29,7 @@ router.post('/', function (req, res) {
       return res.render('login', { error: 'Username or password is incorrect', username: req.body.username });
     }
 
-    // save JWT token in the session to make it available to the angular app
+    // save JWT token in the session to make it available 
     req.session.token = body.token;
 
     // redirect to returnUrl
