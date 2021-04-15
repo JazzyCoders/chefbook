@@ -16,7 +16,7 @@ export default function ChefProfile() {
                 console.log(result);
                 if (result.success) {
                     setChef(result.users);
-                    console.log(chef.img)
+                    /* console.log(chef.img) */
                 } else {
                     console.log(result.message);
                 }
