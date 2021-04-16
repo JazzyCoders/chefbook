@@ -75,8 +75,8 @@ export default function SignInSide() {
       body: JSON.stringify(payload),
       headers: {
         "Content-Type": "application/json",
-       /*  "Authorization": "bearer " + window.localStorage.getItem("token") */
-        "Authorization": "bearer " + document.Cokies.getItem("token")
+        "Authorization": "bearer " + window.localStorage.getItem("token")
+        /* "Authorization": "bearer " + document.cookies.getItem("token") */
       },
     })
       .then((res) => res.json())
