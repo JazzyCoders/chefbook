@@ -1,4 +1,5 @@
 import React from "react";
+import { useState } from "react";
 import { fade, makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
@@ -12,8 +13,12 @@ import MenuIcon from "@material-ui/icons/Menu";
 import SearchIcon from "@material-ui/icons/Search";
 import AccountCircle from "@material-ui/icons/AccountCircle";
 import MailIcon from "@material-ui/icons/Mail";
+import House from "@material-ui/icons/House"
+
 import NotificationsIcon from "@material-ui/icons/Notifications";
 import MoreIcon from "@material-ui/icons/MoreVert";
+
+import { useHistory } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   grow: {
@@ -80,6 +85,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function PrimarySearchAppBar() {
+  const history = useHistory();
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
@@ -100,7 +106,7 @@ export default function PrimarySearchAppBar() {
     handleMobileMenuClose();
   };
 
-
+  const [count, setCount] = useState(0);
 
   const handleMobileMenuOpen = (event) => {
     setMobileMoreAnchorEl(event.currentTarget);
@@ -135,16 +141,8 @@ export default function PrimarySearchAppBar() {
       onClose={handleMobileMenuClose}
     >
       <MenuItem>
-        <IconButton aria-label="show 4 new mails" color="inherit">
-          <Badge badgeContent={4} color="secondary">
-            <MailIcon />
-          </Badge>
-        </IconButton>
-        <p>Messages</p>
-      </MenuItem>
-      <MenuItem>
-        <IconButton aria-label="show 11 new notifications" color="inherit">
-          <Badge badgeContent={11} color="secondary">
+        <IconButton onClick={() => setCount(count + 1)} color="inherit">
+          <Badge badgeContent={count} color="secondary">
             <NotificationsIcon />
           </Badge>
         </IconButton>
@@ -169,12 +167,13 @@ export default function PrimarySearchAppBar() {
       <AppBar position="static">
         <Toolbar>
           <IconButton
+            onClick={() => history.push("/")}
             edge="start"
             className={classes.menuButton}
             color="inherit"
             aria-label="open drawer"
           >
-            <MenuIcon />
+            <House />
           </IconButton>
           <Typography className={classes.title} variant="h6" noWrap>
             Chef-UI
@@ -194,13 +193,8 @@ export default function PrimarySearchAppBar() {
           </div>
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}>
-            <IconButton aria-label="show 4 new mails" color="inherit">
-              <Badge badgeContent={4} color="secondary">
-                <MailIcon />
-              </Badge>
-            </IconButton>
-            <IconButton aria-label="show 17 new notifications" color="inherit">
-              <Badge badgeContent={17} color="secondary">
+            <IconButton onClick={() => setCount(count + 1)} color="inherit">
+              <Badge badgeContent={count} color="secondary">
                 <NotificationsIcon />
               </Badge>
             </IconButton>
