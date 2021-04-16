@@ -14,8 +14,6 @@ import AccountCircle from "@material-ui/icons/AccountCircle";
 import MailIcon from "@material-ui/icons/Mail";
 import NotificationsIcon from "@material-ui/icons/Notifications";
 import MoreIcon from "@material-ui/icons/MoreVert";
-import AppsIcon from "@material-ui/icons/Apps";
-import { createMuiTheme } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
   grow: {
@@ -35,7 +33,7 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: theme.shape.borderRadius,
     backgroundColor: fade(theme.palette.common.white, 0.15),
     "&:hover": {
-      backgroundColor: fade(theme.palette.common.white, 0.15),
+      backgroundColor: fade(theme.palette.common.white, 0.25),
     },
     marginRight: theme.spacing(2),
     marginLeft: 0,
@@ -64,8 +62,7 @@ const useStyles = makeStyles((theme) => ({
     transition: theme.transitions.create("width"),
     width: "100%",
     [theme.breakpoints.up("md")]: {
-      width: "45ch",
-      marginRight: "30px",
+      width: "20ch",
     },
   },
   sectionDesktop: {
@@ -103,6 +100,8 @@ export default function PrimarySearchAppBar() {
     handleMobileMenuClose();
   };
 
+
+
   const handleMobileMenuOpen = (event) => {
     setMobileMoreAnchorEl(event.currentTarget);
   };
@@ -120,6 +119,7 @@ export default function PrimarySearchAppBar() {
     >
       <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
       <MenuItem onClick={handleMenuClose}>My account</MenuItem>
+      <MenuItem onClick={handleMenuClose} href="/signup">Sign up</MenuItem>
     </Menu>
   );
 
@@ -134,56 +134,50 @@ export default function PrimarySearchAppBar() {
       open={isMobileMenuOpen}
       onClose={handleMobileMenuClose}
     >
-      {/* responsive menu */}
       <MenuItem>
-        {/*         <IconButton aria-label="show 11 new notifications" color="inherit">
-          <Badge badgeContent={11} color="secondary">
-            <AppsIcon />
+        <IconButton aria-label="show 4 new mails" color="inherit">
+          <Badge badgeContent={4} color="secondary">
+            <MailIcon />
           </Badge>
         </IconButton>
- */}{" "}
-        <p>Home</p>
+        <p>Messages</p>
       </MenuItem>
-
       <MenuItem>
-        {/*         <IconButton aria-label="show 11 new notifications" color="inherit">
+        <IconButton aria-label="show 11 new notifications" color="inherit">
           <Badge badgeContent={11} color="secondary">
-            <AppsIcon />
+            <NotificationsIcon />
           </Badge>
         </IconButton>
- */}{" "}
+        <p>Notifications</p>
+      </MenuItem>
+      <MenuItem onClick={handleProfileMenuOpen}>
+        <IconButton
+          aria-label="account of current user"
+          aria-controls="primary-search-account-menu"
+          aria-haspopup="true"
+          color="inherit"
+        >
+          <AccountCircle />
+        </IconButton>
         <p>Profile</p>
-      </MenuItem>
-
-      <MenuItem>
-        {/*  <IconButton aria-label="show 11 new notifications" color="inherit">
-           <Badge badgeContent={11} color="secondary">
-            <AppsIcon />
-          </Badge>
-        </IconButton> */}
-        <p>Order</p>
-      </MenuItem>
-
-      <MenuItem>
-        {/*  <IconButton aria-label="show 11 new notifications" color="inherit">
-          <Badge badgeContent={11} color="secondary">
-            <AppsIcon />
-          </Badge>
-        </IconButton> */}
-        <p>Log out</p>
       </MenuItem>
     </Menu>
   );
 
   return (
     <div className={classes.grow}>
-      <AppBar position="static" style={{ backgroundColor: "#42e29dff" }}>
+      <AppBar position="static">
         <Toolbar>
-          <div>
-            <img src={""} style={{ width: "3rem", padding: "1rem" }} alt="" />
-          </div>
+          <IconButton
+            edge="start"
+            className={classes.menuButton}
+            color="inherit"
+            aria-label="open drawer"
+          >
+            <MenuIcon />
+          </IconButton>
           <Typography className={classes.title} variant="h6" noWrap>
-            ChefBook
+            Chef-UI
           </Typography>
           <div className={classes.search}>
             <div className={classes.searchIcon}>
@@ -200,20 +194,25 @@ export default function PrimarySearchAppBar() {
           </div>
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}>
-            <IconButton>
-              <p style={{ fontSize: "20px", color: "white" }}>Home</p>
+            <IconButton aria-label="show 4 new mails" color="inherit">
+              <Badge badgeContent={4} color="secondary">
+                <MailIcon />
+              </Badge>
             </IconButton>
-
-            <IconButton style={{ fontSize: "20px", color: "white" }}>
-              <p>Profile</p>
+            <IconButton aria-label="show 17 new notifications" color="inherit">
+              <Badge badgeContent={17} color="secondary">
+                <NotificationsIcon />
+              </Badge>
             </IconButton>
-
-            <IconButton style={{ fontSize: "20px", color: "white" }}>
-              <p>Order</p>
-            </IconButton>
-
-            <IconButton style={{ fontSize: "20px", color: "white" }}>
-              <p>Log out</p>
+            <IconButton
+              edge="end"
+              aria-label="account of current user"
+              aria-controls={menuId}
+              aria-haspopup="true"
+              onClick={handleProfileMenuOpen}
+              color="inherit"
+            >
+              <AccountCircle />
             </IconButton>
           </div>
           <div className={classes.sectionMobile}>
