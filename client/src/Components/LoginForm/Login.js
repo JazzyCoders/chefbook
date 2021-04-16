@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Avatar from "@material-ui/core/Avatar";
 import Button from "@material-ui/core/Button";
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -18,7 +18,7 @@ function Copyright() {
     <Typography variant="body2" color="textSecondary" align="center">
       {"Copyright © "}
       <Link color="inherit" href="https://material-ui.com/">
-        Your Website
+        Chef Mef
       </Link>{" "}
       {new Date().getFullYear()}
       {"."}
@@ -59,6 +59,31 @@ const useStyles = makeStyles((theme) => ({
 
 export default function SignInSide() {
   const classes = useStyles();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const payload = {
+    email: email,
+    password: password,
+  };
+
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+    console.log(payload);
+    fetch("http://127.0.0.1:5000/users/login", {
+      method: "POST",
+      body: JSON.stringify(payload),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((res) => res.json())
+      .then((user_token) => {
+        console.log(user_token);
+        let { token } = user_token;
+        localStorage.setItem("token", token);
+      });
+  };
 
   return (
     <Grid container component="main" className={classes.root}>
@@ -72,7 +97,7 @@ export default function SignInSide() {
           <Typography component="h1" variant="h5">
             Sign in
           </Typography>
-          <form className={classes.form} noValidate>
+          <form onSubmit={handleFormSubmit} className={classes.form} noValidate>
             <TextField
               variant="outlined"
               margin="normal"
@@ -83,6 +108,7 @@ export default function SignInSide() {
               name="email"
               autoComplete="email"
               autoFocus
+              onChange={(e) => setEmail(e.target.value)}
             />
             <TextField
               variant="outlined"
@@ -94,6 +120,7 @@ export default function SignInSide() {
               type="password"
               id="password"
               autoComplete="current-password"
+              onChange={(e) => setPassword(e.target.value)}
             />
             <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}

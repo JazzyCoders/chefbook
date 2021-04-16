@@ -21,7 +21,7 @@ input {
 }
 
 
-button {
+/* button {
   margin: 15px 250px;
   width: 150px;
   height: 35px;
@@ -41,7 +41,7 @@ button:hover {
   border-radius: 3px;
   transition: ease-in-out;
   transition-duration: 0.5s;
-}
+} */
 
 h2 {
   color: white;

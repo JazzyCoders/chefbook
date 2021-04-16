@@ -35,15 +35,15 @@ function App() {
           <Switch>
             <Route exact path="/" component={Login} />
 
-            {/* // user */}
-            
+            {/* user */}
+
             <Route path="/logout" component={LogOut}/>
             <Route path="/user/menu" component={Home}/>
             <Route path="/user/profile" component={ProfileUser}/>
             <Route path="/user/dish/:chefId" component={OfferUser} />
             <Route path="/signup" component={Signup} />
 
-            {/* // chef */}
+            {/* chef */}
             <Route path="/ChefMenu" exact component={MenuChef} />
             <Route path="/ChefProfile" exact component={ChefProfile} />
             <Route path="/Order" exact component={OrdersChef} />
