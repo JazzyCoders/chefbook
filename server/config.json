@@ -1,0 +1,5 @@
+{
+    "connectionString": "MONGO_URI=mongodb://127.0.0.1:27017/chefbook",
+    "apiUrl":  "http://localhost:3000/api",
+    "secret": "SECRET_KEY_PROD=kitchenlife"
+}

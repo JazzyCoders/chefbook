@@ -6,7 +6,8 @@ const indexRouter = require("./routes/indexRoute")
 const dishesRoute = require("./routes/dishRoute")
 const userRouter = require("./routes/userRoutes")
 const ordersRoute = require("./routes/orderRoutes")
-const cookieParser = require('cookie-parser')
+const cookieParser = require("cookie-parser")
+const parser = require("./utils/parser")
 /* const jwt = require('/jwt'); */
 
 const server = express()
@@ -26,6 +27,7 @@ server.use(cookieParser());
 server.use(morgan("dev"))
 server.use(express.json())
 server.use(cors())
+server.use(parser)
 
 
 
