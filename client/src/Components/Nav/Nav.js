@@ -111,6 +111,10 @@ export default function PrimarySearchAppBar() {
   const handleMobileMenuOpen = (event) => {
     setMobileMoreAnchorEl(event.currentTarget);
   };
+  const handleProfileClick = () => {
+    handleMenuClose();
+    history.push("/ChefProfile");
+  }
 
   const menuId = "primary-search-account-menu";
   const renderMenu = (
@@ -123,9 +127,15 @@ export default function PrimarySearchAppBar() {
       open={isMenuOpen}
       onClose={handleMenuClose}
     >
-      <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
-      <MenuItem onClick={handleMenuClose}>My account</MenuItem>
-      <MenuItem onClick={handleMenuClose} href="/signup">Sign up</MenuItem>
+      <MenuItem onClick={handleProfileClick}>My profile</MenuItem>
+      <MenuItem
+        onClick={() => {
+          handleMenuClose();
+          history.push("/signup");
+        }}
+      >
+        Sign up
+      </MenuItem>
     </Menu>
   );
 
