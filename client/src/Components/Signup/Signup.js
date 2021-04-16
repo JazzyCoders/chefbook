@@ -70,7 +70,7 @@ export default function Signup() {
                     </div>
                     <span></span>
                     <div className="input-group">
-                        <input className ={style.input} type="password" onChange={(e) => setConfirmapassword(e.target.value)} placeholder="Confirm password" required />
+                        <input className ={style.input} type="password" onChange={(e) => setConfirmPassword(e.target.value)} placeholder="Confirm password" required />
                     </div>
                     <span></span>
                     <div className="input-group">
