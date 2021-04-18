@@ -128,6 +128,8 @@ export default function PrimarySearchAppBar() {
       onClose={handleMenuClose}
     >
       <MenuItem onClick={handleProfileClick}>My profile</MenuItem>
+      <MenuItem onClick={handleProfileClick}>Orders</MenuItem>
+      <MenuItem onClick={handleProfileClick}>Menu</MenuItem>
       <MenuItem
         onClick={() => {
           handleMenuClose();

@@ -24,7 +24,7 @@ function App() {
   const [chefUId, setChefUId] = useState("");
   const [dishes, setDishes] = useState([]);
   const [token, setToken] = useState(null);
-  const [newUser, setNewUser] = useState(null);
+  const [loggedUser, setLoggedUser] = useState(null);
 
   //const []=useState("")
 
@@ -68,9 +68,9 @@ function App() {
         chefUId,
         dishes,
         token,
-        newUser,
+        loggedUser,
         setToken,
-        setNewUser,
+        setLoggedUser,
         setChefCard,
         setLogin,
         setSignUp,

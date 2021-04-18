@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState ,useContext } from "react";
 import Avatar from "@material-ui/core/Avatar";
 import Button from "@material-ui/core/Button";
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -12,6 +12,8 @@ import Grid from "@material-ui/core/Grid";
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
+import { MyContext } from "../../App";
+import {useHistory} from "react-router-dom"
 
 function Copyright() {
   return (
@@ -58,6 +60,9 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function SignInSide() {
+
+  const history = useHistory()
+  const {loggedUser,setLoggedUser}=useContext(MyContext)
   const classes = useStyles();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -80,11 +85,16 @@ export default function SignInSide() {
       },
     })
       .then((res) => res.json())
-      .then((user_token) => {
-        console.log(user_token);
-        let { token } = user_token;
-        localStorage.setItem("token", token);
-      });
+      .then((data) => {
+          console.log(data);
+          let { token, user } = data;
+          localStorage.setItem("token", token);
+          localStorage.setItem("user", user)
+          setLoggedUser(user)
+          console.log(user);
+          history.push("/user/menu")
+        });
+        
   };
 
   return (
