@@ -5,15 +5,18 @@ import styles from './ChefProfile.module.css'
   
         export default function ChefProfile() {
     
-            const [chef, setChef] = useState({})
+          const [chef, setChef] = useState({})
+          const [services, setServices] = useState([])
+
    useEffect(() => {
        fetch("http://localhost:5000/users/singleUser/6059b4ca378c69235b4f929d")
       .then((res) => res.json())
       .then((result) => {
-        console.log(result);
+        // console.log(result);
         if (result.success) {
           setChef(result.users);
-          console.log(chef.img)
+          setServices(result.users.services)
+          console.log(result.users.services)
         } else {
           console.log(result.message);
         }
@@ -21,8 +24,10 @@ import styles from './ChefProfile.module.css'
         .catch((err) => console.log(err));
         }, [])
        
-
-    return (
+          console.log(chef)
+          console.log(services)
+          return (
+      
       <div>
         
         {chef ?
@@ -43,7 +48,10 @@ import styles from './ChefProfile.module.css'
 
             <div className={styles.gridSkills}>
               <h2 className={styles.headingSkills}>Skills</h2>
-              <p>{chef.services}</p>
+                    {services.map(skill => <p key={skill}>
+                {skill}
+              </p> ) }
+              
             </div>
             
             

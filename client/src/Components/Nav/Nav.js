@@ -48,14 +48,13 @@ const [dishName, setDishName] = useState("")
                 </li> */}
              
                 
-                <NavLink activeStyle={{color: "#947abf"}} style={{ textDecoration: "none",  fontWeight: "800", color: "#6c42aeff", border: "solid 2px grey", borderRadius: "10px"}} to="/ChefMenu">Menu</NavLink>
-                
-                
-                <NavLink activeStyle={{color: "#947abf"}} style={{ textDecoration: "none",  fontWeight: "800", color: "#6c42aeff", border: "solid 2px grey", borderRadius: "10px"}} to="/ChefProfile">My Profile</NavLink>
+                <NavLink activeStyle={{color: "#947abf"}} style={{ textDecoration: "none",  fontWeight: "800", color: "#6c42aeff", border: "solid 2px grey", borderRadius: "10px", padding: "5px"}} to="/ChefMenu">Menu</NavLink>
+                                
+                <NavLink activeStyle={{color: "#947abf"}} style={{ textDecoration: "none",  fontWeight: "800", color: "#6c42aeff", border: "solid 2px grey", borderRadius: "10px", padding: "5px"}} to="/ChefProfile">My Profile</NavLink>
                
-                <NavLink activeStyle={{color: "#947abf"}} style={{ textDecoration: "none",  fontWeight: "800", color: "#6c42aeff", border: "solid 2px grey", borderRadius: "10px"}} to="/Orders">Orders</NavLink>
+                <NavLink activeStyle={{color: "#947abf"}} style={{ textDecoration: "none",  fontWeight: "800", color: "#6c42aeff", border: "solid 2px grey", borderRadius: "10px", padding: "5px"}} to="/Orders">Orders</NavLink>
                
-                <NavLink activeStyle={{color: "#947abf"}} style={{ textDecoration: "none",  fontWeight: "800", color: "#6c42aeff", border: "solid 2px grey", borderRadius: "10px"}} to="/LogOut">LogOut</NavLink>
+                <NavLink activeStyle={{color: "#947abf"}} style={{ textDecoration: "none",  fontWeight: "800", color: "#6c42aeff", border: "solid 2px grey", borderRadius: "10px", padding: "5px"}} to="/LogOut">LogOut</NavLink>
           
           
       </nav>
