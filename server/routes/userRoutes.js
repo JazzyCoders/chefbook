@@ -31,14 +31,14 @@ userRouter.put("/:id", putUpdateUser);
 /* DELETE REQUEST TO DELETE SINGLE User IN DATABASE */
 userRouter.delete("/:id", deleteSingleUser);
 
-//GET SIGNLE User FRO  DATABASE
+//GET SINGLE User FROM  DATABASE
 userRouter.get("/:id", getSingleUser);
 
 // SIGN UP NEW USER
-userRouter.post('/signup', postAddNewUser);
+//userRouter.post('/signup', postAddNewUser);
 
 // LogIn NEW USER
-userRouter.post('/login', loginUser);
+ //userRouter.post('/login', loginUser);
 
 /* DEFAULT EXPORT */
 module.exports = userRouter;

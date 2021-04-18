@@ -1,7 +1,7 @@
 const UserData = require("../model/userModel")
 
 
-exports.loginUser = async (req, res) => {
+/* exports.loginUser = async (req, res) => {
     
     try {
         let user = await UserData.findOne({
@@ -14,8 +14,8 @@ exports.loginUser = async (req, res) => {
         
     }
     
+} */
 
-}
 exports.getAllUsers = async (req, res, next) => {
     console.log("from the controller");
     try {
@@ -31,21 +31,16 @@ exports.getAllUsers = async (req, res, next) => {
 exports.postAddNewUser = async (req, res, next) => {
     console.log(req.body)
 
-    try {
-        const user = await UserData.create({
-           ...req.body,
-           phone: Number(req.body.phone)
-        });
-
-        /*         let token = await user.generateAuthToken()
-         */
-
-        res.status(200).send({ success: true ,users:user })
-
+     try {
+        const user = new UserData(req.body)
+        await user.save() // stored in the DB
+        let token = await user.generateAuthToken()
+        let publicUser = await user.getPublicFields()
+        res.status(200).header("x-auth",token).send({success:true,user:publicUser})
     } catch (error) {
         console.log(error.message);
         next(error)
-    }
+    } 
 }
 
 exports.putUpdateUser = async (req, res, next) => {

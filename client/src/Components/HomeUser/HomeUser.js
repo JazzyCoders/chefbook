@@ -49,7 +49,7 @@ export default function HomeUser() {
            <img src={dish.img} alt="images" width="300px" height="300px"/>
            <h1>${dish.price}</h1>
            <h1> {dish.name} </h1>
-           <h1>By Chef {} </h1> 
+           <h1>By Chef {}</h1> 
         </div>
           )
         })}

@@ -25,6 +25,8 @@ function App() {
   const [chefCard, setChefCard] = useState([])
   const [chefUId,setChefUId] = useState("")
   const [dishes, setDishes] = useState([])
+  const [token,setToken] = useState(null)
+  const [newUser,setNewUser] = useState(null)
 
   //const []=useState("")
 
@@ -63,7 +65,6 @@ function App() {
 
 
 
-
   return (
     <MyContext.Provider value={{ isLogin, 
       isSignUp, 
@@ -71,6 +72,10 @@ function App() {
       chefCard, 
       chefUId,
       dishes,
+      token,
+      newUser,
+      setToken,
+      setNewUser,
       setChefCard, 
       setLogin, 
       setSignUp, 
@@ -91,6 +96,7 @@ function App() {
             <Route path="/user/profile" component={ProfileUser} />
             <Route path="/user/dish" component={OfferUser} />
             <Route path="/signup" component={Signup} />
+            <Route path="/login" component={Login} />
 
             {/* // chef */}
             <Route path="/ChefMenu" exact component={MenuChef} />

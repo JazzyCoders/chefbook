@@ -1,95 +1,203 @@
-import React, { useState } from 'react'
-import './register.module.css'
-import axios from 'axios'
-
-export default function Signup() {
-
-    const [name, setName] = useState("")
-    const [lastName, setLastName] = useState("")
-    const [email, setEmail] = useState("")
-    const [password, setPassword] = useState("")
-    const [confirmPassword, setConfirmPassword] = useState("")
-    const [phone, setPhone] = useState("")
-    const [city, setCity] = useState("")
-    const [register, setRegister] = useState(false)
-    const [isChef, setIsChef] = useState(false);
-
-    const onSubmit = (e) => {
-        e.preventDefault();
-        const registerData = {
-            role: isChef ? 'Chef' : 'User',
-            firstName: name,
-            lastName: lastName,
-            email: email,
-            phone: phone,
-            password: password,
-            city: city
-        };
-
-        console.log(registerData)
-
-        axios.post("http://localhost:5000/users/signup", registerData)
-            .then((res) => {
-                console.log(res.data);
-            })
-            .catch((err) => {
-                console.log(err)
-            })
-
-        setRegister(true)
-    }
-
-    return (
-
-        <div className="SignupContainer">
-
-            <h2>Sign up</h2>
-            <h3>to continue in chefbook</h3>
-
-            <form onSubmit={onSubmit}>
-                <section>
-                    <label htmlFor="asChef">As Chef</label>
-                    <input type="checkbox" onChange={() => setIsChef(!isChef)} name="asChef" className="checkbox" />
-                </section>
-
-                <div className="input-group-wrap">
-                    <div className="input-group">
-                        <input type="text" onChange={(e) => setName(e.target.value)} placeholder="Name" required />
-                    </div>
-                    <span></span>
-                    <div className="input-group">
-                        <input type="text" onChange={(e) => setLastName(e.target.value)} placeholder="Last name" required />
-                    </div>
-                    <span></span>
-                    <div className="input-group">
-                        <input type="email" onChange={(e) => setEmail(e.target.value)} placeholder="email" required />
-                    </div>
-                    <span></span>
-                    <div className="input-group">
-                        <input type="password" onChange={(e) => setPassword(e.target.value)} placeholder="password" required />
-                    </div>
-                    <span></span>
-                    <div className="input-group">
-                        <input type="password" onChange={(e) => setConfirmPassword(e.target.value)} placeholder="Confirm password" required />
-                    </div>
-                    <span></span>
-                    <div className="input-group">
-                        <input type="number" onChange={(e) => setPhone(e.target.value)} placeholder="phone" required />
-                    </div>
-                    <span></span>
-                    <div className="input-group">
-                        <input type="city" onChange={(e) => setCity(e.target.value)} placeholder="City" required />
-                    </div>
-                    <span></span>
-
-                    <button type='submit'>Submit</button>
-
-                </div>
-            </form>
+import React, { useState,useContext } from "react";
+import { MyContext } from "../../App";
+import{Link} from "react-router-dom"
 
 
-        </div>
+
+export default function Signup(props) {
+  const {setIsLogin ,setNewUser, setToken} =useContext(MyContext)
+  const [isUser,setIsUser]=useState(false)
+  
+  const [user, setUser] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    password: "",
+    img:"",
+    role: "Chef",
+    city: "",
+    phone:"",
+    cuisine:"",
+    description:"",
+    about:"",
+    services:[]
+    
+  });
+
+  const submitForm = (e) => {
+    e.preventDefault();
+
+   
+    fetch("http://localhost:5000/users", {
+      method: "POST",
+      headers:{ "Content-Type" : "application/json" }, 
+      body: JSON.stringify(user),
+    })
+      .then((res) => {
+        console.log(res.headers.get("x-auth"))
+        let headerToken = res.headers.get("x-auth")
+        setToken(headerToken)
+        localStorage.setItem("token",headerToken)
+        return res.json()
+      })
+      
+      .then((response) => {
+        if(response.success){
+          console.log(response.user)
+          //storing user into context
+          setNewUser(response.user)
+          setIsLogin(true)
+          let obj={
+            isLogin:true,
+            user:response.user
+          }
+          localStorage.setItem("userData",JSON.stringify(obj))
+
+          props.history.push("/login")
+        } else{
+          console.log(response)
+        }
+      })
+      .catch(err=>console.log(err))
+    
+  }; //ending submitform
 
 
-    )
+
+  const grabValue = (e) => {
+    setUser({ ...user, [e.target.name]: e.target.value });
+  };
+
+  return (
+    <div> 
+      <div className="signUpFm" >
+      <h1>Signup</h1>
+      <form onSubmit={submitForm}>
+        <label>
+          Role :{" "}
+          <select name="role" id="role" onChange={grabValue} onClick={()=>setIsUser(!isUser)} required >
+            <option value="Chef" >Chef</option>
+            <option value="User" >User</option>
+          </select>
+        </label>
+        <br />
+        <label>
+          First Name :
+          <input
+            type="text"
+            name="firstName"
+            placeholder="First Name"
+            onChange={grabValue}
+          />
+        </label>
+        <br />
+
+        <label>
+          Last Name :
+          <input
+            type="text"
+            name="lastName"
+            required
+            placeholder="Last Name"
+            onChange={grabValue}
+          />
+        </label>
+        <br />
+
+        <label>
+          Email :{" "}
+          <input
+            type="email"
+            name="email"
+            required
+            placeholder="E-mail"
+            onChange={grabValue}
+          />
+        </label>
+        <br />
+
+        <label>
+          Password :
+          <input
+            type="password"
+            name="password"
+            required
+            placeholder="Password"
+            onChange={grabValue}
+          />
+        </label>
+        <br />
+
+        <label>
+          Photo :
+           <input type="url" name="img" id=""/>
+        </label>
+        <br />  
+
+        <label>
+          City :
+          <input
+            type="text"
+            name="city"
+            placeholder="City"
+            onChange={grabValue}
+          />
+        </label>
+        <br />  
+        <label>
+          Phone :
+          <input
+            type="text"
+            name="phone"
+            placeholder="Telephone"
+            onChange={grabValue}
+          />
+        </label>
+        <br />
+        { !isUser && <div>
+          <label>
+          Cuisine :
+          <input
+            type="text"
+            name="cuisine"
+            placeholder="cuisine"
+            onChange={grabValue}
+          />
+        </label>
+        <br />
+        <label>
+          About :
+          <textarea name="About" id="" cols="30" rows="10" placeholder="About me" onChange={grabValue}></textarea> 
+          </label>
+        <br />
+        <label>
+          Description :
+          <textarea name="description" id="" cols="30" rows="10" placeholder="Description" onChange={grabValue}></textarea> 
+          </label>
+        <br />
+        <label>
+          Services :
+          <input
+            type="text"
+            name="services"
+            placeholder="skills"
+            onChange={grabValue}
+          />
+        </label>
+        <br />
+        </div> }
+        
+        <input type="submit" value="SignUp" />
+        <p class="bottom-text">
+            By clicking the Sign Up button, you agree to our
+            <Link to="#">Terms & Conditions and</Link>  and 
+            <Link to="/#">Privacy Policy</Link> 
+          </p>
+      <footer>
+        <p>Already have an account? <Link to="/login">Login Here</Link></p>
+      </footer>
+      </form>
+      </div>
+    </div>
+  );
 }

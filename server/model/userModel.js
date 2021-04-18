@@ -1,10 +1,8 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
-//hashing and verifying (comparing) passwords
- const { encrypt, compare } = require("../lib/encryption");
-//creating/signing token and verifying token
-const JWT = require("jsonwebtoken");
+const { encrypt, compare } = require("../lib/encryption");
 
+const JWT = require("jsonwebtoken");
 //const config = require("../config/configuration") 
 //defining our schema
 
@@ -14,12 +12,12 @@ const UserSchema = new Schema({
     lastName:{type:String, required:true},
     email:{type:String, required:true},
     password:{type:String, required:true},
-    img: {type: String, required: false},
+    img: {type: String, required:false},
     city:{type:String, required:true},
-    phone:{type:Number, required:true},
+    phone:{type:String, required:true},
     role:{
         type:String,
-        enum:["Chef","User","Admin"],
+        enum:["Chef","User"],
         require:true
     },
     chefHandle: {
@@ -59,59 +57,62 @@ const UserSchema = new Schema({
 
 })
 
-// hashing password before storing into DB
-  UserSchema.pre("save",function(next){
-    console.log(this);
-    // will not update/ hashed password if not modified
-    if(!this.isModified("password") ) return next()
-    
-    // hashing the password 
-    this.password = encrypt(this.password)
-    next()
-}) 
+UserSchema.pre("save",function(next){
+  console.log(this);
+  // don't update or hashed password if its not modified
+  if(!this.isModified("password") ) return next()
+  
+  // hashing the password 
+  this.password = encrypt(this.password)
+  next()
+})
 
+// it will compare user password with hashed stored inside DB and return boolean value
+UserSchema.methods.checkPassword = function(password) {
+  console.log("method created in user model")
+  return compare(password, this.password)
+}
 
-
-//it will compare user password with hashed password stored inside the database and return boolean value
-UserSchema.methods.checkPassword = function (password) {
-  console.log("method created in user model");
-  return compare(password, this.password);
-};
-
-//once user is created ,this function is call and this function will create a token for that user and push that token into tokens array.
-UserSchema.methods.generateAuthToken = function () {
-  const user = this;
-  /* JWT.sign */
-  console.log(process.env.SECRET_KEY)
-  const token = JWT.sign({ _id: user._id, email: user.email }, process.env.SECRET_KEY);
-
+// once user is created , this is called to generate a token for the user and push into token array
+UserSchema.methods.generateAuthToken = function() {
+  const user =this;
+  /* JWT.sign(payload,secretKey,Options) */
+  const token = JWT.sign({_id:this._id,email:this.email},process.env.SECRET_KEY)
   console.log(token);
-  // pushing token into user's Tokens array
-  user.tokens.push({ token: token });
+  // we push to store
+  user.tokens.push({token:token})
   user.save()
-  return token;
-};
+  return token
+}
+// public fields
+UserSchema.methods.getPublicFields=function(){
+  const user = this
+  return{
+      firstName:this.firstName,
+      lastName:this.lastName,
+      email:this.email,
+      _id:user._id,
+      role:user.role
+  }
+}
 
-//verify auth token and finding that user into database
-UserSchema.statics.findByToken = function (token) {
+// verifying auth token  and finding that user into the DB
+UserSchema.statics.findByToken=function(token) {
   const user = this;
-
   let decoded;
+
   try {
-    decoded = JWT.verify(token, process.env.SECRET_KEY);
+      decoded=JWT.verify(token,config.secret_key)
   } catch (err) {
-    return;
+      return
   }
 
-  let searchedUser = user
-    .findOne({
-      _id: decoded._id,
-      "tokens.token": token,
-    })
-    .select("-password -__v");
-
-  return searchedUser;
-};
+  let searchedUser = user.findOne({
+      _id:decoded._id,
+      "tokens.token":token}).select("-password, -_v")
+  
+  return searchedUser
+}
 
 
-module.exports = mongoose.model("users", UserSchema); 
+module.exports = mongoose.model("users",UserSchema)
