@@ -1,37 +1,34 @@
 const UserData = require("../model/userModel")
 
-
 exports.loginUser = async (req, res) => {
-    /* UserData.findOne({ email: req.body.email }).then(user => {
-        if (!user) {
-            res.status(401).send({ message: "No account is found. Please sign up first." })
-        }
-        else ()
-    }) */
     try {
-        if (UserData.findByToken(req.token)) { return res.status(200).send({ message: 'User is already authenticated.' }) }
+      if (UserData.findByToken(req.token)) {
+        return res.status(200).send({ message: "User is already authenticated." });
+      }
 
-        let user = await UserData.findOne({
-            email: req.body.email
+      let user = await UserData.findOne({
+        email: req.body.email,
+      });
 
-        })
+      if (user === null) {
+        res.status(500).send({ error: 1, success: false });
+      }
 
-        if (user === null) {
-            res.status(500).send({ success: false, })
-        }
+      // console.log(req.body.password);
+      // console.log(user.checkPassword(req.body.password));
 
-        // check if password matches, use the "checkPassword" method
+      // check if password matches, use the "checkPassword" method
+      if (!user.checkPassword(req.body.password)) {
+        res.status(403).send({ error: 2, success: false });
+      }
 
-        // user.checkPassword({ req.body.password })  
-        // if password doesn't match 
-        /* if (!user.checkPassword(req.body.password)) { res.status(403).send({ message: " Your Password does not match. Please enter a valid password." }) } */
-        // if password matches, generate token with "generateAuthToken"
-        console.log(user);
-        res.status(200).send({ success: true, user: user, token: user.generateAuthToken() })
+      // if password matches, generate token with "generateAuthToken"
+      res.status(200).send({ success: true, user: user, token: user.generateAuthToken() });
     } catch (err) {
         next(err)
     }
 }
+
 exports.getAllUsers = async (req, res, next) => {
     console.log("from the controller");
     try {
@@ -41,7 +38,8 @@ exports.getAllUsers = async (req, res, next) => {
         next(err)
     }
 }
-// signup controller 
+
+// signup controller
 exports.postAddNewUser = async (req, res, next) => {
     console.log(req.body)
 
@@ -50,10 +48,6 @@ exports.postAddNewUser = async (req, res, next) => {
             ...req.body,
             phone: Number(req.body.phone)
         });
-
-        /*         let token = await user.generateAuthToken()
-         */
-
         res.status(200).send({ success: true, users: user })
 
     } catch (error) {
@@ -74,7 +68,6 @@ exports.putUpdateUser = async (req, res, next) => {
     }
 
 }
-
 
 exports.deleteSingleUser = async (req, res, next) => {
     const { id } = req.params
