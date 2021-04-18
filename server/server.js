@@ -2,7 +2,7 @@ const express = require("express")
 const morgan = require("morgan")
 const mongoose = require("mongoose")
 const cors = require("cors")
-const indexRouter = require("./routes/indexRoute")
+const indexRoute = require("./routes/indexRoute")
 const dishesRoute = require("./routes/dishRoute")
 const userRouter = require("./routes/userRoutes")
 const ordersRoute = require("./routes/orderRoutes")
@@ -16,7 +16,6 @@ require("dotenv").config();
 
 // middleware
 server.use(express.static('public'));
-server.use(express.json());
 server.use(cookieParser());
 
 // use JWT auth to secure the api
@@ -32,7 +31,7 @@ server.use(parser)
 
 
 /* ROUTES */
-server.use("/", indexRouter)
+server.use("/", indexRoute)
 server.use("/dishes", dishesRoute)
 server.use("/users", userRouter)
 server.use("/orders", ordersRoute)

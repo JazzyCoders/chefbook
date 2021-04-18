@@ -1,6 +1,8 @@
 const UserData = require("../model/userModel")
 
-exports.loginUser = async (req, res) => {
+
+/* exports.loginUser = async (req, res) => {
+
     try {
       if (UserData.findByToken(req.token)) {
         return res.status(200).send({ message: "User is already authenticated." });
@@ -27,7 +29,8 @@ exports.loginUser = async (req, res) => {
     } catch (err) {
         next(err)
     }
-}
+
+} */
 
 exports.getAllUsers = async (req, res, next) => {
     console.log("from the controller");
@@ -43,13 +46,12 @@ exports.getAllUsers = async (req, res, next) => {
 exports.postAddNewUser = async (req, res, next) => {
     console.log(req.body)
 
-    try {
-        const user = await UserData.create({
-            ...req.body,
-            phone: Number(req.body.phone)
-        });
-        res.status(200).send({ success: true, users: user })
-
+     try {
+        const user = new UserData(req.body)
+        await user.save() // stored in the DB
+        let token = await user.generateAuthToken()
+        let publicUser = await user.getPublicFields()
+        res.status(200).header("x-auth",token).send({success:true,user:publicUser})
     } catch (error) {
         console.log(error.message);
         next(error)
