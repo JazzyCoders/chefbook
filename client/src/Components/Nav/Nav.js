@@ -18,7 +18,7 @@ import House from "@material-ui/icons/House"
 import NotificationsIcon from "@material-ui/icons/Notifications";
 import MoreIcon from "@material-ui/icons/MoreVert";
 import { MyContext } from "../../App";
-import { useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 
 
@@ -86,7 +86,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function PrimarySearchAppBar() {
+export default function Nav() {
   const history = useHistory();
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -129,15 +129,17 @@ export default function PrimarySearchAppBar() {
       open={isMenuOpen}
       onClose={handleMenuClose}
     >
-      <MenuItem onClick={handleProfileClick}>My profile</MenuItem>
-      <MenuItem onClick={handleProfileClick}>Orders</MenuItem>
-      <MenuItem onClick={handleProfileClick}>Menu</MenuItem>
-      <MenuItem onClick={handleProfileClick}>Offer</MenuItem>
-      <MenuItem onClick={handleProfileClick}>Home</MenuItem>
+      <MenuItem onClick={handleProfileClick} component={Link} to="/ChefProfile" >My profile</MenuItem>
+      <MenuItem onClick={handleProfileClick} component={Link} to="/Order" >Orders</MenuItem>
+      <MenuItem onClick={handleProfileClick} component={Link} to="/ChefMenu" >Menu</MenuItem>
+      <MenuItem onClick={handleProfileClick} component={Link} to="/user/Offers" >Offer</MenuItem>
+      <MenuItem onClick={handleProfileClick} component={Link} to="/user/menu">Home</MenuItem>
+      <MenuItem onClick={handleMenuClose} component={Link} to="/user/order">
+        My Orders</MenuItem>
       <MenuItem
         onClick={() => {
           handleMenuClose();
-          history.push("/signup");
+          history.push("/login");
         }}
       >
         Sign out

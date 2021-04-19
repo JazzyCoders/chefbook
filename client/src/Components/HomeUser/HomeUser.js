@@ -1,7 +1,8 @@
 import React, { useContext} from 'react';
 import { Link } from 'react-router-dom';
 import { MyContext } from '../../App';
-import NavUser from '../NavUser/NavUser'
+import Nav from "../Nav/Nav"
+//import NavUser from '../NavUser/NavUser'
 
 export default function HomeUser() {
   const {userData,
@@ -18,7 +19,7 @@ export default function HomeUser() {
   return (
 
     <div className="cards">
-      <NavUser />
+      <Nav/>
       <h1> Welcome </h1>
       <div className="chefCd" style={{display:"inline-flex" ,flexWrap:"wrap"}}>
       {userData.map((user) => {

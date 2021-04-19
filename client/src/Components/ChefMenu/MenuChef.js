@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { MyContext } from "../../App";
+import Nav from "../Nav/Nav";
 
 
 export default function MenuChef() {
@@ -7,6 +8,7 @@ export default function MenuChef() {
 
   return (
     <div>
+      <Nav/>
       <h1>WELCOME!! Chef {loggedUser.firstName} </h1>
       <div>
         <div>

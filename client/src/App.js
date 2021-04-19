@@ -3,7 +3,7 @@ import Home from "./Components/HomeUser/HomeUser";
 import MenuChef from "./Components/ChefMenu/MenuChef";
 import OrdersChef from "./Components/Order/Order";
 import ChefProfile from "./Components/ChefProfile/ChefProfile";
-import Nav from "./Components/Nav/Nav";
+//import Nav from "./Components/Nav/Nav";
 import Login from "./Components/LoginForm/Login";
 import LogOut from "./Components/LogOut/Logout";
 import Signup from "./Components/Signup/Signup";
@@ -81,8 +81,6 @@ function App() {
     >
       <div>
         <Router>
-          <Nav />
-
           <Switch>
             <Route exact path="/" component={Login} />
 
