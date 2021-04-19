@@ -1,49 +1,25 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext} from 'react';
 import { Link } from 'react-router-dom';
 import { MyContext } from '../../App';
 import NavUser from '../NavUser/NavUser'
 
 export default function HomeUser() {
-  const { chefCard, setChefCard,loggedUser, userData,setUserData } = useContext(MyContext)
-  //const [users, setUsers] = useState([])
-  const [dishes, setDishes] = useState([])
-
-  useEffect(() => {
-    fetch("http://localhost:5000/users/allUsers")
-      .then((res) => res.json())
-      .then((result) => {
-        console.log(result);
-        if (result.success) {
-          setUserData(result.users);
-        } else {
-          console.log(result.message);
-        }
-      })
-      .catch((err) => console.log(err));
+  const {userData,
+        setUserData ,
+        dishes, 
+        setDishes, 
+        setChefUId,
+        chefUId} = useContext(MyContext)
 
 
-      fetch("http://localhost:5000/dishes/allDishes")
-            .then((res) => res.json())
-            .then((result) => {
-              console.log(result);
-              if (result.success) {
-                //setDishes(result.dishes.sort((a,b)=> a.orderCount -b.orderCount).splice(0,5)) ;
-                setDishes(result.dishes)
-              } else {
-                console.log(result.message);
-              }
-            })
 
-      .catch((err) => console.log(err));
-        //console.log(dishes);
-
-  }, [])
+    //console.log(chefUId);
   
   return (
 
     <div className="cards">
       <NavUser />
-      <h1> Welcome {loggedUser.firstName}  </h1>
+      <h1> Welcome </h1>
       <div className="chefCd" style={{display:"inline-flex" ,flexWrap:"wrap"}}>
       {userData.map((user) => {
         if (user.role === "Chef") {
@@ -54,11 +30,11 @@ export default function HomeUser() {
               <p>About Chef: {user.description}</p>
               <hr/>
               <div style={{}} >
-                <Link to={"/profile"}>
-                  <button>Profile</button>
+                <Link to={"/ChefProfile"}>
+                  <button onClick={()=> setChefUId(user._id)}  >Profile</button>
                 </Link>
-                <Link to={`/user/dish/${user._id}`}>
-                  <button>Offers</button>
+                <Link to={"/user/dish"}>
+                  <button onClick={()=> setChefUId(user._id)} >Offers</button>
                 </Link>
               </div>
             </div>
