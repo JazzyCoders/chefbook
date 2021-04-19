@@ -4,12 +4,12 @@ import { MyContext } from '../../App';
 import NavUser from '../NavUser/NavUser'
 
 export default function HomeUser() {
-  const { chefCard, setChefCard, userData,setUserData } = useContext(MyContext)
+  const { chefCard, setChefCard,loggedUser, userData,setUserData } = useContext(MyContext)
   //const [users, setUsers] = useState([])
   const [dishes, setDishes] = useState([])
 
   useEffect(() => {
-    fetch("http://localhost:5000/users")
+    fetch("http://localhost:5000/users/allUsers")
       .then((res) => res.json())
       .then((result) => {
         console.log(result);
@@ -22,7 +22,7 @@ export default function HomeUser() {
       .catch((err) => console.log(err));
 
 
-      fetch("http://localhost:5000/dishes")
+      fetch("http://localhost:5000/dishes/allDishes")
             .then((res) => res.json())
             .then((result) => {
               console.log(result);
@@ -43,7 +43,7 @@ export default function HomeUser() {
 
     <div className="cards">
       <NavUser />
-      <h1> Welcome </h1>
+      <h1> Welcome {loggedUser.firstName}  </h1>
       <div className="chefCd" style={{display:"inline-flex" ,flexWrap:"wrap"}}>
       {userData.map((user) => {
         if (user.role === "Chef") {

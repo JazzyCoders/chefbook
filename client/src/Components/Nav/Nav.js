@@ -1,5 +1,5 @@
 import React from "react";
-import { useState } from "react";
+import { useState ,useContext} from "react";
 import { fade, makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
@@ -17,8 +17,10 @@ import House from "@material-ui/icons/House"
 
 import NotificationsIcon from "@material-ui/icons/Notifications";
 import MoreIcon from "@material-ui/icons/MoreVert";
-
+import { MyContext } from "../../App";
 import { useHistory } from "react-router-dom";
+
+
 
 const useStyles = makeStyles((theme) => ({
   grow: {
@@ -89,7 +91,7 @@ export default function PrimarySearchAppBar() {
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
-
+  const {loggedUser}=useContext(MyContext)
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
 
@@ -130,6 +132,8 @@ export default function PrimarySearchAppBar() {
       <MenuItem onClick={handleProfileClick}>My profile</MenuItem>
       <MenuItem onClick={handleProfileClick}>Orders</MenuItem>
       <MenuItem onClick={handleProfileClick}>Menu</MenuItem>
+      <MenuItem onClick={handleProfileClick}>Offer</MenuItem>
+      <MenuItem onClick={handleProfileClick}>Home</MenuItem>
       <MenuItem
         onClick={() => {
           handleMenuClose();
@@ -188,7 +192,7 @@ export default function PrimarySearchAppBar() {
             <House />
           </IconButton>
           <Typography className={classes.title} variant="h6" noWrap>
-            Chef-UI
+            CHEF-BOOK
           </Typography>
           <div className={classes.search}>
             <div className={classes.searchIcon}>

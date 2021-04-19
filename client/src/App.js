@@ -24,12 +24,12 @@ function App() {
   const [chefUId, setChefUId] = useState("");
   const [dishes, setDishes] = useState([]);
   const [token, setToken] = useState(null);
-  const [loggedUser, setLoggedUser] = useState(null);
+  const [loggedUser, setLoggedUser] = useState("");
 
   //const []=useState("")
 
   useEffect(() => {
-    fetch("http://localhost:5000/users")
+    fetch("http://localhost:5000/users/allUsers")
       .then((res) => res.json())
       .then((result) => {
         console.log(result);
@@ -42,7 +42,7 @@ function App() {
       .catch((err) => console.log(err));
     //console.log(userData);
 
-    fetch("http://localhost:5000/dishes")
+    fetch("http://localhost:5000/dishes/allDishes")
       .then((res) => res.json())
       .then((result) => {
         console.log(result);
@@ -55,6 +55,7 @@ function App() {
       })
 
       .catch((err) => console.log(err));
+
     // console.log(dishes);
   }, []);
 
@@ -103,8 +104,6 @@ function App() {
           </Switch>
         </Router>
 
-        {/* <OrderComponent />
-        <History /> */}
       </div>
     </MyContext.Provider>
   );

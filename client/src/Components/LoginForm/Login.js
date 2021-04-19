@@ -20,7 +20,7 @@ function Copyright() {
     <Typography variant="body2" color="textSecondary" align="center">
       {"Copyright © "}
       <Link color="inherit" href="https://material-ui.com/">
-        Chef Mef
+        JazzyCoders
       </Link>{" "}
       {new Date().getFullYear()}
       {"."}
@@ -33,7 +33,7 @@ const useStyles = makeStyles((theme) => ({
     height: "100vh",
   },
   image: {
-    backgroundImage: "url(https://source.unsplash.com/random)",
+    backgroundImage: "url(https://source.unsplash.com/collection/38281329/1600x900)",
     backgroundRepeat: "no-repeat",
     backgroundColor:
       theme.palette.type === "light" ? theme.palette.grey[50] : theme.palette.grey[900],
@@ -75,7 +75,7 @@ export default function SignInSide() {
   const handleFormSubmit = (e) => {
     e.preventDefault();
     console.log(payload);
-    fetch("http://127.0.0.1:5000/users/login", {
+    fetch("http://localhost:5000/users/login", {
       method: "POST",
       body: JSON.stringify(payload),
       headers: {
@@ -92,7 +92,17 @@ export default function SignInSide() {
           localStorage.setItem("user", user)
           setLoggedUser(user)
           console.log(user);
-          history.push("/user/menu")
+
+          if (user.role==="User") {
+
+            history.push("/user/menu")
+
+          } else {
+
+            history.push("/ChefMenu")
+
+          }
+
         });
         
   };
