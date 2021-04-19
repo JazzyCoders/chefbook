@@ -33,7 +33,7 @@ export default function HomeUser() {
                 <Link to={"/ChefProfile"}>
                   <button onClick={()=> setChefUId(user._id)}  >Profile</button>
                 </Link>
-                <Link to={"/user/dish"}>
+                <Link to={"/user/offers"}>
                   <button onClick={()=> setChefUId(user._id)} >Offers</button>
                 </Link>
               </div>

@@ -140,7 +140,7 @@ export default function PrimarySearchAppBar() {
           history.push("/signup");
         }}
       >
-        Sign up
+        Sign out
       </MenuItem>
     </Menu>
   );
