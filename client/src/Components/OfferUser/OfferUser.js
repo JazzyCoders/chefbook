@@ -1,18 +1,18 @@
 import React,{useEffect,useState,useContext} from 'react'
-//import { useParams } from 'react-router-dom';
-import { MyContext } from '../../App';
+import { useParams } from 'react-router-dom';
+//import { MyContext } from '../../App';
 import NavUser from '../NavUser/NavUser';
 
 
 
 
 export default function OfferUser() {
-    const {setChefUid, chefUId}=useContext(MyContext)
-    //const { chefId } = useParams();
+    //const {setChefUid, chefUId}=useContext(MyContext)
+    const { chefId } = useParams();
 
     const [chefDish,setChefDish] = useState([])
     //const [show,setShow]=useState(false)
-    console.log(chefUId);
+    console.log(chefId);
 
     useEffect(() => {
        
@@ -41,7 +41,7 @@ export default function OfferUser() {
             <div className="dishCat">
                 {chefDish.map((dish)=>{
                     //console.log(dish.chefId);
-                 if (dish.chefId === chefUId) {
+                 if (dish.chefId === chefId) {
                 
                     return(
                 <div style={{width:"250px", height:"300"}} >

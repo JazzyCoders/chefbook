@@ -24,14 +24,14 @@ import { Link, useHistory } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   grow: {
-    flexGrow: 1,
+    flexGrow: 2,
   },
   menuButton: {
-    marginRight: theme.spacing(2),
+    marginRight: theme.spacing(),
   },
   title: {
     display: "none",
-    [theme.breakpoints.up("sm")]: {
+    [theme.breakpoints.up("md")]: {
       display: "block",
     },
   },

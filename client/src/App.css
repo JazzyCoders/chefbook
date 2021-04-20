@@ -14,40 +14,62 @@ html {
 }
 
 .App {
-  background-color: #71f787;
-  display: flex;
-  flex-direction: column;
+  align-items: baseline;
+  justify-content: none;
+
+}
+
+.chefCd {
+  background-color: #f2f6f6;
+  display: inline-flex;
   align-items: center;
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: center;
+  
+}
+
+
+
+.chefCd h1 {
+  width: 100%;
+  justify-content: flex-start;
+  color: #532369;
+  text-shadow: 0 0.2rem .05rem rgb(214, 195, 230);
+}
+
+.chefCd h3 {
+  width: 100%;
+  justify-content: flex-start;
+  color: #532369;;
 }
 
 h1 {
   font-size: 4rem;
   letter-spacing: 0.1rem;
   font-style: italic;
-  color: #c00a0a;
-  text-shadow: 0 0.2rem 5rem rgb(236, 150, 70);
+  color: #cbdada;
+  text-shadow: 0 0.2rem 5rem rgb(107, 151, 161);
   text-transform: uppercase;
   margin: 4rem 0;
 }
 
-.search-form {
-  width: 60rem;
-  height: 10rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #e4bb06;
-  border-radius: 0.5rem;
-  margin-bottom: 5rem;
-  box-shadow: 1rem 2rem 5rem rgb(236, 189, 100);
-  position: relative;
+h3 {
+  font-size: 2rem;
+  letter-spacing: 0.1rem;
+  font-style: italic;
+  color: #0cb1b1;
+  text-shadow: 0 0.2rem 5rem rgb(217, 221, 221);
+  text-transform: uppercase;
+  margin: .5rem 0;
 }
+
 
 .notfound {
   position: absolute;
   top: -3rem;
   left: 0;
-  background-color: rgb(245, 13, 13);
+  background-color: rgb(39, 89, 102);
   width: calc(100% - 0.4rem);
   border-radius: 0.5rem;
   padding: 0.2rem;
@@ -83,30 +105,23 @@ h1 {
   color: #fff;
 }
 
-.chefCd {
-  width: 90%;
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: flex-start;
-}
 
-.recipe {
+
+.chefCard {
   width: 30rem;
   margin: 3rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #df8d0a;
+  background-color: #0cb1b1;
   padding: 2rem;
   position: relative;
   border-radius: 0.5rem;
-  box-shadow: 2rem 3rem 5rem rgb(236, 235, 135);
+  box-shadow: 2rem 3rem 2rem rgb(177, 180, 180);
 }
 
-.recipe h2 {
-  background-color: rgba(166, 240, 230, 0.7);
+.chefCard h2 {
+  background-color: rgba(213, 223, 221, 0.7);
   border-radius: 0.5rem;
   padding: 0.3rem 0.5rem;
   position: absolute;
@@ -115,46 +130,121 @@ h1 {
   right: 2.5rem;
   font-size: 2.5rem;
   font-weight: 400;
-  text-shadow: 0 0.5rem 0.5rem rgb(211, 153, 126);
-  color: rgb(80, 73, 34);
+  text-shadow: 0 0.2rem 0.2rem rgb(181, 190, 190);
+  color: rgb(1, 44, 46);
 }
 
-.recipe img {
+.chefCard img {
+  width: 30rem;
   border-radius: 0.5rem;
   object-fit: cover;
 }
 
-.recipe a {
+.chefCard p {
   font-size: 1.8rem;
-  color: #dd0315;
+  color: #e3e9ee;
 }
 
-.recipe button {
+.chefCard button {
   font-size: 2rem;
   text-transform: uppercase;
   color: rgb(194, 212, 219);
-  background-color: #2e8f7f;
-  border: none;
+  background-color: #2e898f;
+  border: .20rem solid rgb(220, 225, 226);
   border-radius: 0.5rem;
-  height: 3rem;
-  margin: 0 auto;
+  display: inline flex;
+  padding: 1rem 1rem 1rem 1rem;
+  height: 5rem;
+  margin: 1rem;
   text-align: center;
-  width: 100%;
+  
+
 }
 
-.btn button{
+.BstCd .btn button{
   font-size: 2rem;
-  padding: 1rem 2rem;
-  align-items: center;
+  padding: 1rem ;
+  justify-content:space-evenly;
   margin-top: 1rem;
   text-transform: uppercase;
-  color: #e7d997;
-  background-color: #522203;
-  border: 3px sold gray;
+  color: #d8d5c7;
+  background-color: #532369;
+  border: 5px sold rgb(75, 83, 85);
   border-radius: 0.5rem;
-  height: 4rem;
-  width: 20rem;
+  height: 5rem;
+  width: 10rem;
 }
+
+.BstDl {
+  background-color: #0cb1b1;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: center;
+  
+}
+.BstDl h1 {
+  width: 100%;
+  justify-content: flex-start;
+  
+}
+
+.BstCd {
+  width: 30rem;
+  margin: 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #e2e3e4;
+  padding: 2rem;
+  position: relative;
+  border-radius: 0.5rem;
+ /*  box-shadow: 2rem 2rem 2rem rgb(196, 196, 191); */
+}
+
+.BstCd h2 {
+  width: 20%;
+  background-color: rgba(247, 187, 99, 0.7);
+  border-radius: 0.5rem;
+  padding: 0.3rem 0.5rem;
+  position: absolute;
+  top: 2.5rem;
+  left: 2.5rem;
+  right: 2.5rem;
+  font-size: 2rem;
+  font-weight: 400;
+  color: rgb(27, 56, 61);
+}
+
+.BstCd img {
+  width: 30rem;
+  
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.BstCd p {
+  font-size: 1.8rem;
+  color: #885406;
+}
+
+.BstCd button {
+  font-size: 2rem;
+  text-transform: uppercase;
+  color: rgb(194, 212, 219);
+  background-color: #257466;
+  border: .20rem solid;
+  border-radius: 0.5rem;
+  display: inline flex;
+  padding: 1rem 1rem 1rem 1rem;
+  height: 5rem;
+  margin: 1rem;
+  text-align: center;
+  
+
+}
+
 
 .ing-list {
   margin-top: 1rem;

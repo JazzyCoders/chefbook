@@ -14,6 +14,8 @@ import History from "./Components/Order/History/History";
 import OfferUser from "./Components/OfferUser/OfferUser";
 import ProfileUser from "./Components/ProfileUser/ProfileUser";
 import ChefProUser from "./Components/ChefProUser/ChefProUser";
+import Dishes  from "./Components/DishItem/Dishes"
+
 
 export const MyContext = createContext(null);
 
@@ -26,6 +28,7 @@ function App() {
   const [dishes, setDishes] = useState([]);
   const [token, setToken] = useState(null);
   const [loggedUser, setLoggedUser] = useState("");
+  const [show,setShow] = useState(false)
 
   //const []=useState("")
 
@@ -71,6 +74,7 @@ function App() {
         dishes,
         token,
         loggedUser,
+        show,
         setToken,
         setLoggedUser,
         setChefCard,
@@ -78,6 +82,7 @@ function App() {
         setSignUp,
         setUserData,
         setChefUId,
+        setShow
       }}
     >
       <div>
@@ -90,7 +95,8 @@ function App() {
             <Route path="/logout" component={LogOut} />
             <Route path="/user/menu" component={Home} />
             <Route path="/user/profile" component={ProfileUser} />
-            <Route path="/user/offers" component={OfferUser} />
+            <Route path="/user/offers/:chefId" component={OfferUser} />
+            <Route path="/dishItem/:dishId" component={Dishes} />
             <Route path="/signup" component={Signup} />
             <Route path="/login" component={Login} />
 

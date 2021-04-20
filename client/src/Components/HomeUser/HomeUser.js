@@ -5,10 +5,11 @@ import NavUser from '../NavUser/NavUser'
 
 export default function HomeUser() {
   const {userData,
-        setUserData ,
-        dishes, 
-        setDishes, 
+        dishes,
+        show, 
+        loggedUser,
         setChefUId,
+        setShow,
         chefUId} = useContext(MyContext)
 
 
@@ -17,43 +18,57 @@ export default function HomeUser() {
   
   return (
 
-    <div className="App">
+    <div >
       <NavUser/>
-      <h1> Welcome </h1>
-      <div className="chefCd" /* style={{display:"inline-flex" ,flexWrap:"wrap"}} */>
+      <div className="chefCd">
+        <h1> Welcome  {loggedUser.firstName} </h1> 
+    
       {userData.map((user) => {
         if (user.role === "Chef") {
           return (
-            <div className="chefCard" style={{border:"5px solid rgb(60, 37, 97)",borderRadius:"10px" , margin:"20px",alignContent: "center",width:"400px" }}>
+            <div className="chefCard" >
               <img src={user.img} alt="img" width="400" height="450" />
-              <h1>Name: {user.firstName}</h1>
-              <p>About Chef: {user.description}</p>
+              <h2>Name: {user.firstName}</h2>
+              <h3>About Chef </h3>
+              <p>{user.description}</p>
               <hr/>
-              <div style={{}} >
+              <div>
                 <Link to={"/ChefProUser"}>
                   <button onClick={()=> setChefUId(user._id)}  >Profile</button>
                 </Link>
-                <Link to={"/user/offers"}>
-                  <button onClick={()=> setChefUId(user._id)} >Offers</button>
+                <Link to={`/user/offers/${user._id}`}>
+                  <button >Offers</button>
                 </Link>
               </div>
             </div>
           )
         }
       })}</div>
-      <div>
+      <hr/>
+      
+      <div className="BstDl" >
         <h1>Best Deals</h1>
+        <hr/>
         {dishes.map((dish)=>{
           return(
-            <div style={{display:"inline-flex", flexWrap:"wrap"}}>
+            <div className="BstCd" >
            <img src={dish.img} alt="images" width="300px" height="300px"/>
-           <h1>${dish.price}</h1>
-           <h1> {dish.name} </h1>
-           <h1>By Chef {}</h1> 
+           <h2>${dish.price}</h2>
+           <h3> {dish.name} </h3>
+           <hr/>
+           <div className="btn">
+                <Link to={"#"}>
+                  <button onClick={()=> setChefUId()}> Rate </button>
+                </Link>
+                <Link to={`/dishItem/${dish._id}`}>
+                  <button >More</button>
+                </Link>
+           </div>
         </div>
           )
         })}
         
+              
       </div>
     </div>
   )
