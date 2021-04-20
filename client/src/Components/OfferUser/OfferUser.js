@@ -1,6 +1,7 @@
 import React,{useEffect,useState,useContext} from 'react'
 //import { useParams } from 'react-router-dom';
 import { MyContext } from '../../App';
+import NavUser from '../NavUser/NavUser';
 
 
 
@@ -35,6 +36,7 @@ export default function OfferUser() {
 
     return (
         <div>
+            <NavUser/>
             <h1>OFFERS</h1>
             <div className="dishCat">
                 {chefDish.map((dish)=>{

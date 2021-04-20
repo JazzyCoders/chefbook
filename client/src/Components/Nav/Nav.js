@@ -129,13 +129,11 @@ export default function Nav() {
       open={isMenuOpen}
       onClose={handleMenuClose}
     >
+
+      <MenuItem onClick={handleProfileClick} component={Link} to="/ChefMenu" >Menu</MenuItem>
       <MenuItem onClick={handleProfileClick} component={Link} to="/ChefProfile" >My profile</MenuItem>
       <MenuItem onClick={handleProfileClick} component={Link} to="/Order" >Orders</MenuItem>
-      <MenuItem onClick={handleProfileClick} component={Link} to="/ChefMenu" >Menu</MenuItem>
-      <MenuItem onClick={handleProfileClick} component={Link} to="/user/Offers" >Offer</MenuItem>
-      <MenuItem onClick={handleProfileClick} component={Link} to="/user/menu">Home</MenuItem>
-      <MenuItem onClick={handleMenuClose} component={Link} to="/user/order">
-        My Orders</MenuItem>
+      
       <MenuItem
         onClick={() => {
           handleMenuClose();

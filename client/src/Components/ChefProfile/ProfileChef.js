@@ -1,22 +1,23 @@
 import React, {useState, useEffect,useContext} from 'react';
 import { MyContext } from '../../App';
+import Nav from '../Nav/Nav';
 import styles from './ChefProfile.module.css'
 
 
   
   export default function ChefProfile() {
 
-    const {chefUId,setChefUId} =useContext(MyContext)
+    const {loggedUser} =useContext(MyContext)
     const [chef, setChef] = useState({})
 
    useEffect(() => {
-       fetch(`http://localhost:5000/users/${chefUId}`)
+       fetch(`http://localhost:5000/users/${loggedUser}`)
       .then((res) => res.json())
       .then((result) => {
         console.log(result);
         if (result.success) {
           setChef(result.users);
-          console.log(chef.img)
+          console.log(chef)
         } else {
           console.log(result.message);
         }
@@ -27,14 +28,14 @@ import styles from './ChefProfile.module.css'
 
     return (
       <div>
-        
+        <Nav/>
         {chef ?
           <div className={styles.gridContainer}>
 
           <h2 className={styles.headingAboutMe}></h2>
              <h1>Chef: {chef.firstName}  {chef.lastName} </h1> 
         <div className={styles.gridProfilePic}>
-              <img className={styles.profilePic} src={chef.img} alt="" />
+              <img className={styles.profilePic} src={chef.img} alt="image" />
             </div>
             <div className={styles.gridProfileData}>
               <p>Cuisine: {chef.cuisine} | City:{chef.city} |Tel:{chef.phone} </p>

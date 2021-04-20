@@ -1,21 +1,23 @@
 import React, {useState, useEffect,useContext} from 'react';
 import { MyContext } from '../../App';
-import NavUser from '../NavUser/NavUser';
-import styles from './ProfileUser.module.css'
+import styles from './ChefProUser.module.css'
+import NavUser from "../NavUser/NavUser"
 
-export default function ProfileUser() {
 
-    const {loggedUser} =useContext(MyContext)
-    const [customer, setCustomer] = useState({})
+  
+  export default function ChefProUser() {
+
+    const {chefUId} =useContext(MyContext)
+    const [chef, setChef] = useState({})
 
    useEffect(() => {
-       fetch(`http://localhost:5000/users/${loggedUser}`)
+       fetch(`http://localhost:5000/users/${chefUId}`)
       .then((res) => res.json())
       .then((result) => {
         console.log(result);
         if (result.success) {
-          setCustomer(result.users);
-          console.log(customer)
+          setChef(result.users);
+          console.log(chef.img)
         } else {
           console.log(result.message);
         }
@@ -24,39 +26,37 @@ export default function ProfileUser() {
         }, [])
        
 
-
     return (
-        <div>
-          <NavUser/>
-            {customer ?
+      <div>
+        <NavUser/>
+        {chef ?
           <div className={styles.gridContainer}>
 
           <h2 className={styles.headingAboutMe}></h2>
-             <h1> User: {customer.firstName}  {customer.lastName} </h1> 
+             <h1>Chef: {chef.firstName}  {chef.lastName} </h1> 
         <div className={styles.gridProfilePic}>
-              <img className={styles.profilePic} src={customer.img} alt="" />
+              <img className={styles.profilePic} src={chef.img} alt="" />
             </div>
             <div className={styles.gridProfileData}>
-              <p>Cuisine: {customer.cuisine} | City:{customer.city} |Tel:{customer.phone} </p>
+              <p>Cuisine: {chef.cuisine} | City:{chef.city} |Tel:{chef.phone} </p>
               </div>
             
             <div className={styles.gridAboutMe}>
               <h2 className={styles.headingAboutMe}>About Me</h2>
-             <p>{customer.about}</p>
+             <p>{chef.about}</p>
              <hr/>
              <h2 className={styles.headingAboutMe}>Profile</h2>
-             <p>{customer.description}</p>
+             <p>{chef.description}</p>
             </div>
 
             <div className={styles.gridSkills}>
               <h2 className={styles.headingSkills}>Skills</h2>
               <ul>
-                <li>{customer.services}</li>
+                <li>{chef.services}</li>
               </ul>
             </div>
 
           </div> : ""}
-        
-        </div>
+             </div>        
     )
 }

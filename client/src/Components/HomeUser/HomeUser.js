@@ -1,8 +1,7 @@
 import React, { useContext} from 'react';
 import { Link } from 'react-router-dom';
 import { MyContext } from '../../App';
-import Nav from "../Nav/Nav"
-//import NavUser from '../NavUser/NavUser'
+import NavUser from '../NavUser/NavUser'
 
 export default function HomeUser() {
   const {userData,
@@ -18,10 +17,10 @@ export default function HomeUser() {
   
   return (
 
-    <div className="cards">
-      <Nav/>
+    <div className="App">
+      <NavUser/>
       <h1> Welcome </h1>
-      <div className="chefCd" style={{display:"inline-flex" ,flexWrap:"wrap"}}>
+      <div className="chefCd" /* style={{display:"inline-flex" ,flexWrap:"wrap"}} */>
       {userData.map((user) => {
         if (user.role === "Chef") {
           return (
@@ -31,7 +30,7 @@ export default function HomeUser() {
               <p>About Chef: {user.description}</p>
               <hr/>
               <div style={{}} >
-                <Link to={"/ChefProfile"}>
+                <Link to={"/ChefProUser"}>
                   <button onClick={()=> setChefUId(user._id)}  >Profile</button>
                 </Link>
                 <Link to={"/user/offers"}>
