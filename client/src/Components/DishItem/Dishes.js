@@ -35,12 +35,14 @@ export default function Dishes() {
           
           return(
             <div className="DshIt" >
-           <img src={dish.img} alt="images" />
-           <h2>${dish.price}</h2>
+           <img src={dish.img} alt="images" width="550px" height="600px" /> 
            <div className="sidInfo" >
-           <h3> {dish.name} </h3>  
+           <br/>
+           <h2>Price:{dish.price}$</h2>
+        
+           <h2>{dish.name} </h2>  
            <button onClick={()=> setShow(!show )} >Ingredients</button>
-           {show && <div>{dish.ingredients.map((ing)=>{
+           {show && <div className="ing">{dish.ingredients.map((ing)=>{
              return(
                <ul>
                  <li>{ing} </li>
@@ -53,8 +55,8 @@ export default function Dishes() {
                 <Link to={"/user/orders/"}>
                   <button onClick={()=> setChefUId()}> Order </button>
                 </Link>
-                <Link to={"#"}>
-                  <button >Rate</button>
+                <Link to={"/user/menu"}>
+                  <button > Back </button>
                 </Link>
            </div>
            </div>
@@ -62,7 +64,7 @@ export default function Dishes() {
           )
          }
         })}
-        
+
     </div>
     </div>
   )

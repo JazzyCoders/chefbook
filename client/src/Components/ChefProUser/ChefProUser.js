@@ -1,23 +1,23 @@
 import React, {useState, useEffect,useContext} from 'react';
 import { MyContext } from '../../App';
-import styles from './ChefProUser.module.css'
 import NavUser from "../NavUser/NavUser"
+import {useParams} from "react-router-dom"
 
 
   
   export default function ChefProUser() {
-
+    const { chefId } = useParams();
     const {chefUId} =useContext(MyContext)
     const [chef, setChef] = useState({})
 
    useEffect(() => {
-       fetch(`http://localhost:5000/users/${chefUId}`)
+       fetch(`http://localhost:5000/users/${chefId}`)
       .then((res) => res.json())
       .then((result) => {
         console.log(result);
         if (result.success) {
           setChef(result.users);
-          console.log(chef.img)
+          console.log(chef)
         } else {
           console.log(result.message);
         }
@@ -29,34 +29,18 @@ import NavUser from "../NavUser/NavUser"
     return (
       <div>
         <NavUser/>
-        {chef ?
-          <div className={styles.gridContainer}>
-
-          <h2 className={styles.headingAboutMe}></h2>
-             <h1>Chef: {chef.firstName}  {chef.lastName} </h1> 
-        <div className={styles.gridProfilePic}>
-              <img className={styles.profilePic} src={chef.img} alt="" />
-            </div>
-            <div className={styles.gridProfileData}>
-              <p>Cuisine: {chef.cuisine} | City:{chef.city} |Tel:{chef.phone} </p>
-              </div>
-            
-            <div className={styles.gridAboutMe}>
-              <h2 className={styles.headingAboutMe}>About Me</h2>
-             <p>{chef.about}</p>
-             <hr/>
-             <h2 className={styles.headingAboutMe}>Profile</h2>
-             <p>{chef.description}</p>
+        <div className="chefPr">
+          {chef.map((user)=>{
+            return(
+              <div className="ChefBio">
+              <img src={user.img} alt="img"/>
+              <h2></h2>
             </div>
 
-            <div className={styles.gridSkills}>
-              <h2 className={styles.headingSkills}>Skills</h2>
-              <ul>
-                <li>{chef.services}</li>
-              </ul>
-            </div>
-
-          </div> : ""}
-             </div>        
-    )
+            ) 
+          })}
+        </div>
+      
+      </div>        
+      )
 }

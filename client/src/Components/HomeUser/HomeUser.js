@@ -33,7 +33,7 @@ export default function HomeUser() {
               <p>{user.description}</p>
               <hr/>
               <div>
-                <Link to={"/ChefProUser"}>
+                <Link to={`/ChefProUser/${user._id}`}>
                   <button onClick={()=> setChefUId(user._id)}  >Profile</button>
                 </Link>
                 <Link to={`/user/offers/${user._id}`}>

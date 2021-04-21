@@ -1,5 +1,5 @@
 import React,{useEffect,useState,useContext} from 'react'
-import { useParams } from 'react-router-dom';
+import { useParams ,Link} from 'react-router-dom';
 //import { MyContext } from '../../App';
 import NavUser from '../NavUser/NavUser';
 
@@ -37,28 +37,61 @@ export default function OfferUser() {
     return (
         <div>
             <NavUser/>
-            <h1>OFFERS</h1>
-            <div className="dishCat">
-                {chefDish.map((dish)=>{
-                    //console.log(dish.chefId);
-                 if (dish.chefId === chefId) {
+            
+            <div className="BstOff">
+                <h1>NEW OFFERS</h1> 
+                <hr/>
+                <h2>Grill</h2> 
                 
-                    return(
-                <div style={{width:"250px", height:"300"}} >
-                    <h1>{dish.category}</h1>
+                {chefDish.map((dish)=>{
                     
-                    <div className="dishCd">
-                         <h1>{dish.name}</h1>
-                        <img src={dish.img} alt="" width="200" height="200" />
-                        <h3>{dish.price}</h3>
-                        <div className="tapBtn">
-                            <button>Order</button>
-                            <button>Rate</button>
+                 if (dish.chefId === chefId && dish.category==="Grill") {
+
+                    return(
+                    
+                    <div className="OfCard">
+                         <h2>{dish.name}</h2>
+                        <img src={dish.img} alt="image" width="350" height="400"  />
+                        <h3>{dish.price}$</h3>
+                        <div className="btn">
+                        <Link to={"#"}>
+                            <button /* onClick={()=> setChefUId()} */> Rate </button>
+                        </Link>
+                        <Link to={`/dishItem/${dish._id}`}>
+                            <button >More</button>
+                        </Link>
                         </div>
                     </div>
-                </div>
+                
                 )
-             } 
+              } 
+                })}
+            </div>
+            <hr/>
+            <div className="BstOff">
+                    <h2>Vegetarian</h2  > 
+
+                {chefDish.map((dish)=>{
+                    
+                 if (dish.chefId === chefId && dish.category==="Vegetarian") {
+
+                    return(
+                    
+                    <div className="OfCard">
+                         <h2>{dish.name}</h2>
+                        <img src={dish.img} alt="image" width="350" height="400"  />
+                        <h3>{dish.price}$</h3>
+                        <div className="btn">
+                        <Link to={"#"}>
+                            <button /* onClick={()=> setChefUId()} */> Rate </button>
+                        </Link>
+                        <Link to={`/dishItem/${dish._id}`}>
+                            <button >More</button>
+                        </Link>
+                        </div>
+                    </div>
+                )
+              } 
                 })}
             </div>
         </div>
