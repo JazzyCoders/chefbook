@@ -30,15 +30,32 @@ import {useParams} from "react-router-dom"
       <div>
         <NavUser/>
         <div className="chefPr">
-          {chef.map((user)=>{
-            return(
-              <div className="ChefBio">
-              <img src={user.img} alt="img"/>
-              <h2></h2>
+    
+           <div className="chefBio">
+              <img src={chef.img} alt="img"/>
+              <h1>{chef.firstName}{chef.lastName}</h1>
+              <div className="chefAdr">
+                <h2>Cuisine: {chef.cuisine}</h2>
+                <h2>City: {chef.city}</h2>
+                <h2>Tel: {chef.phone}</h2>
+              </div>
             </div>
-
-            ) 
-          })}
+            <div className="position">
+               <div className="chefInfo">
+                <div className="chefAbt">
+                <h1>About Me</h1>
+                <p>{chef.about} </p>
+                </div>
+               <div className="chef">
+                <h1>Summary</h1>
+                <p>{chef.description} </p>
+                </div>
+                </div>
+                <div className="chefSkills">
+                  <h1>Skills</h1>
+                {chef.services}
+                </div>
+              </div>
         </div>
       
       </div>        

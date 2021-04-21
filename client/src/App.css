@@ -100,6 +100,14 @@ h3 {
 .chefCard p {
   font-size: 1.8rem;
   color: #e3e9ee;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 25rem;
+}
+
+
+.overflow-visible {
+  white-space: initial;
 }
 
 .chefCard button {
@@ -395,6 +403,159 @@ h3 {
   border-radius: 0.5rem;
   padding: 0.5rem;
 }
+
+
+.chefPr{
+  width: 95%;
+  display: inline-block;
+  flex-direction: column;
+  justify-content:center;
+  align-items: center;
+  background-color: #dfeff1;
+  padding: 3rem ;
+  border-radius: 0.5rem;
+}
+
+.chefBio {
+  font-size: 4rem;
+  letter-spacing: 0.1rem;
+  font-style: italic;
+  align-self:center;
+  padding-left: 30rem;
+  /* color: #382079;
+  text-shadow: 0 0.2rem 5rem rgb(110, 182, 160); */
+  text-transform: uppercase;
+  margin: 4rem 0;
+}
+
+.chefBio h1 {
+  background-color: rgba(213, 223, 221, 0.7);
+  border-radius: 0.5rem;
+  width: 50rem;
+  margin-left: 21rem;
+  font-size: 4rem;
+  font-weight: 400;
+  color: #47165e;
+}
+
+.chefBio img {
+  border-radius: 50%;
+  object-fit: cover;
+  border: 5px solid #47165e;
+  box-shadow: 1rem 1.5rem 1.5rem 1.5rem rgb(208, 193, 228);
+  margin-left: 25rem;
+  width: 35rem;
+  height: 35rem;
+}
+
+.chefAdr{
+  margin: 1rem 1rem 0 3rem;
+  display: inline-flex;
+  flex-direction: row;
+  /* background-color: rgba(213, 223, 221, 0.7); */
+  border-radius: 0.5rem;
+  color: #47165e;
+}
+
+.chefAdr h2 {
+  background-color: rgba(213, 223, 221, 0.7);
+  border-radius: 0.5rem;
+  margin-left: 2rem;
+  padding:1rem;
+  font-size: 2.5rem;
+  font-weight: 400;
+  color: #47165e;
+}
+
+.chefInfo  {
+  font-size: 2rem;
+  text-transform: uppercase;
+  border-radius: 0.5rem;
+  display: inline flex;
+  width: 60%;
+  margin-left: 2rem;
+  justify-items:center;
+  flex-direction: block;
+}
+
+.chefInfo h1 {
+  font-size: 2rem;
+  text-transform: uppercase;
+  border-radius: 0.5rem;
+  width: 84rem;
+  margin: 0.5rem .0rem 0.1rem;
+  border-bottom: 0.2rem solid rgb(57, 22, 97);
+  justify-items:center;
+}
+
+.chefAbt {
+  font-size: 2rem;
+  text-transform: uppercase;
+  color: rgb(194, 212, 219);
+  background-color:#0cb1b1;
+  border: 0.5rem solid rgb(57, 22, 97);
+  border-radius: 0.5rem;
+  padding: 1rem 1rem 2rem 1rem;
+  width: 100%;
+  margin-bottom: 4rem;
+  margin-top: 4rem;
+}
+
+.chef {
+  font-size: 2rem;
+  text-transform: uppercase;
+  color: rgb(194, 212, 219);
+  background-color:#0cb1b1;
+  border: 0.5rem solid rgb(57, 22, 97);
+  border-radius: 0.5rem;
+  padding: 1rem 1rem 2rem 1rem;
+  width: 100%;
+  margin-bottom: 4rem;
+  margin-top: 4rem;
+}
+
+.chefSkills {
+  font-size: 2rem;
+  text-transform: uppercase;
+  color: rgb(194, 212, 219);
+  background-color:#0cb1b1;
+  border: 0.5rem solid rgb(57, 22, 97);
+  border-radius: 0.5rem;
+  padding: 1rem 1rem 2rem 1rem;
+  width: 20%;
+  margin-bottom: 4rem;
+  margin-top: 4rem;
+  margin-left: 10rem;
+}
+
+.position {
+  border-radius: 0.5rem;
+  display: inline-flex;
+  width: 100%;
+  justify-items:center;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.chefSkills h1 {
+  font-size: 2rem;
+  text-transform: uppercase;
+  border-radius: 0.5rem;
+  width: 29rem;
+  margin: 0.5rem .0rem 0.1rem;
+  border-bottom: 0.2rem solid rgb(57, 22, 97);
+  justify-items:center;
+}
+
+.ing li {
+  font-size: 1.5rem;
+  margin-top: 1rem;
+  color: whitesmoke;
+  background-color: #0cb1b1;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+}
+
 
 
 .pay h3,h4{

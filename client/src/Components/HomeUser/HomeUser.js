@@ -30,11 +30,11 @@ export default function HomeUser() {
               <img src={user.img} alt="img" width="400" height="450" />
               <h2>Name: {user.firstName}</h2>
               <h3>About Chef </h3>
-              <p>{user.description}</p>
+              <p class="overflow-visible">{user.description}</p>
               <hr/>
               <div>
                 <Link to={`/ChefProUser/${user._id}`}>
-                  <button onClick={()=> setChefUId(user._id)}  >Profile</button>
+                  <button /* onClick={()=> setChefUId(user._id)} */  >Profile</button>
                 </Link>
                 <Link to={`/user/offers/${user._id}`}>
                   <button >Offers</button>

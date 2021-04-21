@@ -51,7 +51,7 @@ function App() {
       .then((result) => {
         console.log(result);
         if (result.success) {
-          //setDishes(result.dishes.sort((a,b)=> a.orderCount -b.orderCount).splice(0,5)) ;
+        
           setDishes(result.dishes);
         } else {
           console.log(result.message);
@@ -101,7 +101,7 @@ function App() {
             <Route path="/login" component={Login} />
 
             {/* chef */}
-            <Route path="/ChefProUser" exact component={ChefProUser} />
+            <Route path="/ChefProUser/:chefId" exact component={ChefProUser} />
             <Route path="/ChefMenu" exact component={MenuChef} />
             <Route path="/ChefProfile" exact component={ChefProfile} />
             <Route path="/Order" exact component={OrdersChef} />

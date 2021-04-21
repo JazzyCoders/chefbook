@@ -27,7 +27,6 @@ export default function OfferUser() {
             console.log(result.message);
           }
         })
-
         .catch((err) => console.log(err));
 
   }, [])
