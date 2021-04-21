@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext, createContext } from "react";
 import Home from "./Components/HomeUser/HomeUser";
 import MenuChef from "./Components/ChefMenu/MenuChef";
-import OrdersChef from "./Components/Order/Order";
+import Order from "./Components/Order/Order";
 import ChefProfile from "./Components/ChefProUser/ChefProUser";
 //import Nav from "./Components/Nav/Nav";
 import Login from "./Components/LoginForm/Login";
@@ -14,7 +14,7 @@ import History from "./Components/Order/History/History";
 import OfferUser from "./Components/OfferUser/OfferUser";
 import ProfileUser from "./Components/ProfileUser/ProfileUser";
 import ChefProUser from "./Components/ChefProUser/ChefProUser";
-import Dishes  from "./Components/DishItem/Dishes"
+import Dishes from "./Components/DishItem/Dishes"
 
 
 export const MyContext = createContext(null);
@@ -28,7 +28,7 @@ function App() {
   const [dishes, setDishes] = useState([]);
   const [token, setToken] = useState(null);
   const [loggedUser, setLoggedUser] = useState("");
-  const [show,setShow] = useState(false)
+  const [show, setShow] = useState(false)
 
   //const []=useState("")
 
@@ -104,7 +104,7 @@ function App() {
             <Route path="/ChefProUser" exact component={ChefProUser} />
             <Route path="/ChefMenu" exact component={MenuChef} />
             <Route path="/ChefProfile" exact component={ChefProfile} />
-            <Route path="/Order" exact component={OrdersChef} />
+            /* <Route path="/order" exact component={Order} /> */
             {/* <Route path="/Cart" exact component={Cart} /> */}
             <Route path="/LogOut" exact component={LogOut} />
           </Switch>

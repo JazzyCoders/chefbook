@@ -35,7 +35,7 @@ html {
   width: 100%;
   justify-content: flex-start;
   color: #532369;
-  text-shadow: 0 0.2rem .05rem rgb(214, 195, 230);
+  text-shadow: 0 0.2rem .05rem rgb(214, 195, 230) rgba(64, 82, 180, 0.616);
 }
 
 .chefCd h3 {
