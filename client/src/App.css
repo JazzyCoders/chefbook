@@ -26,7 +26,6 @@ html {
   width: 100%;
   flex-wrap: wrap;
   justify-content: center;
-  
 }
 
 
@@ -35,20 +34,20 @@ html {
   width: 100%;
   justify-content: flex-start;
   color: #532369;
-  text-shadow: 0 0.2rem .05rem rgb(214, 195, 230) rgba(64, 82, 180, 0.616);
+  text-shadow: 0 0.2rem .05rem rgb(214, 195, 230);
 }
 
 .chefCd h3 {
   width: 100%;
   justify-content: flex-start;
-  color: #532369;;
+  color: #065770;
 }
 
 h1 {
   font-size: 4rem;
   letter-spacing: 0.1rem;
   font-style: italic;
-  color: #cbdada;
+  color: #532369;
   text-shadow: 0 0.2rem 5rem rgb(107, 151, 161);
   text-transform: uppercase;
   margin: 4rem 0;
@@ -63,48 +62,6 @@ h3 {
   text-transform: uppercase;
   margin: .5rem 0;
 }
-
-
-.notfound {
-  position: absolute;
-  top: -3rem;
-  left: 0;
-  background-color: rgb(39, 89, 102);
-  width: calc(100% - 0.4rem);
-  border-radius: 0.5rem;
-  padding: 0.2rem;
-}
-
-.notfound h3 {
-  font-size: 1.8rem;
-  color: rgb(174, 231, 241);
-  font-weight: 400;
-  text-transform: uppercase;
-  text-align: center;
-}
-
-.search-form input {
-  font-size: 1.6rem;
-  border: none;
-  border-bottom: 0.1rem solid rgb(243, 223, 180);
-  margin: 0 0.5rem;
-  border-radius: 0.5rem;
-  height: 3rem;
-}
-
-.search-form input[type="text"] {
-  padding: 0 0.5rem;
-  width: 60%;
-  color: rgb(116, 112, 63);
-}
-
-.search-form input[type="submit"] {
-  width: 25%;
-  text-transform: uppercase;
-  background-color: #287a74;
-  color: #fff;
-}
-
 
 
 .chefCard {
@@ -143,6 +100,14 @@ h3 {
 .chefCard p {
   font-size: 1.8rem;
   color: #e3e9ee;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 25rem;
+}
+
+
+.overflow-visible {
+  white-space: initial;
 }
 
 .chefCard button {
@@ -157,14 +122,12 @@ h3 {
   height: 5rem;
   margin: 1rem;
   text-align: center;
-  
-
 }
 
-.BstCd .btn button{
+.BstCd .btn button {
   font-size: 2rem;
-  padding: 1rem ;
-  justify-content:space-evenly;
+  padding: 1rem;
+  justify-content: space-evenly;
   margin-top: 1rem;
   text-transform: uppercase;
   color: #d8d5c7;
@@ -182,12 +145,13 @@ h3 {
   width: 100%;
   flex-wrap: wrap;
   justify-content: center;
-  
+
 }
+
 .BstDl h1 {
   width: 100%;
   justify-content: flex-start;
-  
+
 }
 
 .BstCd {
@@ -200,7 +164,7 @@ h3 {
   padding: 2rem;
   position: relative;
   border-radius: 0.5rem;
- /*  box-shadow: 2rem 2rem 2rem rgb(196, 196, 191); */
+  /*  box-shadow: 2rem 2rem 2rem rgb(196, 196, 191); */
 }
 
 .BstCd h2 {
@@ -219,7 +183,7 @@ h3 {
 
 .BstCd img {
   width: 30rem;
-  
+
   border-radius: 50%;
   object-fit: cover;
 }
@@ -241,8 +205,196 @@ h3 {
   height: 5rem;
   margin: 1rem;
   text-align: center;
-  
+}
 
+.BstOff {
+  background-color: #c3d4d4;
+  align-items: center;
+  flex-direction: row;
+  width: 93%;
+  padding-left: 10rem;
+  /* flex-wrap: wrap; */
+  justify-content: center;
+}
+
+.BstOff h2 {
+  display: flex;
+  font-size: 4rem;
+  letter-spacing: 0.1rem;
+  font-style: italic;
+  color: #266264;
+  text-shadow: 0 0.2rem 5rem rgb(110, 182, 160);
+  text-transform: uppercase;
+  margin: 1rem 1rem;
+  flex-direction: column;
+}
+
+.OfCard {
+  width: 35rem;
+  margin: 3rem;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #0cb1b1;
+  padding: 2rem;
+  position: relative;
+  border-radius: 0.5rem;
+  box-shadow: 1rem 0.1rem 1rem rgb(177, 180, 180);
+}
+
+.OfCard h2 {
+  background-color: rgba(213, 223, 221, 0.7);
+  border-radius: 0.5rem;
+  padding: 0.3rem 0.5rem;
+  position: absolute;
+  top: 1rem;
+  left: 2.5rem;
+  right: 2.5rem;
+  font-size: 2.5rem;
+  font-weight: 400;
+  color: #532369;
+}
+
+.OfCard img {
+  width: 35rem;
+  border-radius: 0.5rem;
+  object-fit: cover;
+}
+
+.OfCard h3 {
+  font-size: 2.8rem;
+  color: #47381a;
+  background-color: #989fa0;
+  border-radius: 20rem;
+  height: 4rem;
+  width: 10rem;
+  padding: 1rem;
+}
+
+.OfCard button {
+  font-size: 2rem;
+  text-transform: uppercase;
+  color: rgb(194, 212, 219);
+  background-color: #2e898f;
+  border: .20rem solid rgb(220, 225, 226);
+  border-radius: 0.5rem;
+  display: inline flex;
+  padding: 1rem 1rem 1rem 1rem;
+  height: 5rem;
+  width: 10rem;
+  margin: 1rem;
+  justify-items: center;
+}
+
+
+.DshCard {
+  background-color: #0cb1b1;
+  width: 93%;
+  padding-left: 10rem;
+  justify-content: center;
+}
+
+.DsHead {
+  display: inline-flex;
+  font-size: 4rem;
+  letter-spacing: 0.1rem;
+  font-style: italic;
+  color: #382079;
+  text-shadow: 0 0.2rem 5rem rgb(110, 182, 160);
+  text-transform: uppercase;
+  margin: 4rem 0;
+}
+
+.DsHead p {
+  border: 2px solid gray;
+  border-radius: 50%;
+  font-size: 4rem;
+  background-color: rgb(231, 234, 235);
+  letter-spacing: 0.1rem;
+  font-style: italic;
+  color: #962112;
+  height: 7rem;
+  width: 25rem;
+  padding: 1rem 0rem 0rem 3rem;
+  margin-left: 5rem;
+}
+
+.DshIt {
+  width: 80%;
+  height: 80%;
+  margin: 3rem;
+  display: inline-flex;
+  flex-direction: row;
+  justify-content: space-around;
+  background-color: #8a9a9c;
+  padding: 3rem;
+  border-radius: 0.5rem;
+}
+
+.DshIt h2 {
+  background-color: rgba(213, 223, 221, 0.7);
+  border-radius: 0.5rem;
+  padding: 1rem 1rem;
+  margin: 3rem;
+  font-size: 2.5rem;
+  font-weight: 400;
+  color: #47165e;
+
+}
+
+.DshIt img {
+  border-radius: 0.5rem;
+  object-fit: cover;
+  border: 4px solid rgb(107, 87, 30);
+}
+
+.DshIt img:hover {
+  border: 4px solid #795d20;
+  transform: scale(1.02);
+  box-shadow: 1rem 1.5rem 1.5rem 1.5rem rgb(194, 182, 153);
+  border-radius: 1rem;
+  object-fit: cover;
+}
+
+
+.DshIt .btn button {
+  font-size: 2rem;
+  text-transform: uppercase;
+  color: rgb(194, 212, 219);
+  background-color: #532369;
+  border: .20rem solid rgb(220, 225, 226);
+  border-radius: 0.5rem;
+  display: inline flex;
+  padding: 1rem 1rem 1rem 1rem;
+  height: 5rem;
+  width: 10rem;
+  margin: 1rem;
+  justify-items: center;
+}
+
+.DshIt button {
+  font-size: 2rem;
+  text-transform: uppercase;
+  color: rgb(194, 212, 219);
+  background-color: #0cb1b1;
+  border: .20rem solid rgb(220, 225, 226);
+  border-radius: 0.5rem;
+  display: inline-block;
+  padding: 1rem 1rem 2rem 1rem;
+  height: 5rem;
+  width: 20rem;
+  margin-bottom: 4rem;
+  margin-top: 4rem;
+  justify-items: center;
+}
+
+.ing li {
+  font-size: 1.5rem;
+  margin-top: 1rem;
+  color: whitesmoke;
+  background-color: #0cb1b1;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
 }
 
 
@@ -253,23 +405,163 @@ h3 {
   padding: 0.5rem;
 }
 
-.ing-list li {
-  margin: 0.5rem 0;
+
+.chefPr {
+  width: 95%;
+  display: inline-block;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #dfeff1;
+  padding: 3rem;
+  border-radius: 0.5rem;
 }
 
-.ing-text {
+.chefBio {
+  font-size: 4rem;
+  letter-spacing: 0.1rem;
+  font-style: italic;
+  align-self: center;
+  padding-left: 30rem;
+  /* color: #382079;
+  text-shadow: 0 0.2rem 5rem rgb(110, 182, 160); */
+  text-transform: uppercase;
+  margin: 4rem 0;
+}
+
+.chefBio h1 {
+  background-color: rgba(213, 223, 221, 0.7);
+  border-radius: 0.5rem;
+  width: 50rem;
+  margin-left: 21rem;
+  font-size: 4rem;
+  font-weight: 400;
+  color: #47165e;
+}
+
+.chefBio img {
+  border-radius: 50%;
+  object-fit: cover;
+  border: 5px solid #47165e;
+  box-shadow: 1rem 1.5rem 1.5rem 1.5rem rgb(208, 193, 228);
+  margin-left: 25rem;
+  width: 35rem;
+  height: 35rem;
+}
+
+.chefAdr {
+  margin: 1rem 1rem 0 3rem;
+  display: inline-flex;
+  flex-direction: row;
+  /* background-color: rgba(213, 223, 221, 0.7); */
+  border-radius: 0.5rem;
+  color: #47165e;
+}
+
+.chefAdr h2 {
+  background-color: rgba(213, 223, 221, 0.7);
+  border-radius: 0.5rem;
+  margin-left: 2rem;
+  padding: 1rem;
+  font-size: 2.5rem;
+  font-weight: 400;
+  color: #47165e;
+}
+
+.chefInfo {
+  font-size: 2rem;
+  text-transform: uppercase;
+  border-radius: 0.5rem;
+  display: inline flex;
+  width: 60%;
+  margin-left: 2rem;
+  justify-items: center;
+  flex-direction: block;
+}
+
+.chefInfo h1 {
+  font-size: 2rem;
+  text-transform: uppercase;
+  border-radius: 0.5rem;
+  width: 84rem;
+  margin: 0.5rem .0rem 0.1rem;
+  border-bottom: 0.2rem solid rgb(57, 22, 97);
+  justify-items: center;
+}
+
+.chefAbt {
+  font-size: 2rem;
+  text-transform: uppercase;
+  color: rgb(194, 212, 219);
+  background-color: #0cb1b1;
+  border: 0.5rem solid rgb(57, 22, 97);
+  border-radius: 0.5rem;
+  padding: 1rem 1rem 2rem 1rem;
+  width: 100%;
+  margin-bottom: 4rem;
+  margin-top: 4rem;
+}
+
+.chef {
+  font-size: 2rem;
+  text-transform: uppercase;
+  color: rgb(194, 212, 219);
+  background-color: #0cb1b1;
+  border: 0.5rem solid rgb(57, 22, 97);
+  border-radius: 0.5rem;
+  padding: 1rem 1rem 2rem 1rem;
+  width: 100%;
+  margin-bottom: 4rem;
+  margin-top: 4rem;
+}
+/* Chef Skills*/
+.chefSkills {
+  font-size: 2rem;
+  text-transform: uppercase;
+  color: rgb(194, 212, 219);
+  background-color: #0cb1b1;
+  border: 0.5rem solid rgb(57, 22, 97);
+  border-radius: 0.5rem;
+  padding: 1rem 1rem 2rem 1rem;
+  width: 20%;
+  margin-bottom: 4rem;
+  margin-top: 4rem;
+  margin-left: 10rem;
+}
+
+.position {
+  border-radius: 0.5rem;
+  display: inline-flex;
+  width: 100%;
+  justify-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.chefSkills h1 {
+  font-size: 2rem;
+  text-transform: uppercase;
+  border-radius: 0.5rem;
+  width: 29rem;
+  margin: 0.5rem .0rem 0.1rem;
+  border-bottom: 0.2rem solid rgb(57, 22, 97);
+  justify-items: center;
+}
+
+.ing li {
   font-size: 1.5rem;
-  color: rgb(244, 245, 233);
+  margin-top: 1rem;
+  color: whitesmoke;
+  background-color: #0cb1b1;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
 }
 
-.ing-weight {
-  color: #065037;
-  font-size: 1.3rem;
-}
 
-.pay h3,h4{
-align-items: center;
-color: rgb(52, 120, 129);
-font-size: medium;
+.pay h3,
+h4 {
+  align-items: center;
+  color: rgb(52, 120, 129);
+  font-size: medium;
 
 }
