@@ -1,15 +1,18 @@
 import React, {useState, useEffect,useContext} from 'react';
+import { useParams } from 'react-router';
 import { MyContext } from '../../App';
 import NavUser from '../NavUser/NavUser';
 import styles from './ProfileUser.module.css'
+
 
 export default function ProfileUser() {
 
     const {loggedUser} =useContext(MyContext)
     const [customer, setCustomer] = useState({})
+    const {userId} =useParams()
 
    useEffect(() => {
-       fetch(`http://localhost:5000/users/${loggedUser}`)
+       fetch(`http://localhost:5000/users/${userId}`)
       .then((res) => res.json())
       .then((result) => {
         console.log(result);

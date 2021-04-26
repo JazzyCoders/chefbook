@@ -6,10 +6,8 @@ import NavUser from '../NavUser/NavUser'
 export default function HomeUser() {
   const {userData,
         dishes,
-        show, 
         loggedUser,
         setChefUId,
-        setShow,
         chefUId} = useContext(MyContext)
 
 

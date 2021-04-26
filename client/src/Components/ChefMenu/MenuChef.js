@@ -1,25 +1,27 @@
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { MyContext } from "../../App";
 import Nav from "../Nav/Nav";
 
 
 export default function MenuChef() {
   const { dishes,loggedUser } = useContext(MyContext);
+  const {chefId} =useParams()
 
   return (
     <div>
       <Nav/>
-      <h1>WELCOME!! Chef {loggedUser.firstName} </h1>
-      <div>
-        <h1>Category</h1>
+      <div className="OfNew">
+        <h1>WELCOME!! Chef {loggedUser.firstName} </h1>
         <div className="BstOff">
+          <h1>Category</h1>
+          <hr/>
           <h2>Grill</h2> 
           <div className="cat1" >
               {dishes.map((dish)=>{
-                            if (dish.chefId === loggedUser._id) {
+                            if (dish.chefId === chefId) {
                               
-                              if (dish.chefId === loggedUser._id && dish.category==="Grill") {
+                              if (dish.chefId === chefId && dish.category==="Grill") {
 
                                 return(
                                 
@@ -36,8 +38,7 @@ export default function MenuChef() {
                                     </Link>
                                 
                                     </div>
-                                </div>
-                            
+                                </div> 
                             )
                           }
                                   }
@@ -46,13 +47,13 @@ export default function MenuChef() {
                     <div className="AddCat">
                       <button> Add </button> 
                     </div>
-            </div>
-            <div className="BstOff">
+              </div>
+          <div className="BstOff">
                     <h2>Vegetarian</h2  > 
 
                 {dishes.map((dish)=>{
                     
-                 if (dish.chefId === loggedUser._id && dish.category==="Vegetarian") {
+                 if (dish.chefId === chefId && dish.category==="Vegetarian") {
 
                     return(
                     
@@ -72,10 +73,11 @@ export default function MenuChef() {
                 )
               } 
                 })}
-            </div>
-                    <div className="AddCat">
+                <div className="AddCatN">
                     <button> Add </button> 
                     </div>
+            </div>
+                    
       </div>
     </div>
   );

@@ -16,6 +16,8 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import Switch from "@material-ui/core/Switch";
+import {useHistory} from "react-router-dom"
+
 
 function Copyright() {
   return (
@@ -60,6 +62,7 @@ export default function Signup() {
   const [city, setCity] = useState("");
   const [register, setRegister] = useState(false);
   const [isChef, setIsChef] = useState(false);
+  const history = useHistory()
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
@@ -79,12 +82,17 @@ export default function Signup() {
       .post("http://localhost:5000/users/signup", registerData)
       .then((res) => {
         console.log(res.data);
+
+       
       })
       .catch((err) => {
         console.log(err);
+        
       });
 
-    setRegister(true);
+    setRegister(true); 
+    history.push("/")
+    
   };
 
   const ChefSwitch = withStyles((theme) => ({

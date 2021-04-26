@@ -11,7 +11,7 @@ import styles from './ChefProfile.module.css'
     const [chef, setChef] = useState({})
 
    useEffect(() => {
-       fetch(`http://localhost:5000/users/${loggedUser}`)
+       fetch(`http://localhost:5000/users/${loggedUser._id}`)
       .then((res) => res.json())
       .then((result) => {
         console.log(result);

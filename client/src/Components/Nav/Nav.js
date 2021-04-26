@@ -114,7 +114,7 @@ export default function Nav() {
   };
   const handleProfileClick = () => {
     handleMenuClose();
-    history.push("/ChefProfile");
+    history.push(`/ChefProfile/${loggedUser._id}`);
   }
 
   const menuId = "primary-search-account-menu";
@@ -130,7 +130,7 @@ export default function Nav() {
     >
 
       <MenuItem onClick={handleProfileClick} component={Link} to="/ChefMenu" >Menu</MenuItem>
-      <MenuItem onClick={handleProfileClick} component={Link} to="/ChefProfile" >My profile</MenuItem>
+      <MenuItem onClick={handleProfileClick} component={Link} to={`/ChefProfile/${loggedUser._id}`} >My profile</MenuItem>
       <MenuItem onClick={handleProfileClick} component={Link} to="/Order" >Orders</MenuItem>
       
       <MenuItem

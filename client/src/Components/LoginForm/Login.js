@@ -14,6 +14,7 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import { MyContext } from "../../App";
 import {useHistory} from "react-router-dom"
+import Notfound from "./Notfound";
 
 function Copyright() {
   return (
@@ -62,10 +63,11 @@ const useStyles = makeStyles((theme) => ({
 export default function SignInSide() {
 
   const history = useHistory()
-  const {loggedUser,setLoggedUser}=useContext(MyContext)
+  const {loggedUser,setLoggedUser ,setAlert}=useContext(MyContext)
   const classes = useStyles();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [error,setError] = useState(false)
 
   const payload = {
     email: email,
@@ -92,17 +94,23 @@ export default function SignInSide() {
           localStorage.setItem("user", user)
           setLoggedUser(user)
           console.log(user);
-
-          if (user.role==="User") {
+            
+          try {
+               if (user.role==="User") {
 
             history.push("/user/menu")
 
           } else {
 
-            history.push("/ChefMenu")
+            history.push(`/ChefMenu/${user._id}`)
 
-          }
-
+          } 
+            } catch (error) {
+              console.log(error);
+              setError(error)
+              setAlert("Login details incorrect or Please sign up")
+            }
+         
         });
         
   };
@@ -157,6 +165,7 @@ export default function SignInSide() {
             >
               Sign In
             </Button>
+            {alert !== error && <Notfound alert={alert}/>}
             <Grid container>
               <Grid item xs>
                 <Link href="#" variant="body2">

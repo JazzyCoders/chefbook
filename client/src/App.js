@@ -29,6 +29,7 @@ function App() {
   const [token, setToken] = useState(null);
   const [loggedUser, setLoggedUser] = useState("");
   const [show,setShow] = useState(false)
+  const [alert,setAlert] = useState("")
 
   //const []=useState("")
 
@@ -94,7 +95,7 @@ function App() {
 
             <Route path="/logout" component={LogOut} />
             <Route path="/user/menu" component={Home} />
-            <Route path="/user/profile" component={ProfileUser} />
+            <Route path="/user/profile/:userId" component={ProfileUser} />
             <Route path="/user/offers/:chefId" component={OfferUser} />
             <Route path="/dishItem/:dishId" component={Dishes} />
             <Route path="/signup" component={Signup} />
@@ -102,8 +103,8 @@ function App() {
 
             {/* chef */}
             <Route path="/ChefProUser/:chefId" exact component={ChefProUser} />
-            <Route path="/ChefMenu" exact component={MenuChef} />
-            <Route path="/ChefProfile" exact component={ChefProfile} />
+            <Route path="/ChefMenu/:chefId" exact component={MenuChef} />
+            <Route path="/ChefProfile/:chefId" exact component={ChefProfile} />
             <Route path="/Order" exact component={OrdersChef} />
             {/* <Route path="/Cart" exact component={Cart} /> */}
             <Route path="/LogOut" exact component={LogOut} />

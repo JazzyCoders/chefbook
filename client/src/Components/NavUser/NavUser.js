@@ -31,7 +31,7 @@ const useStyles = makeStyles((theme) => ({
   },
   title: {
     display: "none",
-    [theme.breakpoints.up("lg")]: {
+    [theme.breakpoints.up("md")]: {
       display: "block",
     },
   },
@@ -68,19 +68,19 @@ const useStyles = makeStyles((theme) => ({
     paddingLeft: `calc(1em + ${theme.spacing(4)}px)`,
     transition: theme.transitions.create("width"),
     width: "100%",
-    [theme.breakpoints.up("lg")]: {
+    [theme.breakpoints.up("sm")]: {
       width: "20ch",
     },
   },
   sectionDesktop: {
     display: "none",
-    [theme.breakpoints.up("lg")]: {
+    [theme.breakpoints.up("sm")]: {
       display: "flex",
     },
   },
   sectionMobile: {
     display: "flex",
-    [theme.breakpoints.up("lg")]: {
+    [theme.breakpoints.up("sm")]: {
       display: "none",
     },
   },
@@ -115,7 +115,7 @@ export default function NavUser() {
   };
   const handleProfileClick = () => {
     handleMenuClose();
-    history.push("/user/profile");
+    history.push(`/user/profile/${loggedUser._id}`);
   }
 
   const menuId = "primary-search-account-menu";
@@ -131,7 +131,7 @@ export default function NavUser() {
     >
 
       <MenuItem onClick={handleProfileClick} component={Link} to="/user/menu">Home</MenuItem>
-      <MenuItem onClick={handleProfileClick} component={Link} to="/user/profile" >My profile</MenuItem>
+      <MenuItem onClick={handleProfileClick} component={Link} to={`/user/profile/${loggedUser._id}`} >My profile</MenuItem>
       <MenuItem onClick={handleMenuClose} component={Link} to="/user/order"> My Orders</MenuItem>
       <MenuItem onClick={handleProfileClick} component={Link} to="/user/Offers" ></MenuItem>
       <MenuItem
