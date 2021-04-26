@@ -21,10 +21,10 @@ Digital Career Institute
 ### Wireframe 
 [ChefBook](./chefbook.pdf)
 ## Contributors team: 🚀 
+- Mbi Lawrence
 - Irena Popova
 - Anika König
 - Alla Teddy 
-- Lawrance 
 - Kinan Naem
 
 ### Agile Project management & collaboration tool : 🤓
